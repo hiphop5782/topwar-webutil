@@ -1,42 +1,42 @@
+import { NavLink } from "react-router-dom";
+
 function Menu() {
     return (
-        <nav className="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+        <nav className="navbar navbar-expand-lg bg-primary fixed-top" data-bs-theme="dark">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">Navbar</a>
+                <NavLink className="navbar-brand" to="/">Topwar Helper</NavLink>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarColor01">
                     <ul className="navbar-nav me-auto">
-                        <li className="nav-item">
-                            <a className="nav-link active" href="#">Home
-                                <span className="visually-hidden">(current)</span>
-                            </a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Features</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">About</a>
-                        </li>
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                            <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">정보</a>
                             <div className="dropdown-menu">
-                                <a className="dropdown-item" href="#">Action</a>
-                                <a className="dropdown-item" href="#">Another action</a>
-                                <a className="dropdown-item" href="#">Something else here</a>
+                                <NavLink className="dropdown-item" to="/information/base">기지 정보</NavLink>
+                                <NavLink className="dropdown-item" to="/information/decor">장식 정보</NavLink>
+                                <NavLink className="dropdown-item" to="/information/job">전문 직업 강화</NavLink>
                                 <div className="dropdown-divider"></div>
                                 <a className="dropdown-item" href="#">Separated link</a>
                             </div>
                         </li>
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">계산기</a>
+                            <div className="dropdown-menu">
+                                <NavLink className="dropdown-item" to="/calculator/vital">체력 회복 속도 계산기</NavLink>
+                                <NavLink className="dropdown-item" to="/calculator/gathering">채집 속도 계산기</NavLink>
+                                <NavLink className="dropdown-item" to="/calculator/skill">전속 조각 계산기</NavLink>
+                                <div className="dropdown-divider"></div>
+                                <a className="dropdown-item" href="#">Separated link</a>
+                            </div>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/simulator">시뮬레이터</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/developer">개발자</NavLink>
+                        </li>
                     </ul>
-                    <form className="d-flex">
-                        <input className="form-control me-sm-2" type="search" placeholder="Search"/>
-                        <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                    </form>
                 </div>
             </div>
         </nav>
