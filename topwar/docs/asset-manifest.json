@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.da9dce06.css",
+    "main.js": "/static/js/main.bcdef911.js",
+    "static/js/787.3e5985d4.chunk.js": "/static/js/787.3e5985d4.chunk.js",
+    "static/media/BinggraeMelona.ttf": "/static/media/BinggraeMelona.1ea454b9d11d5662afc1.ttf",
+    "static/media/topwar-helper-banner.png": "/static/media/topwar-helper-banner.0c003e8497f551e8a402.png",
+    "index.html": "/index.html",
+    "main.da9dce06.css.map": "/static/css/main.da9dce06.css.map",
+    "main.bcdef911.js.map": "/static/js/main.bcdef911.js.map",
+    "787.3e5985d4.chunk.js.map": "/static/js/787.3e5985d4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.da9dce06.css",
+    "static/js/main.bcdef911.js"
+  ]
+}
