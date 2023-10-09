@@ -3,6 +3,11 @@
   src: url("./assets/fonts/BinggraeMelona.ttf") format("truetype");
 }
 
+::-webkit-scrollbar {
+  width: 1px;
+  background-color: var(--bs-primary);
+}
+
 body {
   font-family: melona !important;
 }

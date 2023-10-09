@@ -1,8 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
 
-
-
-
 function SkillCalculator() {
     const [skillPrice, setSkillPrice] = useState(25);
     const [dstSkillLevel, setDstSkillLevel] = useState(7);
@@ -13,20 +10,20 @@ function SkillCalculator() {
         const copy = [...hasSkillCount];
         copy[index] = count;
         setHasSkillCount(copy);
-    });
+    }, [hasSkillCount]);
 
     const requiredSkillCount = useCallback(()=>{
         return Math.pow(3, dstSkillLevel-1);
-    });
+    }, [dstSkillLevel]);
 
     const calculateHasSkillCount = useCallback(()=>{
         const copy = [...hasSkillCount];
         return copy.map((c, i)=>c * parseInt(Math.pow(3, i))).reduce((p, n)=> p + n, 0);
-    });
+    }, [hasSkillCount]);
 
     const numberWithCommas = useCallback((x)=>{
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    });
+    }, []);
 
     useEffect(()=>{
         setHasSkillCount(Array(dstSkillLevel-1).fill(0));

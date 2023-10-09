@@ -9,25 +9,25 @@ function Menu() {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarColor01">
-                    <ul className="navbar-nav me-auto">
+                    <ul className="navbar-nav me-auto"> 
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">정보</a>
+                            <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">정보</a>
                             <div className="dropdown-menu">
                                 <NavLink className="dropdown-item" to="/information/base">기지 정보</NavLink>
                                 <NavLink className="dropdown-item" to="/information/decor">장식 정보</NavLink>
                                 <NavLink className="dropdown-item" to="/information/job">전문 직업 강화</NavLink>
                                 <div className="dropdown-divider"></div>
-                                <a className="dropdown-item" href="#">Separated link</a>
+                                <a className="dropdown-item">Separated link</a>
                             </div>
                         </li>
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">계산기</a>
+                            <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">계산기</a>
                             <div className="dropdown-menu">
                                 <NavLink className="dropdown-item" to="/calculator/vital">체력 회복 속도 계산기</NavLink>
                                 <NavLink className="dropdown-item" to="/calculator/gathering">채집 속도 계산기</NavLink>
                                 <NavLink className="dropdown-item" to="/calculator/skill">전속 조각 계산기</NavLink>
                                 <div className="dropdown-divider"></div>
-                                <a className="dropdown-item" href="#">Separated link</a>
+                                <a className="dropdown-item">Separated link</a>
                             </div>
                         </li>
                         <li className="nav-item">
