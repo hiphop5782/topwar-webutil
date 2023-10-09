@@ -1,0 +1,8 @@
+@font-face {
+  font-family: melona;
+  src: url("./assets/fonts/BinggraeMelona.ttf") format("truetype");
+}
+
+body {
+  font-family: melona !important;
+}
