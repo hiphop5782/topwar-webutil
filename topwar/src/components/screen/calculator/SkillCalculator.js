@@ -9,14 +9,6 @@ function SkillCalculator() {
     const [hasSkill, setHasSkill] = useState(true);
     const [hasSkillCount, setHasSkillCount] = useState([]);
 
-    useEffect(()=>{
-        setHasSkillCount(hasSkillCount.fill(0));
-    }, [hasSkill]);
-
-    useEffect(()=>{
-        setHasSkillCount(Array(dstSkillLevel-1).fill(0));
-    }, [dstSkillLevel]);
-
     const changeHasSkillCount = useCallback((index, count)=>{
         const copy = [...hasSkillCount];
         copy[index] = count;
@@ -35,6 +27,10 @@ function SkillCalculator() {
     const numberWithCommas = useCallback((x)=>{
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     });
+
+    useEffect(()=>{
+        setHasSkillCount(Array(dstSkillLevel-1).fill(0));
+    }, [hasSkill, dstSkillLevel]);
 
     return (
         <>
@@ -108,10 +104,21 @@ function SkillCalculator() {
             <hr className="mt-4"></hr>
             <div className="row">
                 <div className="col text-end">
-                    <h3>
-                        부족한 스킬 개수 : {numberWithCommas(requiredSkillCount() - calculateHasSkillCount())}개
-                    </h3>
-                    <h3 className="text-danger">전속 조각 총 {numberWithCommas((requiredSkillCount() - calculateHasSkillCount()) * skillPrice)}개 필요</h3>
+                    {
+                        (requiredSkillCount() - calculateHasSkillCount() > 0) ? 
+                        (
+                            <>
+                                <h3>부족한 스킬 개수 : {numberWithCommas(requiredSkillCount() - calculateHasSkillCount())}개</h3>
+                                <h3 className="text-danger">전속 조각 총 {numberWithCommas((requiredSkillCount() - calculateHasSkillCount()) * skillPrice)}개 필요</h3>
+                            </>
+                        ) : (
+                            <>
+                                <h3>구매 가능합니다</h3>
+                                <h3 className="text-success">전속 조각 {numberWithCommas((calculateHasSkillCount() - requiredSkillCount()) * skillPrice)}개 남음</h3>
+                            </>
+                        )
+                    }
+                    
                 </div>
             </div>
         </>
