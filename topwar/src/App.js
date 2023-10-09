@@ -20,6 +20,9 @@ import Simulator from '@src/components/screen/Simulator';
 import Developer from '@src/components/screen/Developer';
 
 function App() {
+
+  document.title = "Topwar Util";
+
   return (
     <div className="container-fluid mt-5 pt-4">
       <HashRouter>
