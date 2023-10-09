@@ -34,7 +34,7 @@ function SkillCalculator() {
             <div className="row">
                 <div className="col">
                     <h1>전속 스킬 계산기</h1>
-                    <hr></hr>
+                    <hr/>
                     <p>전속 스킬 구매 시 필요한 수량을 확인하세요!</p>
                 </div>
             </div>

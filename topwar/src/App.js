@@ -8,16 +8,16 @@ import 'bootswatch/dist/sandstone/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.esm.js';
 
 //loading components
-import Menu from './components/Menu';
-import Home from './components/screen/Home';
-import BaseInformation from './components/screen/information/BaseInformation';
-import DecorInformation from './components/screen/information/DecorInformation';
-import JobInformation from './components/screen/information/JobInformation';
-import VitalCalculator from './components/screen/calculator/VitalCalculator';
-import GatheringCalculator from './components/screen/calculator/GatheringCalculator';
-import SkillCalculator from './components/screen/calculator/SkillCalculator';
-import Simulator from './components/screen/Simulator';
-import Developer from './components/screen/Developer';
+import Menu from '@src/components/Menu';
+import Home from '@src/components/screen/Home';
+import BaseInformation from '@src/components/screen/information/BaseInformation';
+import DecorInformation from '@src/components/screen/information/DecorInformation';
+import JobInformation from '@src/components/screen/information/JobInformation';
+import VitalCalculator from '@src/components/screen/calculator/VitalCalculator';
+import GatheringCalculator from '@src/components/screen/calculator/GatheringCalculator';
+import SkillCalculator from '@src/components/screen/calculator/SkillCalculator';
+import Simulator from '@src/components/screen/Simulator';
+import Developer from '@src/components/screen/Developer';
 
 function App() {
   return (
