@@ -1,0 +1,11 @@
+[
+    {"no":1, "value":"출정", "color":"danger"},
+    {"no":2, "value":"데미지 증가", "color":"danger"},
+    {"no":3, "value":"데미지 감면", "color":"danger"},
+    {"no":4, "value":"공격 시", "color":"secondary"},
+    {"no":5, "value":"방어 시", "color":"secondary"},
+    {"no":6, "value":"육군", "color":"info"},
+    {"no":7, "value":"해군", "color":"info"},
+    {"no":8, "value":"공군", "color":"info"},
+    {"no":9, "value":"스킬", "color":"success"}
+]
