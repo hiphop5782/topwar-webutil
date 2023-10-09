@@ -1,17 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.da9dce06.css",
-    "main.js": "/static/js/main.38074252.js",
+    "main.css": "/static/css/main.e51e2fb1.css",
+    "main.js": "/static/js/main.b39dfb5b.js",
     "static/js/787.3e5985d4.chunk.js": "/static/js/787.3e5985d4.chunk.js",
     "static/media/BinggraeMelona.ttf": "/static/media/BinggraeMelona.1ea454b9d11d5662afc1.ttf",
     "static/media/topwar-helper-banner.png": "/static/media/topwar-helper-banner.0c003e8497f551e8a402.png",
+    "static/media/vital-info2.png": "/static/media/vital-info2.126aa2bb0dbb42701d2b.png",
+    "static/media/developer.png": "/static/media/developer.51aed31a81e58a3da005.png",
     "index.html": "/index.html",
-    "main.da9dce06.css.map": "/static/css/main.da9dce06.css.map",
-    "main.38074252.js.map": "/static/js/main.38074252.js.map",
+    "main.e51e2fb1.css.map": "/static/css/main.e51e2fb1.css.map",
+    "main.b39dfb5b.js.map": "/static/js/main.b39dfb5b.js.map",
     "787.3e5985d4.chunk.js.map": "/static/js/787.3e5985d4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.da9dce06.css",
-    "static/js/main.38074252.js"
+    "static/css/main.e51e2fb1.css",
+    "static/js/main.b39dfb5b.js"
   ]
 }
