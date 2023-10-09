@@ -1,7 +1,7 @@
 import './App.css';
 
 //loading router
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom';
 
 //loading bootstrap + bootswatch
 import 'bootswatch/dist/sandstone/bootstrap.min.css';
@@ -22,7 +22,7 @@ import Developer from './components/screen/Developer';
 function App() {
   return (
     <div className="container-fluid mt-5 pt-4">
-      <BrowserRouter>
+      <HashRouter>
         <Menu></Menu>
         <div className="row">
           <div className="offset-md-1 col-md-10">
@@ -39,7 +39,7 @@ function App() {
             </Routes>
           </div>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }

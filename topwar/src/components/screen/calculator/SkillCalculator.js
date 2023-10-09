@@ -6,7 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 function SkillCalculator() {
     const [skillPrice, setSkillPrice] = useState(25);
     const [dstSkillLevel, setDstSkillLevel] = useState(7);
-    const [hasSkill, setHasSkill] = useState(true);
+    const [hasSkill, setHasSkill] = useState(false);
     const [hasSkillCount, setHasSkillCount] = useState([]);
 
     const changeHasSkillCount = useCallback((index, count)=>{
