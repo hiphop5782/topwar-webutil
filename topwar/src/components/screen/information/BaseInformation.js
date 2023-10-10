@@ -33,7 +33,6 @@ function BaseInformation() {
             if(base.options1 && base.options1.length > 0) {
                 const mapArray = base.options1.map(opt=>opt.name);
                 const result = selectedTypes.some(st=>{
-                    console.log(1, mapArray.filter(word=>word.indexOf(st) >= 0));
                     return mapArray.some(m=>m.indexOf(st) >= 0);
                 });
                 if(result) return true;
@@ -42,7 +41,6 @@ function BaseInformation() {
             if(base.options2 && base.options2.length > 0) {
                 const mapArray = base.options2.map(opt=>opt.name);
                 const result = selectedTypes.some(st=>{
-                    console.log(2, mapArray.filter(word=>word.indexOf(st) >= 0));
                     return mapArray.some(m=>m.indexOf(st) >= 0);
                 });
                 if(result) return true;
@@ -73,7 +71,7 @@ function BaseInformation() {
             <hr />
             <div className="row mb-4">
                 <div className="col">
-                    총 <span className="text-info">{baseList.length}</span>개의 기지가 등록되어 있습니다.
+                    총 <span className="text-info">{filterList.length}</span>개의 기지가 {selectedTypes.length > 0 ? '검색되었습니다':'등록되어 있습니다'}
                 </div>
             </div>
             <div className="row">
@@ -83,7 +81,17 @@ function BaseInformation() {
                             <h5 className="card-header text-truncate">{b.name}</h5>
                             <img src={`${process.env.PUBLIC_URL}/images/base/${b.no}.png`} height={150}/>
                             <div className="card-body">
-                                <p className="card-text"></p>
+                                <div className="card-text">
+                                    {b.options1.map(opt=>{
+                                        return selectedTypes.some(st=>opt.name.indexOf(st) >= 0) ? 
+                                            <div key={opt.no}>{opt.name} - {opt.value}</div> : false;
+                                    })}
+                                    <hr/>
+                                    {b.options2.map(opt=>{
+                                        return selectedTypes.some(st=>opt.name.indexOf(st) >= 0) ? 
+                                            <div key={opt.no}>{opt.name} - {opt.value}</div> : false;
+                                    })}
+                                </div>
                             </div>
                         </div>
                     </div>
