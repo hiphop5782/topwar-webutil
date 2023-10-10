@@ -7,5 +7,6 @@
     {"no":6, "value":"육군", "color":"info"},
     {"no":7, "value":"해군", "color":"info"},
     {"no":8, "value":"공군", "color":"info"},
-    {"no":9, "value":"스킬", "color":"success"}
+    {"no":9, "value":"채집", "color":"success"},
+    {"no":10, "value":"행군", "color":"success"}
 ]

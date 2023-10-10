@@ -1,16 +1,18 @@
 import baseTypeJson from "@src/assets/json/base-type.json";
 import baseListJson from "@src/assets/json/base.json";
 import "./BaseInformation.css";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 function BaseInformation() {
     const [baseTypes, setBaseTypes] = useState(baseTypeJson);
     const [baseList, setBaseList] = useState(baseListJson);
+    const [selectedTypes, setSelectedTypes] = useState([]);
 
     const clickBadge = useCallback((index, active) => {
         const copy = [...baseTypes];
         copy[index].active = !active;
         setBaseTypes([...copy]);
+        setSelectedTypes(baseTypes.filter(bt=>bt.active).map(bt=>bt.value));
     }, []);
 
     const getBadgeStyle = useCallback((baseTypes) => {
@@ -21,6 +23,34 @@ function BaseInformation() {
             return `badge border border-${baseTypes.color} text-${baseTypes.color} me-1`
         }
     }, []);
+
+    const filterList = useMemo(()=>{
+        if(selectedTypes.length == 0) {
+            return [...baseList];
+        }
+
+        return baseList.filter(base=>{
+            if(base.options1 && base.options1.length > 0) {
+                const mapArray = base.options1.map(opt=>opt.name);
+                const result = selectedTypes.some(st=>{
+                    console.log(1, mapArray.filter(word=>word.indexOf(st) >= 0));
+                    return mapArray.some(m=>m.indexOf(st) >= 0);
+                });
+                if(result) return true;
+            }
+
+            if(base.options2 && base.options2.length > 0) {
+                const mapArray = base.options2.map(opt=>opt.name);
+                const result = selectedTypes.some(st=>{
+                    console.log(2, mapArray.filter(word=>word.indexOf(st) >= 0));
+                    return mapArray.some(m=>m.indexOf(st) >= 0);
+                });
+                if(result) return true;
+            }
+
+            return false;
+        });
+    }, [selectedTypes, baseList]);
 
     return (
         <>
@@ -47,11 +77,11 @@ function BaseInformation() {
                 </div>
             </div>
             <div className="row">
-                {baseList.map(b => (
+                {filterList.map(b => (
                     <div key={b.no} style={{width:200}}>
                         <div className="card mb-3">
                             <h5 className="card-header text-truncate">{b.name}</h5>
-                            <img src={`${process.env.PUBLIC_URL}/images/base/${b.no}.png`} height={200}/>
+                            <img src={`${process.env.PUBLIC_URL}/images/base/${b.no}.png`} height={150}/>
                             <div className="card-body">
                                 <p className="card-text"></p>
                             </div>
