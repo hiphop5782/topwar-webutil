@@ -6,7 +6,7 @@ function VitalCalculator() {
     const [vitSpeed, setVitSpeed] = useState(111.0);
     const [baseSpeed, setBaseSpeed] = useState(91.0);
 
-    const [addSpeed, setAddSpeed] = useState(0);
+    const [addSpeed, setAddSpeed] = useState(8);
 
     const currentSpeed = useMemo(()=>{
         const time = (100 - vitSpeed + baseSpeed) / (100 + baseSpeed) * 360;
