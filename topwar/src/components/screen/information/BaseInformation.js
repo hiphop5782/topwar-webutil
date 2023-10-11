@@ -82,14 +82,26 @@ function BaseInformation() {
                             <img src={`${process.env.PUBLIC_URL}/images/base/${b.no}.png`} height={200}/>
                             <div className="card-body">
                                 <div className="card-text">
+                                    <span className="badge bg-secondary">사용 시 효과</span>
                                     {b.options1.map(opt=>{
-                                        return selectedTypes.some(st=>opt.name.indexOf(st) >= 0) ? 
-                                            <div key={opt.no}><small>{opt.name}</small> <small className="text-danger"><b>{opt.value}</b></small></div> : false;
+                                        if(selectedTypes.length) {
+                                            return selectedTypes.some(st=>opt.name.indexOf(st) >= 0) ? 
+                                                <div key={opt.no}><small>{opt.name}</small> <small className="text-danger"><b>{opt.value}</b></small></div> : false;
+                                        }
+                                        else {
+                                            return <div key={opt.no}><small>{opt.name}</small> <small className="text-danger"><b>{opt.value}</b></small></div>;
+                                        }
                                     })}
                                     <hr/>
+                                    <span className="badge bg-secondary">보유 시 효과</span>
                                     {b.options2.map(opt=>{
-                                        return selectedTypes.some(st=>opt.name.indexOf(st) >= 0) ? 
-                                            <div key={opt.no}><small>{opt.name}</small> <small className="text-danger"><b>{opt.value}</b></small></div> : false;
+                                        if(selectedTypes.length) {
+                                            return selectedTypes.some(st=>opt.name.indexOf(st) >= 0) ? 
+                                                <div key={opt.no}><small>{opt.name}</small> <small className="text-danger"><b>{opt.value}</b></small></div> : false;
+                                        }
+                                        else {
+                                            return <div key={opt.no}><small>{opt.name}</small> <small className="text-danger"><b>{opt.value}</b></small></div>;
+                                        }
                                     })}
                                 </div>
                             </div>

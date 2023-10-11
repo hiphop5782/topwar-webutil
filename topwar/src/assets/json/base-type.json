@@ -10,5 +10,13 @@
     {"no":9, "value":"해군", "color":"info"},
     {"no":10, "value":"공군", "color":"info"},
     {"no":11, "value":"채집", "color":"success"},
-    {"no":12, "value":"행군", "color":"success"}
+    {"no":12, "value":"행군", "color":"success"},
+    {"no":13, "value":"1행", "color":"secondary"},
+    {"no":14, "value":"2행", "color":"secondary"},
+    {"no":15, "value":"3행", "color":"secondary"},
+    {"no":16, "value":"크로스", "color":"secondary"},
+    {"no":17, "value":"훈련", "color":"secondary"},
+    {"no":18, "value":"차고", "color":"warning"},
+    {"no":19, "value":"부두", "color":"warning"},
+    {"no":20, "value":"공항", "color":"warning"}
 ]
