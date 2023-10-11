@@ -22,8 +22,7 @@ function Developer() {
                             <p className="card-text">사람 좋고 열정 가득한 2690 서버로 오세요!</p>
                         </div>
                         <ul className="list-group list-group-flush">
-                            <li className="list-group-item"><a href="https://cafe.naver.com/topwarofficial/11234" className="card-link">2690 서버 홍보글 보러가기</a></li>
-                            <li className="list-group-item"><a href="https://hiphop5782.gitbook.io/lpi-dubu" className="card-link">2690 서버 홈페이지 보러가기</a></li>
+                            <li className="list-group-item"><a href="https://hiphop5782.gitbook.io/lpi-dubu" className="card-link">2690 서버 홍보글 보러가기</a></li>
                         </ul>
                     </div>
                 </div>
