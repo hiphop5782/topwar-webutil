@@ -76,20 +76,20 @@ function BaseInformation() {
             </div>
             <div className="row">
                 {filterList.map(b => (
-                    <div key={b.no} style={{width:200}}>
+                    <div key={b.no} style={{width:250}}>
                         <div className="card mb-3">
                             <h5 className="card-header text-truncate">{b.name}</h5>
-                            <img src={`${process.env.PUBLIC_URL}/images/base/${b.no}.png`} height={150}/>
+                            <img src={`${process.env.PUBLIC_URL}/images/base/${b.no}.png`} height={200}/>
                             <div className="card-body">
                                 <div className="card-text">
                                     {b.options1.map(opt=>{
                                         return selectedTypes.some(st=>opt.name.indexOf(st) >= 0) ? 
-                                            <div key={opt.no}>{opt.name} - {opt.value}</div> : false;
+                                            <div key={opt.no}><small>{opt.name}</small> <small className="text-danger"><b>{opt.value}</b></small></div> : false;
                                     })}
                                     <hr/>
                                     {b.options2.map(opt=>{
                                         return selectedTypes.some(st=>opt.name.indexOf(st) >= 0) ? 
-                                            <div key={opt.no}>{opt.name} - {opt.value}</div> : false;
+                                            <div key={opt.no}><small>{opt.name}</small> <small className="text-danger"><b>{opt.value}</b></small></div> : false;
                                     })}
                                 </div>
                             </div>
