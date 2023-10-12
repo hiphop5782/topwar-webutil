@@ -20,20 +20,22 @@ function Simulator() {
         const no = parseInt(e.target.dataset.no);
         const name = e.target.name;
         const value = name === "rate" ? parseInt(e.target.value) : e.target.value;
-        const copyList = itemList.map(item=>{
+        setItemList(prev=>prev.map(item=>{
             if(item.no === no) {
                 return {...item, [name]:value};
             }
             else {
                 return item;
             }
-        });
-        setItemList(copyList);
+        }));
     }, [itemList]);
 
     const numberWithCommas = useCallback((x)=>{
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }, []);
+
+    //history
+    const [history, setHistory] = useState([]);
 
     const lot = useCallback(()=>{
         if(itemList.length === 0 || count === 0) {
@@ -66,17 +68,22 @@ function Simulator() {
         window.self.crypto.getRandomValues(array);
         const result = array.map(n=>n%1000000);
 
-        result.forEach(res=>{
+        result.forEach((res,idx)=>{
             for(let i=0; i < copyList.length; i++) {
-                if(copyList[i].acc > res) {
-                    copyList[i].count++;
+                const copyItem = copyList[i];
+                if(copyItem.acc > res) {
+                    copyItem.count++;
+                    setHistory(prev=>[...prev, copyItem]);
                     break;
                 }
             }
+
         });
 
         setItemList(copyList);
     }, [itemList, count]);
+
+    
 
     return (
         <>
@@ -137,12 +144,20 @@ function Simulator() {
                     {itemList.map((item,index)=>(
                         <div key={index} className="mt-2 p-2 shadow-sm rounded d-flex">
                             <div className="w-50">
-                                {item.name} 
+                                <span>{item.name}</span>&nbsp;&nbsp;
                                 <span className="text-muted">({item.rate}%)</span> 
                             </div>
                             <div className="w-50 text-end">
                                 <span className="text-danger"><b>{numberWithCommas(item.count)}</b></span> 번 추첨됨
                             </div>
+                        </div>
+                    ))}
+                </div>
+                <div className="col-12 mt-2">
+                    {history.map((h,i)=>(
+                        <div className="ps-2 pe-2" key={i}>
+                            <span className="badge bg-primary me-2" style={{width:55}}>{i+1}</span>
+                            <b className="text-danger">{h.name}</b> 항목을 추첨하였습니다!
                         </div>
                     ))}
                 </div>

@@ -5,6 +5,8 @@ function SkillCalculator() {
     const [dstSkillLevel, setDstSkillLevel] = useState(7);
     const [hasSkill, setHasSkill] = useState(false);
     const [hasSkillCount, setHasSkillCount] = useState([]);
+    const [hasShard, setHasShard] = useState(false);
+    const [hasShardCount, setHasShardCount] = useState(0);
 
     const changeHasSkillCount = useCallback((index, count)=>{
         const copy = [...hasSkillCount];
@@ -12,14 +14,15 @@ function SkillCalculator() {
         setHasSkillCount(copy);
     }, [hasSkillCount]);
 
-    const requiredSkillCount = useCallback(()=>{
-        return Math.pow(3, dstSkillLevel-1);
+    const requiredShardCount = useCallback(()=>{
+        return Math.pow(3, dstSkillLevel-1) * skillPrice;
     }, [dstSkillLevel]);
 
-    const calculateHasSkillCount = useCallback(()=>{
+    const calculateShardCount = useCallback(()=>{
         const copy = [...hasSkillCount];
-        return copy.map((c, i)=>c * parseInt(Math.pow(3, i))).reduce((p, n)=> p + n, 0);
-    }, [hasSkillCount]);
+        
+        return copy.map((c, i)=>c * parseInt(Math.pow(3, i))).reduce((p, n)=> p + n, 0) * skillPrice + hasShardCount;
+    }, [hasSkillCount, hasShardCount]);
 
     const numberWithCommas = useCallback((x)=>{
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -63,16 +66,36 @@ function SkillCalculator() {
                         {[1,2,3,4,5,6,7,8,9].map(n=><option key={n}>{n}</option>)}
                     </select>
                     <h3 className="mt-2">
-                        필요한 전속 스킬 개수 {numberWithCommas(requiredSkillCount())}개
-                        <br/>
-                        (조각 {numberWithCommas(requiredSkillCount() * skillPrice)}개) 
+                        (조각 {numberWithCommas(requiredShardCount())}개) 
                     </h3>
                 </div>
             </div>
 
             <div className="row mt-5">
                 <div className="col-12">
-                    <h2>3. 현재 보유중인 스킬이 있습니까?</h2>
+                    <h2>3. 현재 보유중인 전속 조각이 있습니까?</h2>
+                </div>
+                <div className="col-12 text-end">
+                    <input type="checkbox" checked={hasShard} onChange={e=>setHasShard(e.target.checked)}></input>
+                    &nbsp;
+                    예
+                </div>
+                
+                {hasShard ? (
+                    <div className="col-12 text-end mt-2">
+                        <div>
+                            보유한 전속 조각 개수 &nbsp;
+                            <input type="number" defaultValue={hasShardCount || 0} 
+                                className="text-end" onChange={e=>setHasShardCount(parseInt(e.target.value))} min="0"></input>
+                        </div>
+                    </div>
+                ) : false}
+                
+            </div>
+
+            <div className="row mt-5">
+                <div className="col-12">
+                    <h2>4. 현재 보유중인 스킬이 있습니까?</h2>
                 </div>
                 <div className="col-12 text-end">
                     <input type="checkbox" checked={hasSkill} onChange={e=>setHasSkill(e.target.checked)}></input>
@@ -85,13 +108,12 @@ function SkillCalculator() {
                             {hasSkillCount.map((c, i)=>(
                                 <div key={i}>
                                     보유한 <span className="text-danger">{i+1}</span> 레벨 전속 스킬 개수 &nbsp;
-                                    <input type="number" defaultValue={c} onChange={e=>changeHasSkillCount(i, e.target.value)}></input>
+                                    <input type="number" defaultValue={c} 
+                                        className="text-end" onChange={e=>changeHasSkillCount(i, e.target.value)}></input>
                                 </div>
                             ))}
                             <h4 className="mt-2">
-                                보유 전속 스킬 {numberWithCommas(calculateHasSkillCount())}개 
-                                <br/>
-                                (조각 {numberWithCommas(calculateHasSkillCount() * skillPrice)}개)
+                                (조각 {numberWithCommas(calculateShardCount())}개)
                             </h4>
                         </>
                     ) : false}
@@ -102,16 +124,15 @@ function SkillCalculator() {
             <div className="row">
                 <div className="col text-end">
                     {
-                        (requiredSkillCount() - calculateHasSkillCount() > 0) ? 
+                        (requiredShardCount() > calculateShardCount()) ? 
                         (
                             <>
-                                <h3>부족한 스킬 개수 : {numberWithCommas(requiredSkillCount() - calculateHasSkillCount())}개</h3>
-                                <h3 className="text-danger">전속 조각 총 {numberWithCommas((requiredSkillCount() - calculateHasSkillCount()) * skillPrice)}개 필요</h3>
+                                <h3 className="text-danger">전속 조각 총 {numberWithCommas((requiredShardCount() - calculateShardCount()))}개 필요</h3>
                             </>
                         ) : (
                             <>
                                 <h3>구매 가능합니다</h3>
-                                <h3 className="text-success">전속 조각 {numberWithCommas((calculateHasSkillCount() - requiredSkillCount()) * skillPrice)}개 남음</h3>
+                                <h3 className="text-success">전속 조각 {numberWithCommas((calculateShardCount() - requiredShardCount()))}개 남음</h3>
                             </>
                         )
                     }
