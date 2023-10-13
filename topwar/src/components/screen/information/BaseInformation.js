@@ -97,11 +97,11 @@ function BaseInformation() {
                                     {b.options2.map(opt=>{
                                         if(selectedTypes.length) {
                                             return selectedTypes.some(st=>opt.name.indexOf(st) >= 0) ? 
-                                                <div key={opt.no}><small>{opt.name}&nbsp;<span className="text-danger"><b>{opt.value}</b></span></small></div> : 
-                                                <div key={opt.no}><small className="highlight">{opt.name}&nbsp;<span className="text-danger"><b>{opt.value}</b></span></small></div> ;
+                                                <div key={opt.no}><small className="highlight">{opt.name}&nbsp;<span className="text-danger"><b>{opt.value}</b></span></small></div> :
+                                                <div key={opt.no}><small>{opt.name}&nbsp;<span className="text-danger"><b>{opt.value}</b></span></small></div> ;
                                         }
                                         else {
-                                            <div key={opt.no}><small>{opt.name}&nbsp;<span className="text-danger"><b>{opt.value}</b></span></small></div> ;
+                                            return <div key={opt.no}><small>{opt.name}&nbsp;<span className="text-danger"><b>{opt.value}</b></span></small></div> ;
                                         }
                                     })}
                                 </div>
