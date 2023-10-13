@@ -25,12 +25,12 @@ function BaseInformation() {
     }, []);
 
     const filterList = useMemo(()=>{
-        if(selectedTypes.length == 0) {
+        if(selectedTypes.length === 0) {
             return [...baseList];
         }
 
         return baseList.filter(base=>{
-            if(base.options1 && base.options1.length > 0) {
+            if(base.options1 && base.options1.length > 0) {r
                 const mapArray = base.options1.map(opt=>opt.name);
                 const result = selectedTypes.some(st=>{
                     return mapArray.some(m=>m.indexOf(st) >= 0);

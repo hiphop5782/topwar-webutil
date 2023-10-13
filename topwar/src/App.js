@@ -21,7 +21,7 @@ import Developer from '@src/components/screen/Developer';
 
 function App() {
 
-  document.title = "Topwar Util";
+  document.title = "Topwar Helper";
 
   return (
     <div className="container-fluid mt-5 pt-4">
