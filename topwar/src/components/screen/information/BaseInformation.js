@@ -30,7 +30,7 @@ function BaseInformation() {
         }
 
         return baseList.filter(base=>{
-            if(base.options1 && base.options1.length > 0) {r
+            if(base.options1 && base.options1.length > 0) {
                 const mapArray = base.options1.map(opt=>opt.name);
                 const result = selectedTypes.some(st=>{
                     return mapArray.some(m=>m.indexOf(st) >= 0);
