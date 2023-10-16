@@ -1,0 +1,19 @@
+[
+    {
+        "row":1, 
+        "items":[
+            {
+                "col":1, 
+                "name":"War Fever", 
+                "maxlevel":5, 
+                "details":[
+                    {"level":1, "food":2970000, "oil":2970000, "item":1, "time":"3d 15h 4m 17s"},
+                    {"level":2, "food":4450000, "oil":4450000, "item":2, "time":"4d 8h 4m 9s"},
+                    {"level":3, "food":6680000, "oil":6680000, "item":3, "time":"5d 5h 22m 58s"},
+                    {"level":4, "food":10000000, "oil":10000000, "item":4, "time":"6d 6h 27m 34s"},
+                    {"level":5, "food":15000000, "oil":15000000, "item":5, "time":"7d 12h 33m 5s"}
+                ]
+            }
+        ]
+    }
+]

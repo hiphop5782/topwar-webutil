@@ -1,0 +1,17 @@
+.row-inner {
+    padding: 1em;
+    box-shadow: 0 0 1px 0px gray;
+    position: relative;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.row-inner .title {
+    position: absolute;
+    font-size: 0.5em;
+    top:0;
+    left:0;
+    background-color: white;
+    transform: translate(50%, -50%);
+}
