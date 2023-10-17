@@ -4,14 +4,424 @@
         "items":[
             {
                 "col":1, 
-                "name":"War Fever", 
-                "maxlevel":5, 
-                "details":[
-                    {"level":1, "food":2970000, "oil":2970000, "item":1, "time":"3d 15h 4m 17s"},
-                    {"level":2, "food":4450000, "oil":4450000, "item":2, "time":"4d 8h 4m 9s"},
-                    {"level":3, "food":6680000, "oil":6680000, "item":3, "time":"5d 5h 22m 58s"},
-                    {"level":4, "food":10000000, "oil":10000000, "item":4, "time":"6d 6h 27m 34s"},
-                    {"level":5, "food":15000000, "oil":15000000, "item":5, "time":"7d 12h 33m 5s"}
+                "name":"전쟁광", 
+                "upgrades":[
+                    {"level":1, "food":2970000, "oil":2970000, "item":1, "time":"3일 15시간 04분 17초", "choice":false},
+                    {"level":2, "food":4450000, "oil":4450000, "item":2, "time":"4일 08시간 29분 09초", "choice":false},
+                    {"level":3, "food":6680000, "oil":6680000, "item":3, "time":"5일 05시간 22분 58초", "choice":false},
+                    {"level":4, "food":10000000, "oil":10000000, "item":4, "time":"6일 06시간 27분 34초", "choice":false},
+                    {"level":5, "food":15000000, "oil":15000000, "item":5, "time":"11일 05시간 18분 25초", "choice":false}
+                ],
+                "subtotal":{
+                    "food":0, "oil":0, "item":0, "time":""
+                }
+            }
+        ]
+    },
+    {
+        "row":2, 
+        "items":[
+            {
+                "col":1, 
+                "name":"치명타 증가", 
+                "upgrades":[
+                    {"level":1, "food":2970000, "oil":2970000, "item":2, "time":"3일 15시간 04분 17초", "choice":false},
+                    {"level":2, "food":4450000, "oil":4450000, "item":3, "time":"4일 08시간 29분 09초", "choice":false},
+                    {"level":3, "food":6680000, "oil":6680000, "item":4, "time":"5일 05시간 22분 58초", "choice":false},
+                    {"level":4, "food":10000000, "oil":10000000, "item":5, "time":"6일 06시간 27분 34초", "choice":false},
+                    {"level":5, "food":15000000, "oil":15000000, "item":6, "time":"11일 05시간 18분 25초", "choice":false}
+                ]
+            },
+            {
+                "col":2, 
+                "name":"황야 사냥꾼", 
+                "upgrades":[
+                    {"level":1, "food":2970000, "oil":2970000, "item":2, "time":"3일 15시간 04분 17초", "choice":false},
+                    {"level":2, "food":4450000, "oil":4450000, "item":3, "time":"4일 08시간 29분 09초", "choice":false},
+                    {"level":3, "food":6680000, "oil":6680000, "item":4, "time":"5일 05시간 22분 58초", "choice":false},
+                    {"level":4, "food":10000000, "oil":10000000, "item":5, "time":"6일 06시간 27분 34초", "choice":false},
+                    {"level":5, "food":15000000, "oil":15000000, "item":6, "time":"11일 05시간 18분 25초", "choice":false}
+                ]
+            },
+            {
+                "col":3, 
+                "name":"치명타 데미지 증가", 
+                "upgrades":[
+                    {"level":1, "food":2970000, "oil":2970000, "item":2, "time":"3일 15시간 04분 17초", "choice":false},
+                    {"level":2, "food":4450000, "oil":4450000, "item":3, "time":"4일 08시간 29분 09초", "choice":false},
+                    {"level":3, "food":6680000, "oil":6680000, "item":4, "time":"5일 05시간 22분 58초", "choice":false},
+                    {"level":4, "food":10000000, "oil":10000000, "item":5, "time":"6일 06시간 27분 34초", "choice":false},
+                    {"level":5, "food":15000000, "oil":15000000, "item":6, "time":"11일 05시간 18분 25초", "choice":false}
+                ]
+            }
+        ]
+    },
+    {
+        "row":3, 
+        "items":[
+            {
+                "col":1, 
+                "name":"전투 선물", 
+                "upgrades":[
+                    {"level":1, "food":2970000, "oil":2970000, "item":4, "time":"3일 15시간 04분 17초", "choice":false},
+                    {"level":2, "food":4450000, "oil":4450000, "item":6, "time":"4일 08시간 29분 09초", "choice":false},
+                    {"level":3, "food":6680000, "oil":6680000, "item":8, "time":"5일 05시간 22분 58초", "choice":false},
+                    {"level":4, "food":10000000, "oil":10000000, "item":10, "time":"6일 06시간 27분 34초", "choice":false},
+                    {"level":5, "food":15000000, "oil":15000000, "item":15, "time":"11일 05시간 18분 25초", "choice":false}
+                ]
+            }
+        ]
+    },
+    {
+        "row":4, 
+        "items":[
+            {
+                "col":1, 
+                "name":"지용겸비 - 공격", 
+                "upgrades":[
+                    {"level":1, "food":2970000, "oil":2970000, "item":8, "time":"3일 15시간 04분 17초", "choice":false},
+                    {"level":2, "food":4450000, "oil":4450000, "item":10, "time":"4일 08시간 29분 09초", "choice":false},
+                    {"level":3, "food":6680000, "oil":6680000, "item":15, "time":"5일 05시간 22분 58초", "choice":false}
+                ]
+            },
+            {
+                "col":2, 
+                "name":"정예 시련", 
+                "upgrades":[
+                    {"level":1, "food":3400000, "oil":3400000, "item":8, "time":"3일 15시간 04분 17초", "choice":false},
+                    {"level":2, "food":5100000, "oil":5100000, "item":10, "time":"4일 08시간 29분 09초", "choice":false},
+                    {"level":3, "food":7650000, "oil":7650000, "item":15, "time":"5일 05시간 22분 58초", "choice":false}
+                ]
+            },
+            {
+                "col":3, 
+                "name":"지용겸비 - 방어", 
+                "upgrades":[
+                    {"level":1, "food":2970000, "oil":2970000, "item":8, "time":"3일 15시간 04분 17초", "choice":false},
+                    {"level":2, "food":4450000, "oil":4450000, "item":10, "time":"4일 08시간 29분 09초", "choice":false},
+                    {"level":3, "food":6680000, "oil":6680000, "item":15, "time":"5일 05시간 22분 58초", "choice":false}
+                ]
+            }
+        ]
+    },
+    {
+        "row":5, 
+        "items":[
+            {
+                "col":1, 
+                "name":"강화 무기", 
+                "upgrades":[
+                    {"level":1, "food":7650000, "oil":7650000, "item":10, "time":"10일 19시간 59분 38초", "choice":false},
+                    {"level":2, "food":11500000, "oil":11500000, "item":15, "time":"12일 10시간 30분 41초", "choice":false},
+                    {"level":3, "food":17200000, "oil":17200000, "item":20, "time":"14일 02시간 13분 58초", "choice":false}
+                ]
+            },
+            {
+                "col":2, 
+                "name":"지용겸비", 
+                "upgrades":[
+                    {"level":1, "food":7650000, "oil":7650000, "item":20, "time":"3일 15시간 04분 17초", "choice":false},
+                    {"level":2, "food":11500000, "oil":11500000, "item":25, "time":"4일 08시간 29분 09초", "choice":false},
+                    {"level":3, "food":17200000, "oil":17200000, "item":30, "time":"5일 05시간 22분 58초", "choice":false},
+                    {"level":4, "food":24100000, "oil":24100000, "item":35, "time":"6일 06시간 27분 34초", "choice":false},
+                    {"level":5, "food":33700000, "oil":33700000, "item":40, "time":"11일 05시간 18분 25초", "choice":false}
+                ]
+            },
+            {
+                "col":3, 
+                "name":"강화 장갑", 
+                "upgrades":[
+                    {"level":1, "food":7650000, "oil":7650000, "item":10, "time":"10일 19시간 59분 38초", "choice":false},
+                    {"level":2, "food":11500000, "oil":11500000, "item":15, "time":"12일 10시간 30분 41초", "choice":false},
+                    {"level":3, "food":17200000, "oil":17200000, "item":20, "time":"14일 02시간 13분 58초", "choice":false}
+                ]
+            }
+        ]
+    },
+    {
+        "row":6, 
+        "items":[
+            {
+                "col":1, 
+                "name":"데미지 증가", 
+                "upgrades":[
+                    {"level":1, "food":8620000, "oil":8620000, "item":30, "time":"7일 15시간 04분 17초", "choice":false},
+                    {"level":2, "food":12900000, "oil":12900000, "item":35, "time":"9일 00시간 39분 42초", "choice":false},
+                    {"level":3, "food":19400000, "oil":19400000, "item":40, "time":"10일 19시간 59분 38초", "choice":false},
+                    {"level":4, "food":27200000, "oil":27200000, "item":45, "time":"12일 10시간 30분 41초", "choice":false},
+                    {"level":5, "food":38000000, "oil":38000000, "item":50, "time":"14일 02시간 13분 58초", "choice":false}
+                ]
+            },
+            {
+                "col":2, 
+                "name":"전쟁광", 
+                "upgrades":[
+                    {"level":1, "food":8620000, "oil":8620000, "item":30, "time":"7일 15시간 04분 17초", "choice":false},
+                    {"level":2, "food":12900000, "oil":12900000, "item":35, "time":"9일 00시간 39분 42초", "choice":false},
+                    {"level":3, "food":19400000, "oil":19400000, "item":40, "time":"10일 19시간 59분 38초", "choice":false},
+                    {"level":4, "food":27200000, "oil":27200000, "item":45, "time":"12일 10시간 30분 41초", "choice":false},
+                    {"level":5, "food":38000000, "oil":38000000, "item":50, "time":"14일 02시간 13분 58초", "choice":false}
+                ]
+            },
+            {
+                "col":3, 
+                "name":"고급 데미지 감면", 
+                "upgrades":[
+                    {"level":1, "food":8620000, "oil":8620000, "item":30, "time":"7일 15시간 04분 17초", "choice":false},
+                    {"level":2, "food":12900000, "oil":12900000, "item":35, "time":"9일 00시간 39분 42초", "choice":false},
+                    {"level":3, "food":19400000, "oil":19400000, "item":40, "time":"10일 19시간 59분 38초", "choice":false},
+                    {"level":4, "food":27200000, "oil":27200000, "item":45, "time":"12일 10시간 30분 41초", "choice":false},
+                    {"level":5, "food":38000000, "oil":38000000, "item":50, "time":"14일 02시간 13분 58초", "choice":false}
+                ]
+            }
+        ]
+    },
+    {
+        "row":7, 
+        "items":[
+            {
+                "col":1, 
+                "name":"전면전", 
+                "upgrades":[
+                    {"level":1, "food":59200000, "oil":59200000, "item":300, "time":"16일 04시간 36분 35초", "choice":false}
+                ]
+            }
+        ]
+    },
+    {
+        "row":8, 
+        "items":[
+            {
+                "col":1, 
+                "name":"지용겸비 - 공격", 
+                "upgrades":[
+                    {"level":1, "food":9590000, "oil":9590000, "item":30, "time":"7일 13시간 59분 45초", "choice":false},
+                    {"level":2, "food":14400000, "oil":14400000, "item":40, "time":"8일 16시간 57분 29초", "choice":false}
+                ]
+            },
+            {
+                "col":2, 
+                "name":"초급 비상 경계", 
+                "upgrades":[
+                    {"level":1, "food":9590000, "oil":9590000, "item":50, "time":"5일 06시간 23분 10초", "choice":false},
+                    {"level":2, "food":14400000, "oil":14400000, "item":50, "time":"8일 20시간 19분 43초", "choice":false},
+                    {"level":3, "food":21600000, "oil":21600000, "item":50, "time":"10일 14시간 47분 39초", "choice":false},
+                    {"level":4, "food":30200000, "oil":30200000, "item":50, "time":"12일 04시간 32분 29초", "choice":false},
+                    {"level":5, "food":42300000, "oil":42300000, "item":50, "time":"15일 06시간 54분 12초", "choice":false},
+                    {"level":6, "food":48000000, "oil":48000000, "item":50, "time":"15일 20시간 50분 16초", "choice":false},
+                    {"level":7, "food":56100000, "oil":56100000, "item":50, "time":"15일 20시간 50분 16초", "choice":false},
+                    {"level":8, "food":64300000, "oil":64300000, "item":50, "time":"15일 20시간 50분 16초", "choice":false},
+                    {"level":9, "food":72400000, "oil":72400000, "item":50, "time":"15일 20시간 50분 16초", "choice":false},
+                    {"level":10, "food":80500000, "oil":80500000, "item":50, "time":"15일 20시간 50분 16초", "choice":false}
+                ]
+            },
+            {
+                "col":3, 
+                "name":"지용겸비 - 방어",                
+                "upgrades":[
+                    {"level":1, "food":9590000, "oil":9590000, "item":30, "time":"7일 13시간 59분 45초", "choice":false},
+                    {"level":2, "food":14400000, "oil":14400000, "item":40, "time":"8일 16시간 57분 29초", "choice":false}
+                ]
+            }
+        ]
+    },
+    {
+        "row":9, 
+        "items":[
+            {
+                "col":1, 
+                "name":"지용겸비", 
+                "upgrades":[
+                    {"level":1, "food":9590000, "oil":9590000, "item":50, "time":"7일 13시간 59분 45초", "choice":false},
+                    {"level":2, "food":14400000, "oil":14400000, "item":55, "time":"8일 16시간 57분 29초", "choice":false},
+                    {"level":3, "food":21600000, "oil":21600000, "item":60, "time":"9일 20시간 45분 47초", "choice":false},
+                    {"level":4, "food":30200000, "oil":30200000, "item":65, "time":"11일 08시간 01분 37초", "choice":false},
+                    {"level":5, "food":42300000, "oil":42300000, "item":70, "time":"11일 08시간 01분 37초", "choice":false}
+                ]
+            }
+        ]
+    },
+    {
+        "row":10, 
+        "items":[
+            {
+                "col":1, 
+                "name":"대공 미사일", 
+                "upgrades":[
+                    {"level":1, "food":42900000, "oil":42900000, "item":60, "time":"10일 16시간 48분 11초", "choice":false},
+                    {"level":2, "food":60100000, "oil":60100000, "item":80, "time":"14일 23시간 31분 28초", "choice":false},
+                    {"level":3, "food":84100000, "oil":84100000, "item":100, "time":"20일 23시간 20분 03초", "choice":false}
+                ]
+            },
+            {
+                "col":2, 
+                "name":"어뢰 공격", 
+                "upgrades":[
+                    {"level":1, "food":42900000, "oil":42900000, "item":60, "time":"10일 16시간 48분 11초", "choice":false},
+                    {"level":2, "food":60100000, "oil":60100000, "item":80, "time":"14일 23시간 31분 28초", "choice":false},
+                    {"level":3, "food":84100000, "oil":84100000, "item":100, "time":"20일 23시간 20분 03초", "choice":false}
+                ]
+            },
+            {
+                "col":3, 
+                "name":"정조준 미사일", 
+                "upgrades":[
+                    {"level":1, "food":42900000, "oil":42900000, "item":60, "time":"10일 16시간 48분 11초", "choice":false},
+                    {"level":2, "food":60100000, "oil":60100000, "item":80, "time":"14일 23시간 31분 28초", "choice":false},
+                    {"level":3, "food":84100000, "oil":84100000, "item":100, "time":"20일 23시간 20분 03초", "choice":false}
+                ]
+            }
+        ]
+    },
+    {
+        "row":11, 
+        "items":[
+            {
+                "col":1, 
+                "name":"스킬 슬롯+1", 
+                "upgrades":[
+                    {"level":1, "food":59200000, "oil":59200000, "item":500, "time":"11일 08시간 01분 37초", "choice":false}
+                ]
+            }
+        ]
+    },
+    {
+        "row":12, 
+        "items":[
+            {
+                "col":1, 
+                "name":"데미지 증가", 
+                "upgrades":[
+                    {"level":1, "food":9590000, "oil":9590000, "item":80, "time":"7일 13시간 59분 45초", "choice":false},
+                    {"level":2, "food":14400000, "oil":14400000, "item":90, "time":"8일 16시간 57분 29초", "choice":false},
+                    {"level":3, "food":21600000, "oil":21600000, "item":100, "time":"9일 20시간 45분 47초", "choice":false},
+                    {"level":4, "food":30200000, "oil":30200000, "item":110, "time":"11일 08시간 01분 37초", "choice":false},
+                    {"level":5, "food":42300000, "oil":42300000, "item":120, "time":"11일 08시간 01분 37초", "choice":false}
+                ]
+            },
+            {
+                "col":2, 
+                "name":"강화 장갑", 
+                "upgrades":[
+                    {"level":1, "food":42000000, "oil":42000000, "item":100, "time":"11일 05시간 18분 25초", "choice":false},
+                    {"level":2, "food":42000000, "oil":42000000, "item":100, "time":"11일 05시간 18분 25초", "choice":false},
+                    {"level":3, "food":42000000, "oil":42000000, "item":100, "time":"11일 05시간 18분 25초", "choice":false},
+                    {"level":4, "food":42000000, "oil":42000000, "item":100, "time":"11일 05시간 18분 25초", "choice":false},
+                    {"level":5, "food":42000000, "oil":42000000, "item":100, "time":"11일 05시간 18분 25초", "choice":false},
+                    {"level":6, "food":42000000, "oil":42000000, "item":100, "time":"11일 05시간 18분 25초", "choice":false},
+                    {"level":7, "food":42000000, "oil":42000000, "item":100, "time":"11일 05시간 18분 25초", "choice":false},
+                    {"level":8, "food":42000000, "oil":42000000, "item":100, "time":"11일 05시간 18분 25초", "choice":false},
+                    {"level":9, "food":42000000, "oil":42000000, "item":100, "time":"11일 05시간 18분 25초", "choice":false},
+                    {"level":10, "food":42000000, "oil":42000000, "item":100, "time":"11일 05시간 18분 25초", "choice":false}
+                ]
+            },
+            {
+                "col":3, 
+                "name":"고급 데미지 감면", 
+                "upgrades":[
+                    {"level":1, "food":9590000, "oil":9590000, "item":80, "time":"7일 13시간 59분 45초", "choice":false},
+                    {"level":2, "food":14400000, "oil":14400000, "item":90, "time":"8일 16시간 57분 29초", "choice":false},
+                    {"level":3, "food":21600000, "oil":21600000, "item":100, "time":"9일 20시간 45분 47초", "choice":false},
+                    {"level":4, "food":30200000, "oil":30200000, "item":110, "time":"11일 08시간 01분 37초", "choice":false},
+                    {"level":5, "food":42300000, "oil":42300000, "item":120, "time":"11일 08시간 01분 37초", "choice":false}
+                ]
+            }
+        ]
+    },
+    {
+        "row":13, 
+        "items":[
+            {
+                "col":1, 
+                "name":"방어 모드", 
+                "upgrades":[
+                    {"level":1, "food":9590000, "oil":9590000, "item":80, "time":"7일 13시간 59분 45초", "choice":false},
+                    {"level":2, "food":14400000, "oil":14400000, "item":100, "time":"8일 16시간 57분 29초", "choice":false},
+                    {"level":3, "food":21600000, "oil":21600000, "item":120, "time":"9일 20시간 45분 47초", "choice":false},
+                    {"level":4, "food":30200000, "oil":30200000, "item":140, "time":"11일 08시간 01분 37초", "choice":false},
+                    {"level":5, "food":42300000, "oil":42300000, "item":160, "time":"11일 08시간 01분 37초", "choice":false}
+                ]
+            },
+            {
+                "col":2, 
+                "name":"포위 전술", 
+                "upgrades":[
+                    {"level":1, "food":59200000, "oil":59200000, "item":500, "time":"20일 23시간 20분 05초", "choice":false}
+                ]
+            },
+            {
+                "col":3, 
+                "name":"전략 방어", 
+                "upgrades":[
+                    {"level":1, "food":9590000, "oil":9590000, "item":80, "time":"7일 13시간 59분 45초", "choice":false},
+                    {"level":2, "food":14400000, "oil":14400000, "item":100, "time":"8일 16시간 57분 29초", "choice":false},
+                    {"level":3, "food":21600000, "oil":21600000, "item":120, "time":"9일 20시간 45분 47초", "choice":false},
+                    {"level":4, "food":30200000, "oil":30200000, "item":140, "time":"11일 08시간 01분 37초", "choice":false},
+                    {"level":5, "food":42300000, "oil":42300000, "item":160, "time":"11일 08시간 01분 37초", "choice":false}
+                ]
+            }
+        ]
+    },
+    {
+        "row":14, 
+        "items":[
+            {
+                "col":1, 
+                "name":"기합 - 전투의 달인", 
+                "upgrades":[
+                    {"level":1, "food":39239000, "oil":39239000, "item":100, "core":0, "time":"19일 15시간 39분 28초", "choice":false},
+                    {"level":2, "food":49239000, "oil":49239000, "item":200, "core":20, "time":"28일 21시간 52분 48초", "choice":false},
+                    {"level":3, "food":59239000, "oil":59239000, "item":300, "core":150, "time":"42일 19시간 12분 48초", "choice":false}
+                ]
+            }
+        ]
+    },
+    {
+        "row":15, 
+        "items":[
+            {
+                "col":1, 
+                "name":"불굴의 정신", 
+                "upgrades":[
+                    {"level":1, "food":39239000, "oil":39239000, "item":100, "core":300, "time":"19일 15시간 39분 28초", "choice":false},
+                    {"level":2, "food":49239000, "oil":49239000, "item":150, "core":400, "time":"28일 21시간 52분 48초", "choice":false},
+                    {"level":3, "food":59239000, "oil":59239000, "item":200, "core":500, "time":"38일 04시간 06분 08초", "choice":false},
+                    {"level":4, "food":69239000, "oil":69239000, "item":250, "core":600, "time":"42일 19시간 12분 48초", "choice":false},
+                    {"level":5, "food":79239000, "oil":79239000, "item":300, "core":800, "time":"47일 10시간 19분 28초", "choice":false}
+                ]
+            },
+            {
+                "col":2, 
+                "name":"투혼", 
+                "upgrades":[
+                    {"level":1, "food":39239000, "oil":39239000, "item":100, "core":300, "time":"19일 15시간 39분 28초", "choice":false},
+                    {"level":2, "food":49239000, "oil":49239000, "item":150, "core":400, "time":"28일 21시간 52분 48초", "choice":false},
+                    {"level":3, "food":59239000, "oil":59239000, "item":200, "core":500, "time":"38일 04시간 06분 08초", "choice":false},
+                    {"level":4, "food":69239000, "oil":69239000, "item":250, "core":600, "time":"42일 19시간 12분 48초", "choice":false},
+                    {"level":5, "food":79239000, "oil":79239000, "item":300, "core":800, "time":"47일 10시간 19분 28초", "choice":false}
+                ]
+            },
+            {
+                "col":3, 
+                "name":"장갑 강화", 
+                "upgrades":[
+                    {"level":1, "food":39239000, "oil":39239000, "item":100, "core":300, "time":"19일 15시간 39분 28초", "choice":false},
+                    {"level":2, "food":49239000, "oil":49239000, "item":150, "core":400, "time":"28일 21시간 52분 48초", "choice":false},
+                    {"level":3, "food":59239000, "oil":59239000, "item":200, "core":500, "time":"38일 04시간 06분 08초", "choice":false},
+                    {"level":4, "food":69239000, "oil":69239000, "item":250, "core":600, "time":"42일 19시간 12분 48초", "choice":false},
+                    {"level":5, "food":79239000, "oil":79239000, "item":300, "core":800, "time":"47일 10시간 19분 28초", "choice":false}
+                ]
+            }
+        ]
+    },
+    {
+        "row":16, 
+        "items":[
+            {
+                "col":1, 
+                "name":"전쟁의 맹수", 
+                "upgrades":[
+                    {"level":1, "food":89239000, "oil":89239000, "item":500, "core":1000, "time":"52일 01시간 26분 08초", "choice":false}
                 ]
             }
         ]
