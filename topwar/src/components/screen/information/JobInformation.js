@@ -9,14 +9,17 @@ function JobInformation() {
     const numberFormat = useCallback(n=>{
         return Intl.NumberFormat('en-US', {
             notation: "compact",
-            maximumFractionDigits: 2
+            maximumFractionDigits: 3
         }).format(n);
     }, []);
 
-    useEffect(()=>{
+    const clearSelectedItem = ()=>{
+        console.log(window);
         setDisplay([]);
         setJobData(JobDataJson);
-    }, [job])
+    };
+
+    useEffect(clearSelectedItem, [job]);
 
     //항목 체크 이벤트
     const checkItem = (r, c) => {
@@ -170,7 +173,7 @@ function JobInformation() {
             <div className="row mt-4">
                 
                 {/* 스킬트리 */}
-                <div className="col-sm-4">
+                <div className="col-sm-4 skill-tree">
                     <div className="row">
                         {jobData.map(r=>(
                             <div className="col-12" key={r.row}>
@@ -193,10 +196,11 @@ function JobInformation() {
                 </div>
 
                 {/* 스킬상세 */}
-                <div className="col-sm-8">
+                <div className={`col-sm-8 skill-detail ${display.length > 0 ? 'active' : ''}`} onClick={clearSelectedItem}>
+                    <span className="advice"></span>
                     {display.length > 0 ? 
                         display.map((d, i)=>
-                        <div className="box p-3" key={i}>
+                        <div className="box p-3 mb-2" key={i} onClick={e=>e.stopPropagation()}>
                             
                             <h3>
                                 <img src={`${process.env.PUBLIC_URL}/images/job/${job}-${d.row}-${d.col}.png`} width={50} height={50}/>

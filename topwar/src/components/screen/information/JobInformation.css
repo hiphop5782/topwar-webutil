@@ -39,3 +39,49 @@
 .table {
     font-size: 14px;
 }
+
+.skill-detail {
+    position: relative;
+}
+.skill-detail > .advice {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    color: var(--bs-secondary);
+    animation: blink 0.4s ease-in-out alternate infinite;
+}
+.skill-detail > .advice::after {
+    content: "초기화하려면 클릭하세요";
+}
+@keyframes blink {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width:576px){
+    .skill-detail {
+        display: none;
+        position: fixed;   
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        padding: 150px 3%;
+        background-color: white;
+    }
+    .skill-detail.active {
+        display: block;
+    }
+    .skill-detail > .advice {
+        top: 125px;
+    }
+    .skill-detail > .advice::after {
+        content: "바깥쪽을 클릭하여 닫기";
+    }
+}
+
