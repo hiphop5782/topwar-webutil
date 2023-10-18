@@ -87,12 +87,13 @@ function JobInformation() {
                                 oil:sum.oil + cur.oil,
                                 food:sum.food + cur.food,
                                 item:sum.item + cur.item,
+                                core:sum.core + (cur.core || 0),
                                 time:plusTime(sum.time, cur.time)
                             };
                         }
                         return {...sum};
                     }, {
-                        oil:0, food:0, item:0, time:"0일 0시간 0분 0초"
+                        oil:0, food:0, item:0, core:0, time:"0일 0시간 0분 0초"
                     })
                 };
             }
@@ -124,12 +125,13 @@ function JobInformation() {
                                 oil:sum.oil + cur.oil,
                                 food:sum.food + cur.food,
                                 item:sum.item + cur.item,
+                                core:sum.core + (cur.core || 0),
                                 time:plusTime(sum.time, cur.time)
                             };
                         }
                         return {...sum};
                     }, {
-                        oil:0, food:0, item:0, time:"0일 0시간 0분 0초"
+                        oil:0, food:0, item:0, core:0, time:"0일 0시간 0분 0초"
                     })
                 };
             }
@@ -209,6 +211,10 @@ function JobInformation() {
                                         <th className="text-center">레벨</th>
                                         <th>석유</th>
                                         <th>식량</th>
+                                        <th>직상</th>
+                                        {d.upgrades[0]["core"] !== undefined ? 
+                                        <th>코어</th>
+                                        : false}
                                         <th>시간</th>
                                     </tr>
                                 </thead>
@@ -221,14 +227,22 @@ function JobInformation() {
                                             <td className="text-center">{item.level}</td>
                                             <td>{numberFormat(item.oil)}</td>
                                             <td>{numberFormat(item.food)}</td>
+                                            <td>{numberFormat(item.item)}</td>
+                                            {item["core"] !== undefined ? 
+                                            <td>{numberFormat(item.core)}</td>
+                                            : false}
                                             <td>{item.time}</td>
                                         </tr>
                                     ))}
-                                    {!d.subtotal === false? 
+                                    {!d.subtotal === false && d.subtotal.oil > 0? 
                                         <tr>
                                             <td colSpan={2} className="text-center">합계</td>
                                             <td>{numberFormat(d.subtotal.oil)}</td>
                                             <td>{numberFormat(d.subtotal.food)}</td>
+                                            <td>{numberFormat(d.subtotal.item)}</td>
+                                            {d.subtotal["core"] !== undefined && d.subtotal.core > 0 ? 
+                                            <td>{numberFormat(d.subtotal.core)}</td>
+                                            : false}
                                             <td>{d.subtotal.time}</td>
                                         </tr>
                                     : false}

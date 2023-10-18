@@ -29,7 +29,9 @@
                     {"level":3, "food":6680000, "oil":6680000, "item":4, "time":"5일 05시간 22분 58초", "choice":false},
                     {"level":4, "food":10000000, "oil":10000000, "item":5, "time":"6일 06시간 27분 34초", "choice":false},
                     {"level":5, "food":15000000, "oil":15000000, "item":6, "time":"11일 05시간 18분 25초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             },
             {
                 "col":2, 
@@ -40,7 +42,9 @@
                     {"level":3, "food":6680000, "oil":6680000, "item":4, "time":"5일 05시간 22분 58초", "choice":false},
                     {"level":4, "food":10000000, "oil":10000000, "item":5, "time":"6일 06시간 27분 34초", "choice":false},
                     {"level":5, "food":15000000, "oil":15000000, "item":6, "time":"11일 05시간 18분 25초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             },
             {
                 "col":3, 
@@ -51,7 +55,9 @@
                     {"level":3, "food":6680000, "oil":6680000, "item":4, "time":"5일 05시간 22분 58초", "choice":false},
                     {"level":4, "food":10000000, "oil":10000000, "item":5, "time":"6일 06시간 27분 34초", "choice":false},
                     {"level":5, "food":15000000, "oil":15000000, "item":6, "time":"11일 05시간 18분 25초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             }
         ]
     },
@@ -67,7 +73,9 @@
                     {"level":3, "food":6680000, "oil":6680000, "item":8, "time":"5일 05시간 22분 58초", "choice":false},
                     {"level":4, "food":10000000, "oil":10000000, "item":10, "time":"6일 06시간 27분 34초", "choice":false},
                     {"level":5, "food":15000000, "oil":15000000, "item":15, "time":"11일 05시간 18분 25초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             }
         ]
     },
@@ -81,7 +89,9 @@
                     {"level":1, "food":2970000, "oil":2970000, "item":8, "time":"3일 15시간 04분 17초", "choice":false},
                     {"level":2, "food":4450000, "oil":4450000, "item":10, "time":"4일 08시간 29분 09초", "choice":false},
                     {"level":3, "food":6680000, "oil":6680000, "item":15, "time":"5일 05시간 22분 58초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             },
             {
                 "col":2, 
@@ -90,7 +100,9 @@
                     {"level":1, "food":3400000, "oil":3400000, "item":8, "time":"3일 15시간 04분 17초", "choice":false},
                     {"level":2, "food":5100000, "oil":5100000, "item":10, "time":"4일 08시간 29분 09초", "choice":false},
                     {"level":3, "food":7650000, "oil":7650000, "item":15, "time":"5일 05시간 22분 58초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             },
             {
                 "col":3, 
@@ -99,7 +111,9 @@
                     {"level":1, "food":2970000, "oil":2970000, "item":8, "time":"3일 15시간 04분 17초", "choice":false},
                     {"level":2, "food":4450000, "oil":4450000, "item":10, "time":"4일 08시간 29분 09초", "choice":false},
                     {"level":3, "food":6680000, "oil":6680000, "item":15, "time":"5일 05시간 22분 58초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             }
         ]
     },
@@ -113,7 +127,9 @@
                     {"level":1, "food":7650000, "oil":7650000, "item":10, "time":"10일 19시간 59분 38초", "choice":false},
                     {"level":2, "food":11500000, "oil":11500000, "item":15, "time":"12일 10시간 30분 41초", "choice":false},
                     {"level":3, "food":17200000, "oil":17200000, "item":20, "time":"14일 02시간 13분 58초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             },
             {
                 "col":2, 
@@ -124,7 +140,9 @@
                     {"level":3, "food":17200000, "oil":17200000, "item":30, "time":"5일 05시간 22분 58초", "choice":false},
                     {"level":4, "food":24100000, "oil":24100000, "item":35, "time":"6일 06시간 27분 34초", "choice":false},
                     {"level":5, "food":33700000, "oil":33700000, "item":40, "time":"11일 05시간 18분 25초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             },
             {
                 "col":3, 
@@ -133,7 +151,9 @@
                     {"level":1, "food":7650000, "oil":7650000, "item":10, "time":"10일 19시간 59분 38초", "choice":false},
                     {"level":2, "food":11500000, "oil":11500000, "item":15, "time":"12일 10시간 30분 41초", "choice":false},
                     {"level":3, "food":17200000, "oil":17200000, "item":20, "time":"14일 02시간 13분 58초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             }
         ]
     },
@@ -149,7 +169,9 @@
                     {"level":3, "food":19400000, "oil":19400000, "item":40, "time":"10일 19시간 59분 38초", "choice":false},
                     {"level":4, "food":27200000, "oil":27200000, "item":45, "time":"12일 10시간 30분 41초", "choice":false},
                     {"level":5, "food":38000000, "oil":38000000, "item":50, "time":"14일 02시간 13분 58초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             },
             {
                 "col":2, 
@@ -171,7 +193,9 @@
                     {"level":3, "food":19400000, "oil":19400000, "item":40, "time":"10일 19시간 59분 38초", "choice":false},
                     {"level":4, "food":27200000, "oil":27200000, "item":45, "time":"12일 10시간 30분 41초", "choice":false},
                     {"level":5, "food":38000000, "oil":38000000, "item":50, "time":"14일 02시간 13분 58초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             }
         ]
     },
@@ -183,7 +207,9 @@
                 "name":"전면전", 
                 "upgrades":[
                     {"level":1, "food":59200000, "oil":59200000, "item":300, "time":"16일 04시간 36분 35초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             }
         ]
     },
@@ -196,7 +222,9 @@
                 "upgrades":[
                     {"level":1, "food":9590000, "oil":9590000, "item":30, "time":"7일 13시간 59분 45초", "choice":false},
                     {"level":2, "food":14400000, "oil":14400000, "item":40, "time":"8일 16시간 57분 29초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             },
             {
                 "col":2, 
@@ -212,7 +240,9 @@
                     {"level":8, "food":64300000, "oil":64300000, "item":50, "time":"15일 20시간 50분 16초", "choice":false},
                     {"level":9, "food":72400000, "oil":72400000, "item":50, "time":"15일 20시간 50분 16초", "choice":false},
                     {"level":10, "food":80500000, "oil":80500000, "item":50, "time":"15일 20시간 50분 16초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             },
             {
                 "col":3, 
@@ -220,7 +250,9 @@
                 "upgrades":[
                     {"level":1, "food":9590000, "oil":9590000, "item":30, "time":"7일 13시간 59분 45초", "choice":false},
                     {"level":2, "food":14400000, "oil":14400000, "item":40, "time":"8일 16시간 57분 29초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             }
         ]
     },
@@ -236,7 +268,9 @@
                     {"level":3, "food":21600000, "oil":21600000, "item":60, "time":"9일 20시간 45분 47초", "choice":false},
                     {"level":4, "food":30200000, "oil":30200000, "item":65, "time":"11일 08시간 01분 37초", "choice":false},
                     {"level":5, "food":42300000, "oil":42300000, "item":70, "time":"11일 08시간 01분 37초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             }
         ]
     },
@@ -250,7 +284,9 @@
                     {"level":1, "food":42900000, "oil":42900000, "item":60, "time":"10일 16시간 48분 11초", "choice":false},
                     {"level":2, "food":60100000, "oil":60100000, "item":80, "time":"14일 23시간 31분 28초", "choice":false},
                     {"level":3, "food":84100000, "oil":84100000, "item":100, "time":"20일 23시간 20분 03초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             },
             {
                 "col":2, 
@@ -259,7 +295,9 @@
                     {"level":1, "food":42900000, "oil":42900000, "item":60, "time":"10일 16시간 48분 11초", "choice":false},
                     {"level":2, "food":60100000, "oil":60100000, "item":80, "time":"14일 23시간 31분 28초", "choice":false},
                     {"level":3, "food":84100000, "oil":84100000, "item":100, "time":"20일 23시간 20분 03초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             },
             {
                 "col":3, 
@@ -268,7 +306,9 @@
                     {"level":1, "food":42900000, "oil":42900000, "item":60, "time":"10일 16시간 48분 11초", "choice":false},
                     {"level":2, "food":60100000, "oil":60100000, "item":80, "time":"14일 23시간 31분 28초", "choice":false},
                     {"level":3, "food":84100000, "oil":84100000, "item":100, "time":"20일 23시간 20분 03초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             }
         ]
     },
@@ -280,7 +320,9 @@
                 "name":"스킬 슬롯+1", 
                 "upgrades":[
                     {"level":1, "food":59200000, "oil":59200000, "item":500, "time":"11일 08시간 01분 37초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             }
         ]
     },
@@ -296,7 +338,9 @@
                     {"level":3, "food":21600000, "oil":21600000, "item":100, "time":"9일 20시간 45분 47초", "choice":false},
                     {"level":4, "food":30200000, "oil":30200000, "item":110, "time":"11일 08시간 01분 37초", "choice":false},
                     {"level":5, "food":42300000, "oil":42300000, "item":120, "time":"11일 08시간 01분 37초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             },
             {
                 "col":2, 
@@ -312,7 +356,9 @@
                     {"level":8, "food":42000000, "oil":42000000, "item":100, "time":"11일 05시간 18분 25초", "choice":false},
                     {"level":9, "food":42000000, "oil":42000000, "item":100, "time":"11일 05시간 18분 25초", "choice":false},
                     {"level":10, "food":42000000, "oil":42000000, "item":100, "time":"11일 05시간 18분 25초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             },
             {
                 "col":3, 
@@ -323,7 +369,9 @@
                     {"level":3, "food":21600000, "oil":21600000, "item":100, "time":"9일 20시간 45분 47초", "choice":false},
                     {"level":4, "food":30200000, "oil":30200000, "item":110, "time":"11일 08시간 01분 37초", "choice":false},
                     {"level":5, "food":42300000, "oil":42300000, "item":120, "time":"11일 08시간 01분 37초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             }
         ]
     },
@@ -339,14 +387,18 @@
                     {"level":3, "food":21600000, "oil":21600000, "item":120, "time":"9일 20시간 45분 47초", "choice":false},
                     {"level":4, "food":30200000, "oil":30200000, "item":140, "time":"11일 08시간 01분 37초", "choice":false},
                     {"level":5, "food":42300000, "oil":42300000, "item":160, "time":"11일 08시간 01분 37초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             },
             {
                 "col":2, 
                 "name":"포위 전술", 
                 "upgrades":[
                     {"level":1, "food":59200000, "oil":59200000, "item":500, "time":"20일 23시간 20분 05초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             },
             {
                 "col":3, 
@@ -357,7 +409,9 @@
                     {"level":3, "food":21600000, "oil":21600000, "item":120, "time":"9일 20시간 45분 47초", "choice":false},
                     {"level":4, "food":30200000, "oil":30200000, "item":140, "time":"11일 08시간 01분 37초", "choice":false},
                     {"level":5, "food":42300000, "oil":42300000, "item":160, "time":"11일 08시간 01분 37초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             }
         ]
     },
@@ -371,7 +425,9 @@
                     {"level":1, "food":39239000, "oil":39239000, "item":100, "core":0, "time":"19일 15시간 39분 28초", "choice":false},
                     {"level":2, "food":49239000, "oil":49239000, "item":200, "core":20, "time":"28일 21시간 52분 48초", "choice":false},
                     {"level":3, "food":59239000, "oil":59239000, "item":300, "core":150, "time":"42일 19시간 12분 48초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             }
         ]
     },
@@ -387,7 +443,9 @@
                     {"level":3, "food":59239000, "oil":59239000, "item":200, "core":500, "time":"38일 04시간 06분 08초", "choice":false},
                     {"level":4, "food":69239000, "oil":69239000, "item":250, "core":600, "time":"42일 19시간 12분 48초", "choice":false},
                     {"level":5, "food":79239000, "oil":79239000, "item":300, "core":800, "time":"47일 10시간 19분 28초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             },
             {
                 "col":2, 
@@ -398,7 +456,9 @@
                     {"level":3, "food":59239000, "oil":59239000, "item":200, "core":500, "time":"38일 04시간 06분 08초", "choice":false},
                     {"level":4, "food":69239000, "oil":69239000, "item":250, "core":600, "time":"42일 19시간 12분 48초", "choice":false},
                     {"level":5, "food":79239000, "oil":79239000, "item":300, "core":800, "time":"47일 10시간 19분 28초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             },
             {
                 "col":3, 
@@ -409,7 +469,9 @@
                     {"level":3, "food":59239000, "oil":59239000, "item":200, "core":500, "time":"38일 04시간 06분 08초", "choice":false},
                     {"level":4, "food":69239000, "oil":69239000, "item":250, "core":600, "time":"42일 19시간 12분 48초", "choice":false},
                     {"level":5, "food":79239000, "oil":79239000, "item":300, "core":800, "time":"47일 10시간 19분 28초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             }
         ]
     },
@@ -421,7 +483,9 @@
                 "name":"전쟁의 맹수", 
                 "upgrades":[
                     {"level":1, "food":89239000, "oil":89239000, "item":500, "core":1000, "time":"52일 01시간 26분 08초", "choice":false}
-                ]
+                ],
+                "allCheck":false,
+                "subtotal":null
             }
         ]
     }
