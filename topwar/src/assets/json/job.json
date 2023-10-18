@@ -10,11 +10,10 @@
                     {"level":2, "food":4450000, "oil":4450000, "item":2, "time":"4일 08시간 29분 09초", "choice":false},
                     {"level":3, "food":6680000, "oil":6680000, "item":3, "time":"5일 05시간 22분 58초", "choice":false},
                     {"level":4, "food":10000000, "oil":10000000, "item":4, "time":"6일 06시간 27분 34초", "choice":false},
-                    {"level":5, "food":15000000, "oil":15000000, "item":5, "time":"11일 05시간 18분 25초", "choice":false}
+                    {"level":5, "food":15000000, "oil":15000000, "item":5, "time":"7일 12시간 33분 05초", "choice":false}
                 ],
-                "subtotal":{
-                    "food":0, "oil":0, "item":0, "time":""
-                }
+                "allCheck":false,
+                "subtotal":null
             }
         ]
     },

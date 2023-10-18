@@ -29,7 +29,7 @@ function JobInformation() {
                     ...rowItem, 
                     items:rowItem.items.map(colItem=>{
                         if(colItem.col === c.col) {
-                            return {...colItem, choice:!colItem.choice};
+                            return {...colItem, choice:!c.choice};
                         }
                         return colItem;
                     })
@@ -39,16 +39,97 @@ function JobInformation() {
         }));
     };
 
-    const checkUpgrades = (dis, item, checked)=>{
+    //시간 더하기
+    const plusTime = (a, b)=>{
+        const arr = a.match(/\d+/g);
+        const brr = b.match(/\d+/g);
+        const crr = arr.map((a,i)=>parseInt(a)+parseInt(brr[i]));
+        const size = [0, 24, 60, 60];
+        for(let i=crr.length-1; i > 0; i--) {
+            const div = parseInt(crr[i] / size[i]);
+            const mod = parseInt(crr[i] % size[i]);
+            crr[i] = mod;
+            crr[i-1] += div;
+        }
+        return `${crr[0]}일 ${crr[1]}시간 ${crr[2]}분 ${crr[3]}초`;
+    };
+
+    //업그레이드 체크 이벤트
+    const checkUpgrades = (dis, upgrade, checked)=>{
         setDisplay(prev=>prev.map(p=>{
             if(p.row === dis.row && p.col === dis.col) {
                 return {
                     ...p, 
                     upgrades:p.upgrades.map(u=>{
-                        return {
-                            ...u, 
-                            choice:checked
-                        };
+                        if(u.level == upgrade.level) {
+                            return {
+                                ...u, 
+                                choice:checked,
+                            };
+                        }
+                        return {...u};
+                    })
+                };
+            }
+            return p;
+        }));
+        
+        setDisplay(prev=>prev.map(p=>{
+            if(p.row === dis.row && p.col === dis.col) {
+                return {
+                    ...p, 
+                    allCheck:p.upgrades.reduce((sum,n) => {
+                        return sum && (n.level ===upgrade.level ? checked : n.choice);
+                    }, true),
+                    subtotal:p.upgrades.reduce((sum, cur)=>{
+                        if(cur.choice) {
+                            return {
+                                oil:sum.oil + cur.oil,
+                                food:sum.food + cur.food,
+                                item:sum.item + cur.item,
+                                time:plusTime(sum.time, cur.time)
+                            };
+                        }
+                        return {...sum};
+                    }, {
+                        oil:0, food:0, item:0, time:"0일 0시간 0분 0초"
+                    })
+                };
+            }
+            return p;
+        }));
+    };
+
+    //전체선택
+    const allCheck = (d, checked)=>{
+        setDisplay(prev=>prev.map(display=>{
+            if(display.row === d.row && display.col === d.col) {
+                return {
+                    ...display, 
+                    allCheck: checked,
+                    upgrades:display.upgrades.map(u=>{
+                        return {...u, choice:checked};
+                    })
+                };
+            }
+            return display;
+        }));
+        setDisplay(prev=>prev.map(p=>{
+            if(p.row === d.row && p.col === d.col) {
+                return {
+                    ...p, 
+                    subtotal:p.upgrades.reduce((sum, cur)=>{
+                        if(cur.choice) {
+                            return {
+                                oil:sum.oil + cur.oil,
+                                food:sum.food + cur.food,
+                                item:sum.item + cur.item,
+                                time:plusTime(sum.time, cur.time)
+                            };
+                        }
+                        return {...sum};
+                    }, {
+                        oil:0, food:0, item:0, time:"0일 0시간 0분 0초"
                     })
                 };
             }
@@ -122,10 +203,10 @@ function JobInformation() {
                             </h3>
 
                             <table className="table table-striped">
-                                <thead className="text-center">
+                                <thead className="text-end">
                                     <tr>
-                                        <th></th>
-                                        <th>레벨</th>
+                                        <th className="text-center"><input type="checkbox" checked={d.allCheck} onChange={e=>allCheck(d, e.target.checked)}/></th>
+                                        <th className="text-center">레벨</th>
                                         <th>석유</th>
                                         <th>식량</th>
                                         <th>시간</th>
@@ -134,8 +215,8 @@ function JobInformation() {
                                 <tbody className="text-end">
                                     {d.upgrades.map((item, index)=>(
                                         <tr key={index}>
-                                            <td>
-                                                <input type="checkbox" defaultChecked={item.choice} onChange={e=>checkUpgrades(d, item, e.target.checked)}/>
+                                            <td className="text-center">
+                                                <input type="checkbox" checked={item.choice} onChange={e=>checkUpgrades(d, item, e.target.checked)}/>
                                             </td>
                                             <td className="text-center">{item.level}</td>
                                             <td>{numberFormat(item.oil)}</td>
@@ -143,6 +224,14 @@ function JobInformation() {
                                             <td>{item.time}</td>
                                         </tr>
                                     ))}
+                                    {!d.subtotal === false? 
+                                        <tr>
+                                            <td colSpan={2} className="text-center">합계</td>
+                                            <td>{numberFormat(d.subtotal.oil)}</td>
+                                            <td>{numberFormat(d.subtotal.food)}</td>
+                                            <td>{d.subtotal.time}</td>
+                                        </tr>
+                                    : false}
                                 </tbody>
                             </table>
                         </div> )
