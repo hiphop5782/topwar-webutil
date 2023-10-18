@@ -196,6 +196,7 @@ function JobInformation() {
                 </div>
 
                 {/* 스킬상세 */}
+                {display.length > 0 ? 
                 <div className={`col-sm-8 skill-detail ${display.length > 0 ? 'active' : ''}`} onClick={clearSelectedItem}>
                     <span className="advice"></span>
                     {display.length > 0 ? 
@@ -255,6 +256,7 @@ function JobInformation() {
                         </div> )
                     : false}
                 </div>
+                : false}
             </div>
         </>
 
