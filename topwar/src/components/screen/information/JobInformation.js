@@ -218,7 +218,7 @@ function JobInformation() {
                             <table className="table table-striped">
                                 <thead className="text-end">
                                     <tr>
-                                        <th className="text-center"><input type="checkbox" checked={d.allCheck} onChange={e=>allCheck(d, e.target.checked)}/></th>
+                                        <th className="text-center pc-only"><input type="checkbox" checked={d.allCheck} onChange={e=>allCheck(d, e.target.checked)}/></th>
                                         <th className="text-center">레벨</th>
                                         <th>석유</th>
                                         <th>식량</th>
@@ -231,8 +231,8 @@ function JobInformation() {
                                 </thead>
                                 <tbody className="text-end">
                                     {d.upgrades.map((item, index)=>(
-                                        <tr key={index}>
-                                            <td className="text-center">
+                                        <tr key={index}  onClick={e=>checkUpgrades(d, item, !item.choice)} className={`${item.choice ? 'table-dark text-light' : ''}`}>
+                                            <td className="text-center pc-only">
                                                 <input type="checkbox" checked={item.choice} onChange={e=>checkUpgrades(d, item, e.target.checked)}/>
                                             </td>
                                             <td className="text-center">{item.level}</td>
@@ -247,7 +247,8 @@ function JobInformation() {
                                     ))}
                                     {!d.subtotal === false && d.subtotal.oil > 0? 
                                         <tr>
-                                            <td colSpan={2} className="text-center">합계</td>
+                                            <td className="pc-only"></td>
+                                            <td className="text-center">합계</td>
                                             <td>{numberFormat(d.subtotal.oil)}</td>
                                             <td>{numberFormat(d.subtotal.food)}</td>
                                             <td>{numberWithCommas(d.subtotal.item)}</td>
