@@ -1,10 +1,11 @@
-import BannerImage from "../../assets/images/topwar-helper-banner.png";
+import BannerImage from "@src/assets/images/topwar-helper-banner.jpg";
+import "./Home.css";
 
 function Home() {
     return (
         <div className="row text-center">
             <div className="col">
-                <img src={BannerImage} alt="배너" style={{maxWidth:1000, maxHeight:300, width:"100%"}}/>
+                <img className="main-banner" src={BannerImage} alt="배너"/>
             </div>
         </div>
     );

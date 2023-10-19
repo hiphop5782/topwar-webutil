@@ -1,0 +1,5 @@
+.main-banner {
+    object-fit: scale-down;
+    width: 100%;
+    max-height: 700px;
+}

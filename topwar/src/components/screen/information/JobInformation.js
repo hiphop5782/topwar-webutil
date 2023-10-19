@@ -161,12 +161,12 @@ function JobInformation() {
                             전투 정예 <span className="text-muted">(Combat Elite)</span>
                         </label>
                     </div>
-                    {/* <div className="form-check">
+                    <div className="form-check">
                         <input className="form-check-input" type="radio" name="job" id="radio2" value="MM" onChange={e=>setJob(e.target.value)}/>
                         <label className="form-check-label" htmlFor="radio2">
                             기계 전문가 <span className="text-muted">(Mechanic Master)</span>
                         </label>
-                    </div> */}
+                    </div>
                 </div>
             </div>
 
@@ -206,8 +206,10 @@ function JobInformation() {
                             <h3>
                                 <img src={`${process.env.PUBLIC_URL}/images/job/${job}-${d.row}-${d.col}.png`} width={50} height={50}/>
                                 &nbsp;&nbsp;
-                                {d.name}
+                                {d.name[job]}
                             </h3>
+                            
+                            <p className="ps-5"><span className="text-muted ms-4">{d.explain[job]}</span></p>
 
                             <table className="table table-striped">
                                 <thead className="text-end">
