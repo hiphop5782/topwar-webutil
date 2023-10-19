@@ -142,6 +142,10 @@ function JobInformation() {
         }));
     };
 
+    const numberWithCommas = useCallback((x)=>{
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }, []);
+
     return (
         <>
             <div className="row">
@@ -222,7 +226,7 @@ function JobInformation() {
                                         {d.upgrades[0]["core"] !== undefined ? 
                                         <th>코어</th>
                                         : false}
-                                        <th>시간</th>
+                                        <th className="pc-only">시간</th>
                                     </tr>
                                 </thead>
                                 <tbody className="text-end">
@@ -234,11 +238,11 @@ function JobInformation() {
                                             <td className="text-center">{item.level}</td>
                                             <td>{numberFormat(item.oil)}</td>
                                             <td>{numberFormat(item.food)}</td>
-                                            <td>{numberFormat(item.item)}</td>
+                                            <td>{numberWithCommas(item.item)}</td>
                                             {item["core"] !== undefined ? 
-                                            <td>{numberFormat(item.core)}</td>
+                                            <td>{numberWithCommas(item.core)}</td>
                                             : false}
-                                            <td>{item.time}</td>
+                                            <td className="pc-only">{item.time}</td>
                                         </tr>
                                     ))}
                                     {!d.subtotal === false && d.subtotal.oil > 0? 
@@ -246,11 +250,11 @@ function JobInformation() {
                                             <td colSpan={2} className="text-center">합계</td>
                                             <td>{numberFormat(d.subtotal.oil)}</td>
                                             <td>{numberFormat(d.subtotal.food)}</td>
-                                            <td>{numberFormat(d.subtotal.item)}</td>
+                                            <td>{numberWithCommas(d.subtotal.item)}</td>
                                             {d.subtotal["core"] !== undefined && d.subtotal.core > 0 ? 
-                                            <td>{numberFormat(d.subtotal.core)}</td>
+                                            <td>{numberWithCommas(d.subtotal.core)}</td>
                                             : false}
-                                            <td>{d.subtotal.time}</td>
+                                            <td className="pc-only">{d.subtotal.time}</td>
                                         </tr>
                                     : false}
                                 </tbody>

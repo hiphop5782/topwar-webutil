@@ -88,5 +88,8 @@
     .skill-detail > .advice::after {
         content: "바깥쪽을 클릭하여 닫기";
     }
+    .pc-only {
+        display: none;
+    }
 }
 
