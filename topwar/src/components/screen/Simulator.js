@@ -68,6 +68,7 @@ function Simulator() {
         window.self.crypto.getRandomValues(array);
         const result = array.map(n=>n%1000000);
 
+        setHistory([]);
         result.forEach((res,idx)=>{
             for(let i=0; i < copyList.length; i++) {
                 const copyItem = copyList[i];

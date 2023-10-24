@@ -3,3 +3,50 @@
     width: 100%;
     max-height: 700px;
 }
+
+.random-box {
+    opacity: 0.75;
+    cursor: pointer;
+}
+.random-box:hover {
+    opacity: 1;
+}
+
+.reward-wrapper > .reward-item {
+    transition: margin 0.25s ease-out;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 1px black;
+}
+.reward-wrapper > .reward-item:nth-child(1):not(.finish){
+    margin-bottom: -750px;
+    width: 10px;
+    height: 10px;
+}
+.reward-wrapper > .reward-item:nth-child(2):not(.finish){
+    margin-bottom: -750px;
+    margin-left: -120px;
+    width: 10px;
+    height: 10px;
+}
+.reward-wrapper > .reward-item:nth-child(3):not(.finish){
+    margin-bottom: -750px;
+    margin-left: -120px;
+    width: 10px;
+    height: 10px;
+}
+.reward-wrapper > .reward-item:nth-child(4):not(.finish){
+    margin-bottom: -750px;
+    margin-left: -120px;
+    width: 10px;
+    height: 10px;
+}
+.reward-wrapper > .reward-item:nth-child(5):not(.finish){
+    margin-bottom: -750px;
+    margin-left: -120px;
+    width: 10px;
+    height: 10px;
+}
