@@ -7,46 +7,39 @@
 .random-box {
     opacity: 0.75;
     cursor: pointer;
+    width:100%;
+    max-width: 500px;
 }
 .random-box:hover {
     opacity: 1;
 }
 
+.reward-wrapper {
+    white-space: nowrap;
+}
 .reward-wrapper > .reward-item {
-    transition: margin 0.25s ease-out;
+    transition-property: transform, opacity;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out;
     position: relative;
-    width: 100px;
-    height: 100px;
-    margin: 0px 20px;
+    max-width: 100px;
+    max-height: 100px;
+    width: 23vw;
+    height: 23vw;
+    margin: 0px 10px;
     border-radius: 10px;
     box-shadow: 0 0 10px 1px black;
+    opacity: 1;
 }
 .reward-wrapper > .reward-item:nth-child(1):not(.finish){
-    margin-bottom: -750px;
-    width: 10px;
-    height: 10px;
+    transform: translate(0%, 300%);
+    opacity: 0;
 }
 .reward-wrapper > .reward-item:nth-child(2):not(.finish){
-    margin-bottom: -750px;
-    margin-left: -120px;
-    width: 10px;
-    height: 10px;
+    transform: translate(0%, 300%);
+    opacity: 0;
 }
 .reward-wrapper > .reward-item:nth-child(3):not(.finish){
-    margin-bottom: -750px;
-    margin-left: -120px;
-    width: 10px;
-    height: 10px;
-}
-.reward-wrapper > .reward-item:nth-child(4):not(.finish){
-    margin-bottom: -750px;
-    margin-left: -120px;
-    width: 10px;
-    height: 10px;
-}
-.reward-wrapper > .reward-item:nth-child(5):not(.finish){
-    margin-bottom: -750px;
-    margin-left: -120px;
-    width: 10px;
-    height: 10px;
+    transform: translate(0%, 300%);
+    opacity: 0;
 }
