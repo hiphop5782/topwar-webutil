@@ -31,15 +31,13 @@
     box-shadow: 0 0 10px 1px black;
     opacity: 1;
 }
-.reward-wrapper > .reward-item:nth-child(1):not(.finish){
-    transform: translate(0%, 300%);
-    opacity: 0;
-}
-.reward-wrapper > .reward-item:nth-child(2):not(.finish){
-    transform: translate(0%, 300%);
-    opacity: 0;
-}
-.reward-wrapper > .reward-item:nth-child(3):not(.finish){
-    transform: translate(0%, 300%);
+.reward-wrapper > .reward-item:nth-child(2) { transition-delay: 0.25s;}
+.reward-wrapper > .reward-item:nth-child(3) { transition-delay: 0.50s;}
+.reward-wrapper > .reward-item:nth-child(4) { transition-delay: 0.75s;}
+.reward-wrapper > .reward-item:nth-child(5) { transition-delay: 1.00s;}
+.reward-wrapper > .reward-item:not(.finish){
+    /* transform: translate(0%, 300%); */
+    transform: rotateY(180deg);
+    /* transform: translate(0%, 300%) rotateY(180deg); */
     opacity: 0;
 }
