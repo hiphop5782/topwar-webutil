@@ -7,7 +7,7 @@ import { useState } from "react";
 function Home() {
     const [finish, setFinish] = useState(false);
     const [reward, setReward] = useState([]);
-    const [limit] = useState(18);
+    const [limit] = useState(28);
 
     const shuffle = function (array) {
         for (let index = array.length - 1; index > 0; index--) {
