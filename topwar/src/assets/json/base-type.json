@@ -15,8 +15,9 @@
     {"no":14, "value":"2행", "color":"secondary"},
     {"no":15, "value":"3행", "color":"secondary"},
     {"no":16, "value":"크로스", "color":"secondary"},
-    {"no":17, "value":"훈련", "color":"secondary"},
-    {"no":18, "value":"차고", "color":"warning"},
-    {"no":19, "value":"부두", "color":"warning"},
-    {"no":20, "value":"공항", "color":"warning"}
+    {"no":17, "value":"거인", "color":"secondary"},
+    {"no":18, "value":"훈련", "color":"secondary"},
+    {"no":19, "value":"차고", "color":"warning"},
+    {"no":20, "value":"부두", "color":"warning"},
+    {"no":21, "value":"공항", "color":"warning"}
 ]
