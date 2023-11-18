@@ -19,5 +19,6 @@
     {"no":18, "value":"훈련", "color":"secondary"},
     {"no":19, "value":"차고", "color":"warning"},
     {"no":20, "value":"부두", "color":"warning"},
-    {"no":21, "value":"공항", "color":"warning"}
+    {"no":21, "value":"공항", "color":"warning"},
+    {"no":22, "value":"체력", "color":"success"}
 ]

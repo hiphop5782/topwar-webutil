@@ -18,8 +18,11 @@ import GatheringCalculator from '@src/components/screen/calculator/GatheringCalc
 import SkillCalculator from '@src/components/screen/calculator/SkillCalculator';
 import Simulator from '@src/components/screen/Simulator';
 import Developer from '@src/components/screen/Developer';
+import { useRecoilState } from 'recoil';
+import { counterState } from './recoil';
 
 function App() {
+  const [count, setCount] = useRecoilState(counterState);
 
   document.title = "Topwar Helper";
 

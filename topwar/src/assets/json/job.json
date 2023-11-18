@@ -484,6 +484,24 @@
                 ],
                 "allCheck":false,
                 "subtotal":null
+            },
+            {
+                "col":2, 
+                "name":{
+                    "CL":"승리 수확",
+                    "MM":"정제 시설"
+                }, 
+                "explain":{
+                    "CL":"암흑 군단 처치 시 오딘 획득(400/600/800)",
+                    "MM":"필드 오딘 광맥 에 정제 시설 건설 (1/2/3)"
+                }, 
+                "upgrades":[
+                    {"level":1, "food":40000000, "oil":40000000, "item":60, "time":"10일 16시간 48분 11초", "choice":false},
+                    {"level":2, "food":65000000, "oil":65000000, "item":90, "time":"14일 23시간 31분 28초", "choice":false},
+                    {"level":3, "food":90000000, "oil":90000000, "item":120, "time":"20일 13시간 16분 03초", "choice":false}
+                ], 
+                "allCheck":false,
+                "subtotal":null
             }
         ]
     },
