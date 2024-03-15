@@ -24,7 +24,7 @@ function JobInformation() {
     //항목 체크 이벤트
     const checkItem = (r, c) => {
         /* 디자인 이슈로 하나만 표시하기 위해 코드 추가 */
-        setDisplay(prev=>[{...c}]);
+        setDisplay(prev=>[{...c, row:r.row}]);
         setJobData(prev=>prev.map(rowItem=>{
             if(rowItem.row === r.row) {
                 return {
