@@ -20,6 +20,7 @@ import Simulator from '@src/components/screen/Simulator';
 import Developer from '@src/components/screen/Developer';
 import { useRecoilState } from 'recoil';
 import { counterState } from './recoil';
+import HeroInformation from './components/screen/information/HeroInformation';
 
 function App() {
   const [count, setCount] = useRecoilState(counterState);
@@ -35,6 +36,7 @@ function App() {
             <Routes>
               <Route exact path="/" element={<Home />}></Route>
               <Route path="/information/base" element={<BaseInformation/>}></Route>
+              <Route path="/information/hero" element={<HeroInformation/>}></Route>
               <Route path="/information/decor" element={<DecorInformation/>}></Route>
               <Route path="/information/job" element={<JobInformation/>}></Route>
               <Route path="/calculator/vital" element={<VitalCalculator/>}></Route>
