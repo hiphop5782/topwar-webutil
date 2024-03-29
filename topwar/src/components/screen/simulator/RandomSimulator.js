@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 
-function Simulator() {
+function RandomSimulator() {
     //item list
     const [sequence, setSequence] = useState(1);
     const [itemList, setItemList] = useState([]);
@@ -167,4 +167,4 @@ function Simulator() {
     );
 }
 
-export default Simulator;
+export default RandomSimulator;

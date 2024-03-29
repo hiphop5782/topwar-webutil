@@ -1,7 +1,8 @@
 import HeroListJson from "@src/assets/json/hero.json";
 import "./HeroInformation.css"
 import { useCallback, useEffect, useState } from "react";
-import HeroViewer from "../calculator/HeroViewer";
+import HeroViewer from "./HeroViewer";
+import HeroComparator from "./HeroComparator";
 
 function HeroInformation() {
     const [heroList, setHeroList] = useState(HeroListJson);
@@ -69,11 +70,7 @@ function HeroInformation() {
                 </div>
 
                 <div className="col-md-4 text-center">
-                    {firstHero != null && secondHero != null &&
-                        <>
-                            영웅 비교
-                        </>
-                    }
+                    <HeroComparator firstHero={firstHero} secondHero={secondHero}/>
                 </div>
             </div>
         </>
