@@ -42,7 +42,7 @@ function App() {
               <Route path="/calculator/gathering" element={<GatheringCalculator/>}></Route>
               <Route path="/calculator/skill" element={<SkillCalculator/>}></Route>
               <Route path="/simulator/random" element={<RandomSimulator/>}></Route>
-              {/* <Route path="/simulator/hero" element={<HeroSimulator/>}></Route> */}
+              <Route path="/simulator/hero" element={<HeroSimulator/>}></Route>
               <Route path="/developer" element={<Developer/>}></Route>
             </Routes>
           </div>

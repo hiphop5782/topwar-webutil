@@ -35,7 +35,7 @@ function Menu() {
                             <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">시뮬레이터</a>
                             <div className="dropdown-menu">
                                 <NavLink className="nav-link" to="/simulator/random">랜덤추첨기</NavLink>
-                                {/* <NavLink className="nav-link" to="/simulator/hero">슬롯계산기</NavLink> */}
+                                <NavLink className="nav-link" to="/simulator/hero">데미지계산기</NavLink>
                             </div>
                         </li>
                         <li className="nav-item">
