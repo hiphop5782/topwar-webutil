@@ -4,6 +4,7 @@
     font-size: 20px;
     display: flex;
     flex-wrap: wrap;
+    text-align: center;
 }
 .slot-wrapper {
     box-shadow: 0 0 1px 0 black;

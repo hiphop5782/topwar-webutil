@@ -3,16 +3,16 @@
 import HeroListJson from "@src/assets/json/hero-skill.json";
 
 import "./HeroSimulator.css";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 function HeroSimulator() {
     const [heroList, setHeroList] = useState(HeroListJson);
     const [firstHero, setFirstHero] = useState(null);
     const [secondHero, setSecondHero] = useState(null);
     const [thirdHero, setThirdHero] = useState(null);
-    const [firstHeroSkillLevel, setFirstHeroSkillLevel] = useState(1);
-    const [secondHeroSkillLevel, setSecondHeroSkillLevel] = useState(1);
-    const [thirdHeroSkillLevel, setThirdHeroSkillLevel] = useState(1);
+    const [firstHeroSkillLevel, setFirstHeroSkillLevel] = useState(0);
+    const [secondHeroSkillLevel, setSecondHeroSkillLevel] = useState(0);
+    const [thirdHeroSkillLevel, setThirdHeroSkillLevel] = useState(0);
 
     //영웅 선택
     const selectFirstHero = e=>{
@@ -44,6 +44,7 @@ function HeroSimulator() {
         {no:8, type:"army", values:{atk:0, vit:0, dmg:0, red:0, def:0}},
         {no:9, type:"army", values:{atk:0, vit:0, dmg:0, red:0, def:0}}
     ];
+    const skillRate = [3, 6, 10, 15, 21, 27, 34];
 
     const [slotList, setSlotList] = useState([...slotBackup]);
     const [targetSlotList, setTargetSlotList] = useState([...slotBackup]);
@@ -67,64 +68,79 @@ function HeroSimulator() {
     };
     const calculateAttack = ()=>{
         setSlotList(prev=>prev.map((slot, index)=>{
-            let atk = 0;
-            if(firstHero !== null) {
-                atk += firstHero.atk.all;
-                atk += firstHero.atk.slot[index];
-            }
-            if(secondHero !== null) {
-                atk += secondHero.atk.all;
-                atk += secondHero.atk.slot[index];
-            }
-            if(thirdHero !== null) {
-                atk += thirdHero.atk.all;
-                atk += thirdHero.atk.slot[index];
-            }
-            const newSlot = {...slot};
-            newSlot.values.atk = parseFloat(atk.toFixed(2));
-            return newSlot;
+            const atk = calculateHeroAtk(index, [firstHero, secondHero, thirdHero]);
+            return {
+                ...slot, 
+                values:{
+                    ...slot.values, 
+                    atk:atk
+                }
+            };
         }));
     };
     const calculateHp = ()=>{
         setSlotList(prev=>prev.map((slot, index)=>{
-            let vit = 0;
-            if(firstHero !== null) {
-                vit += firstHero.vit.all;
-                vit += firstHero.vit.slot[index];
-            }
-            if(secondHero !== null) {
-                vit += secondHero.vit.all;
-                vit += secondHero.vit.slot[index];
-            }
-            if(thirdHero !== null) {
-                vit += thirdHero.vit.all;
-                vit += thirdHero.vit.slot[index];
-            }
-            const newSlot = {...slot};
-            newSlot.values.vit = parseFloat(vit.toFixed(2));
-            return newSlot;
+            const vit = calculateHeroVit(index, [firstHero, secondHero, thirdHero]);
+            return {
+                ...slot, 
+                values:{
+                    ...slot.values, 
+                    vit:vit
+                }
+            };
         }));
     };
     const calculateDmgIncrease = ()=>{};
     const calculateDmgDecrease = ()=>{};
+
+    const calculateHeroAtk = (index, heros)=>{
+        let atk = 0;
+        for(let i=0; i < heros.length; i++) {
+            const hero = heros[i];
+            if(hero === null) continue;
+            
+            //전체 공격력
+            atk += hero.atk.all || 0;
+            atk += hero.atk.allSlot ? hero.atk.allSlot[index] : 0;
+
+            //군종별 공격력
+        };
+        return atk;
+    };
+    const calculateHeroVit = (index, heros)=>{
+        let vit = 0;
+        for(let i=0; i < heros.length; i++) {
+            const hero = heros[i];
+            if(hero === null) continue;
+            
+            //전체 생명력
+            vit += hero.vit.all || 0;
+            vit += hero.vit.allSlot ? hero.vit.allSlot[index] : 0;
+
+            //군종별 생명력
+        };
+        return vit;
+    };
     
     //이펙트 초기화
     const clearEffect = useCallback(()=>{}, []);
 
-    //슬롯 군종 변경
-    const changeAllSlotType = (e)=>{
+    const [allSlotType, setAllSlotType] = useState("army");
+    useEffect(()=>{
         setSlotList(prev=>prev.map(slot=>({
-            ...slot,
-            type: e.target.value
-        })));
-    };
-    const changeSlotType = (index, typeValue)=>{
+            ...slot, type:allSlotType
+        })))
+    }, [allSlotType]);
+
+    const changeSlotType = (index, slotType)=>{
         setSlotList(prev=>prev.map((slot, i)=>{
-            const newSlot = {...slot};
             if(index === i) {
-                newSlot.type = typeValue;
+                return {
+                    ...slot,
+                    type: slotType
+                };
             }
-            return newSlot;
+            return {...slot};
         }));
     };
 
@@ -139,11 +155,11 @@ function HeroSimulator() {
 
             <hr />
 
-            <div className="row mt-2 text-center">
+            <div className="row mt-2 text-left">
                 <div className="col-6">
-                    <h2>영웅 설정</h2>
+                    <h2>플레이어 정보</h2>
                     <div className="row mt-2">
-                        <div className="col-6 pe-1">
+                        <div className="col-4 pe-1">
                             <select className="form-select" onChange={selectFirstHero}>
                                 <option value="">선택하세요</option>
                                 {heroList.map((hero, index) => (
@@ -151,15 +167,16 @@ function HeroSimulator() {
                                 ))}
                             </select>
                         </div>
-                        <div className="col-6 ps-1">
-                            <select className="form-select" onChange={e=>setFirstHeroSkillLevel(parseInt(e.target.value))}>
-                                <option value="">선택하세요</option>
-                                {[1,2,3,4,5,6,7,8,9].map(n=><option key={n}>{n}</option>)}
-                            </select>
+                        <div className="col-8 ps-1 text-start">
+                            <div className="btn-group">
+                                {skillRate.map((r,n)=>(
+                                    <label key={n} className={`btn ${firstHeroSkillLevel === n ?  'btn-secondary' : 'btn-outline-secondary'}`} onClick={e=>setFirstHeroSkillLevel(n)}>{n+1}</label>
+                                ))}
+                            </div>
                         </div>
                     </div>
                     <div className="row mt-2">
-                        <div className="col-6 pe-1">
+                        <div className="col-4 pe-1">
                             <select className="form-select" onChange={selectSecondHero}>
                                 <option value="">선택하세요</option>
                                 {heroList.map((hero, index) => (
@@ -167,15 +184,16 @@ function HeroSimulator() {
                                 ))}
                             </select>
                         </div>
-                        <div className="col-6 ps-1">
-                            <select className="form-select" onChange={e=>setSecondHeroSkillLevel(parseInt(e.target.value))}>
-                                <option value="">선택하세요</option>
-                                {[1,2,3,4,5,6,7,8,9].map(n=><option key={n}>{n}</option>)}
-                            </select>
+                        <div className="col-8 ps-1 text-start">
+                            <div className="btn-group">
+                                {skillRate.map((r,n)=>(
+                                    <label key={n} className={`btn ${secondHeroSkillLevel === n ?  'btn-secondary' : 'btn-outline-secondary'}`} onClick={e=>setSecondHeroSkillLevel(n)}>{n+1}</label>
+                                ))}
+                            </div>
                         </div>
                     </div>
                     <div className="row mt-2">
-                        <div className="col-6 pe-1">
+                        <div className="col-4 pe-1">
                             <select className="form-select" onChange={selectThirdHero}>
                                 <option value="">선택하세요</option>
                                 {heroList.map((hero, index) => (
@@ -183,43 +201,55 @@ function HeroSimulator() {
                                 ))}
                             </select>
                         </div>
-                        <div className="col-6 ps-1">
-                            <select className="form-select" onChange={e=>setThirdHeroSkillLevel(parseInt(e.target.value))}>
-                                <option value="">선택하세요</option>
-                                {[1,2,3,4,5,6,7,8,9].map(n=><option key={n}>{n}</option>)}
-                            </select>
+                        <div className="col-8 ps-1 text-start">
+                            <div className="btn-group">
+                                {skillRate.map((r,n)=>(
+                                    <label key={n} className={`btn ${thirdHeroSkillLevel === n ?  'btn-secondary' : 'btn-outline-secondary'}`} onClick={e=>setThirdHeroSkillLevel(n)}>{n+1}</label>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className="col-6">
                     <h2>
                         슬롯 상태
+                        <div className="btn-group ms-4">
+                            <label className={`btn ${allSlotType === 'army' ?  'btn-success' : 'btn-outline-success'}`}>
+                                <input type="radio" className="btn-check" name="slotType" value="army" onChange={e=>setAllSlotType(e.target.value)} checked={allSlotType === 'army'}/>
+                                <span>육군</span>
+                            </label>
+                            <label className={`btn ${allSlotType === 'navy' ?  'btn-info' : 'btn-outline-info'}`}>
+                                <input type="radio" className="btn-check" name="slotType" value="navy" onChange={e=>setAllSlotType(e.target.value)} checked={allSlotType === 'navy'}/>
+                                <span>해군</span>
+                            </label>
+                            <label className={`btn ${allSlotType === 'airforce' ?  'btn-danger' : 'btn-outline-danger'}`}>
+                                <input type="radio" className="btn-check" name="slotType" value="airforce" onChange={e=>setAllSlotType(e.target.value)} checked={allSlotType === 'airforce'}/>
+                                <span>공군</span>
+                            </label>
+                        </div>
                     </h2>
-                    <select className="form-select form-inline" onChange={changeAllSlotType}>
-                        <option value="army">육군</option>
-                        <option value="navy">해군</option>
-                        <option value="airforce">공군</option>
-                    </select>
-                    <div className="slot-list-wrapper mt-2">
-                    {slotList.map((slot, index)=>(
-                    <div className="slot-wrapper" key={slot.no}>
-                        <div>
-                            <select className="form-select" value={slot.type} onChange={e=>changeSlotType(index, e.target.value)}>
-                                <option value="army">육군</option>
-                                <option value="navy">해군</option>
-                                <option value="airforce">공군</option>
-                            </select>
-                        </div>
-                        <div className="slot-status">
-                            {Object.keys(slot.values).map((key)=>(
-                                <div key={key} className="d-flex">
-                                    <div className="col-6">{converter[key]}</div>
-                                    <div className="col-6">{slot.values[key]}</div>
+                    <div className="slot-list-wrapper">
+                        {slotList.map((slot, index)=>(
+                        <div className="slot-wrapper" key={slot.no}>
+                            <div className="row mt-2">
+                                <div className="col">
+                                    <div className="btn-group">
+                                        <label className={`btn ${slot.type === 'army' ?  'btn-success' : 'btn-outline-success'}`} onClick={e=>changeSlotType(index, 'army')}>육</label>
+                                        <label className={`btn ${slot.type === 'navy' ?  'btn-info' : 'btn-outline-info'}`} onClick={e=>changeSlotType(index, 'navy')}>해</label>
+                                        <label className={`btn ${slot.type === 'airforce' ?  'btn-danger' : 'btn-outline-danger'}`} onClick={e=>changeSlotType(index, 'airforce')}>공</label>
+                                    </div>
                                 </div>
-                            ))}
+                            </div>
+                            <div className="slot-status">
+                                {Object.keys(slot.values).map((key)=>(
+                                    <div key={key} className="d-flex">
+                                        <div className="col-6">{converter[key]}</div>
+                                        <div className="col-6">{slot.values[key].toFixed(1)}</div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                    ))}
+                        ))}
                     </div>
                 </div>
             </div>
