@@ -35,6 +35,10 @@
 
 .box {
     box-shadow: 0 0 2px 1px ;
+    /* 디자인 이슈로 하나만 표시하기 위해 코드 추가 */
+    position: sticky;
+    top: 100px;
+    /* 디자인 이슈로 하나만 표시하기 위해 코드 추가 */
 }
 .table {
     font-size: 14px;

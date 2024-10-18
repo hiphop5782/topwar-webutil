@@ -57,6 +57,8 @@ function BaseInformation() {
                     <h1>기지 정보</h1>
                 </div>
             </div>
+            
+            <hr></hr>
 
             <div className="row">
                 <div className="col">

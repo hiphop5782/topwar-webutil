@@ -14,7 +14,7 @@ function JobInformation() {
     }, []);
 
     const clearSelectedItem = ()=>{
-        console.log(window);
+        //console.log(window);
         setDisplay([]);
         setJobData(JobDataJson);
     };
@@ -23,23 +23,48 @@ function JobInformation() {
 
     //항목 체크 이벤트
     const checkItem = (r, c) => {
-        setDisplay(prev=> c.choice ? 
-            prev.filter(p=>p.col !== c.col) : prev.concat({...c, row:r.row})
-        );
+        /* 디자인 이슈로 하나만 표시하기 위해 코드 추가 */
+        setDisplay(prev=>[{...c, row:r.row}]);
         setJobData(prev=>prev.map(rowItem=>{
             if(rowItem.row === r.row) {
                 return {
                     ...rowItem, 
                     items:rowItem.items.map(colItem=>{
                         if(colItem.col === c.col) {
-                            return {...colItem, choice:!c.choice};
+                            return {...colItem, choice:true};
                         }
-                        return colItem;
+                        return {...colItem, choice:false};
                     })
                 };
             }
-            return rowItem;
+            else {
+                return {
+                    ...rowItem, 
+                    items:rowItem.items.map(colItem=>{
+                        return {...colItem, choice:false};
+                    })
+                };
+            }
         }));
+        /* 디자인 이슈로 하나만 표시하기 위해 코드 추가 */
+
+        // setDisplay(prev=> c.choice ? 
+        //     prev.filter(p=>p.col !== c.col) : prev.concat({...c, row:r.row})
+        // );
+        // setJobData(prev=>prev.map(rowItem=>{
+        //     if(rowItem.row === r.row) {
+        //         return {
+        //             ...rowItem, 
+        //             items:rowItem.items.map(colItem=>{
+        //                 if(colItem.col === c.col) {
+        //                     return {...colItem, choice:!c.choice};
+        //                 }
+        //                 return colItem;
+        //             })
+        //         };
+        //     }
+        //     return rowItem;
+        // }));
     };
 
     //시간 더하기
