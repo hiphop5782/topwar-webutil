@@ -23,5 +23,5 @@
 .color-palette:hover,
 .color-palette.on {
     box-shadow: 0 0 4px 2px black;
-    z-index: 99999;
+    z-index: 5;
 }
