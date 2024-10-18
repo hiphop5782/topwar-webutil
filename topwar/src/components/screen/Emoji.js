@@ -9,13 +9,18 @@ const backgroundColors = [
 
 const Emoji = () => {
     const [images] = useState(Array.from({ length: 95 }, (_, index) => index + 1));
+    const [emoji, setEmoji] = useState(1);
     const [backgroundColor, setBackgroundColor] = useState('#bacee0');
 
-    const copyToClipboard = useCallback(async (src) => {
+    useEffect(()=>{
+        copyToClipboard();
+    }, [backgroundColor, emoji]);
+
+    const copyToClipboard = useCallback(async () => {
         try {
             const img = new Image();
             img.crossOrigin = 'anonymous'; // CORS 이슈 방지
-            img.src = src;
+            img.src = `${process.env.PUBLIC_URL}/images/emoji/${emoji}.png`;
 
             img.onload = async () => {
                 const canvas = document.createElement('canvas');
@@ -25,7 +30,7 @@ const Emoji = () => {
 
                 // 배경색 설정 (투명 배경 대신 사용)
                 ctx.fillStyle = backgroundColor;
-                console.log(ctx.fillStyle);
+                //console.log(ctx.fillStyle);
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
                 ctx.drawImage(img, 0, 0); // 투명 배경을 유지하며 그리기
@@ -76,9 +81,9 @@ const Emoji = () => {
             <div className="col">
                 <h4>이모티콘 선택</h4>
                 {images.map(imageNo => (
-                    <img className="topwar-emoji" src={`${process.env.PUBLIC_URL}/images/emoji/${imageNo}.png`}
+                    <img className={`topwar-emoji${emoji === imageNo ? ' on':''}`} src={`${process.env.PUBLIC_URL}/images/emoji/${imageNo}.png`}
                         width={50} height={50} key={imageNo}
-                        onClick={e => copyToClipboard(e.target.src)} />
+                        onClick={e => setEmoji(imageNo)} />
                 ))}
             </div>
         </div>

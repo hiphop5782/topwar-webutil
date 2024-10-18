@@ -1,7 +1,8 @@
 .topwar-emoji {
     cursor: pointer;
 }
-.topwar-emoji:hover {
+.topwar-emoji:hover,
+.topwar-emoji.on {
     box-shadow: 0 0 4px 0 black;
 }
 .color-palette {
