@@ -1,0 +1,6 @@
+.topwar-emoji {
+    cursor: pointer;
+}
+.topwar-emoji:hover {
+    box-shadow: 0 0 4px 0 black;
+}

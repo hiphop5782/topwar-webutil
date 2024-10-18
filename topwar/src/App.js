@@ -18,6 +18,7 @@ import GatheringCalculator from '@src/components/screen/calculator/GatheringCalc
 import SkillCalculator from '@src/components/screen/calculator/SkillCalculator';
 import Simulator from '@src/components/screen/Simulator';
 import Developer from '@src/components/screen/Developer';
+import Emoji from "@src/components/screen/Emoji";
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
               <Route path="/calculator/skill" element={<SkillCalculator/>}></Route>
               <Route path="/simulator" element={<Simulator/>}></Route>
               <Route path="/developer" element={<Developer/>}></Route>
+              <Route path="/emoji" element={<Emoji/>}></Route>
             </Routes>
           </div>
         </div>
