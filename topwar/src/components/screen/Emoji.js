@@ -56,7 +56,7 @@ const Emoji = () => {
         } catch (error) {
             console.error('이미지를 클립보드에 복사하는 중 오류 발생:', error);
         }
-    }, [backgroundColor]);
+    }, [backgroundColor, emoji]);
 
     return (<>
         <div className="row">
