@@ -8,7 +8,7 @@ const backgroundColors = [
 ];
 
 const Emoji = () => {
-    const [images] = useState(Array.from({ length: 95 }, (_, index) => index + 1));
+    const [images] = useState(Array.from({ length: 111 }, (_, index) => index + 1));
     const [emoji, setEmoji] = useState(1);
     const [backgroundColor, setBackgroundColor] = useState('#bacee0');
 
