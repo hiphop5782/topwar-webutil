@@ -1,10 +1,17 @@
 import { useCallback, useEffect, useState } from "react";
 import "./Emoji.css";
 
-const Emoji = () => {
-    const [images, setImages] = useState(Array.from({ length: 95 }, (_, index) => index + 1));
+const backgroundColors = [
+    'transparent', '#ffffff', '#bacee0', '#677bac', '#9dcdb8', '#51a5a0', '#9bb157',
+    '#f8cd59', '#f99460', '#f68181', '#f7a2bd', '#5b4d49',
+    '#d3d5d0', '#525252', '#404372', '#10374a', '#818b9c'
+];
 
-    const copyToClipboard = useCallback(async (src, backgroundColor = 'white') => {
+const Emoji = () => {
+    const [images] = useState(Array.from({ length: 95 }, (_, index) => index + 1));
+    const [backgroundColor, setBackgroundColor] = useState('#bacee0');
+
+    const copyToClipboard = useCallback(async (src) => {
         try {
             const img = new Image();
             img.crossOrigin = 'anonymous'; // CORS 이슈 방지
@@ -18,6 +25,7 @@ const Emoji = () => {
 
                 // 배경색 설정 (투명 배경 대신 사용)
                 ctx.fillStyle = backgroundColor;
+                console.log(ctx.fillStyle);
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
                 ctx.drawImage(img, 0, 0); // 투명 배경을 유지하며 그리기
@@ -43,7 +51,7 @@ const Emoji = () => {
         } catch (error) {
             console.error('이미지를 클립보드에 복사하는 중 오류 발생:', error);
         }
-    }, []);
+    }, [backgroundColor]);
 
     return (<>
         <div className="row">
@@ -54,11 +62,26 @@ const Emoji = () => {
             </div>
         </div>
 
-        {images.map(imageNo => (
-            <img className="topwar-emoji" src={`${process.env.PUBLIC_URL}/images/emoji/${imageNo}.png`}
-                width={50} height={50}
-                onClick={e => copyToClipboard(e.target.src)} />
-        ))}
+        <div className="row mt-4">
+            <div className="col">
+                <h4>배경색 선택(ex : 카카오톡 대화창 배경색)</h4>
+                {backgroundColors.map((color, index)=>(
+                <div className={`color-palette${color === backgroundColor ? ' on' : ''}`} style={{backgroundColor:color}}
+                    key={index} onClick={e=>setBackgroundColor(color)}>{color === 'transparent' && <span>투명</span>}</div>
+                ))}
+            </div>
+        </div>
+
+        <div className="row mt-4">
+            <div className="col">
+                <h4>이모티콘 선택</h4>
+                {images.map(imageNo => (
+                    <img className="topwar-emoji" src={`${process.env.PUBLIC_URL}/images/emoji/${imageNo}.png`}
+                        width={50} height={50} key={imageNo}
+                        onClick={e => copyToClipboard(e.target.src)} />
+                ))}
+            </div>
+        </div>
     </>);
 };
 
