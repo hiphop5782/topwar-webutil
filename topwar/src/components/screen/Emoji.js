@@ -13,7 +13,12 @@ const Emoji = () => {
     const [backgroundColor, setBackgroundColor] = useState('#bacee0');
 
     useEffect(()=>{
-        copyToClipboard();
+        try {
+            copyToClipboard();
+        }
+        catch(e){
+            console.error("copy image error");
+        }
     }, [backgroundColor, emoji]);
 
     const copyToClipboard = useCallback(async () => {
@@ -24,8 +29,8 @@ const Emoji = () => {
 
             img.onload = async () => {
                 const canvas = document.createElement('canvas');
-                canvas.width = img.width;
-                canvas.height = img.height;
+                canvas.width = 100;
+                canvas.height = 100;
                 const ctx = canvas.getContext('2d');
 
                 // 배경색 설정 (투명 배경 대신 사용)
@@ -33,7 +38,7 @@ const Emoji = () => {
                 //console.log(ctx.fillStyle);
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-                ctx.drawImage(img, 0, 0); // 투명 배경을 유지하며 그리기
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height); // 투명 배경을 유지하며 그리기
 
                 canvas.toBlob(async (blob) => {
                     if (blob) {
