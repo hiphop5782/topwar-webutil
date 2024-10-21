@@ -11,10 +11,12 @@ const Emoji = () => {
     const [images] = useState(Array.from({ length: 111 }, (_, index) => index + 1));
     const [emoji, setEmoji] = useState(1);
     const [backgroundColor, setBackgroundColor] = useState('#bacee0');
+    const [recentEmoji, setRecentEmoji] = useState([]);
 
     useEffect(()=>{
         try {
             copyToClipboard();
+            setRecentEmoji(prev=>[emoji, ...prev.filter(em=>em !== emoji)]);
         }
         catch(e){
             console.error("copy image error");
@@ -69,6 +71,17 @@ const Emoji = () => {
                 <h1>탑워 이모티콘</h1>
                 <hr></hr>
                 <p>클릭하면 복사되며 원하는 곳에 ctrl+v 하세요!</p>
+            </div>
+        </div>
+
+        <div className="row mt-4">
+            <div className="col">
+                <h4>최근 사용한 이모티콘</h4>
+                {recentEmoji.map(imageNo => (
+                    <img className={`topwar-emoji${emoji === imageNo ? ' on':''}`} src={`${process.env.PUBLIC_URL}/images/emoji/${imageNo}.png`}
+                        width={25} height={25} key={imageNo}
+                        onClick={e => setEmoji(imageNo)} />
+                ))}
             </div>
         </div>
 
