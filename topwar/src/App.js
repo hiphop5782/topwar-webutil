@@ -29,7 +29,7 @@ function App() {
 
   return (
     <div className="container-fluid mt-5 pt-4">
-      <HashRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Menu></Menu>
         <div className="row">
           <div className="offset-md-1 col-md-10">
@@ -49,7 +49,7 @@ function App() {
             </Routes>
           </div>
         </div>
-      </HashRouter>
+      </BrowserRouter>
     </div>
   );
 }
