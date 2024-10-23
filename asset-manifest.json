@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.5a608c78.css",
-    "main.js": "/static/js/main.392a1fbc.js",
+    "main.js": "/static/js/main.7d719b05.js",
     "static/js/787.3e5985d4.chunk.js": "/static/js/787.3e5985d4.chunk.js",
     "static/media/BinggraeMelona.ttf": "/static/media/BinggraeMelona.1ea454b9d11d5662afc1.ttf",
     "static/media/topwar-helper-banner.jpg": "/static/media/topwar-helper-banner.169c0fd4a6c4454977c9.jpg",
@@ -46,7 +46,6 @@
     "../docs/images/base/82.png": "/../docs/images/base/82.png",
     "../docs/images/base/69.png": "/../docs/images/base/69.png",
     "../docs/images/base/34.png": "/../docs/images/base/34.png",
-    "static/media/developer.png": "/static/media/developer.512ac2bffdc266fa0477.png",
     "../docs/images/base/87.png": "/../docs/images/base/87.png",
     "../docs/images/base/14.png": "/../docs/images/base/14.png",
     "../docs/images/base/7.png": "/../docs/images/base/7.png",
@@ -139,6 +138,7 @@
     "../docs/images/emoji/104.png": "/../docs/images/emoji/104.png",
     "../docs/images/emoji/85.png": "/../docs/images/emoji/85.png",
     "../docs/images/emoji/50.png": "/../docs/images/emoji/50.png",
+    "static/media/developer.png": "/static/media/developer.5aa6652b38c48122e71c.png",
     "../docs/images/emoji/87.png": "/../docs/images/emoji/87.png",
     "../docs/images/emoji/108.png": "/../docs/images/emoji/108.png",
     "../docs/images/emoji/38.png": "/../docs/images/emoji/38.png",
@@ -344,11 +344,11 @@
     "../docs/images/base/64.png": "/../docs/images/base/64.png",
     "index.html": "/index.html",
     "main.5a608c78.css.map": "/static/css/main.5a608c78.css.map",
-    "main.392a1fbc.js.map": "/static/js/main.392a1fbc.js.map",
+    "main.7d719b05.js.map": "/static/js/main.7d719b05.js.map",
     "787.3e5985d4.chunk.js.map": "/static/js/787.3e5985d4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5a608c78.css",
-    "static/js/main.392a1fbc.js"
+    "static/js/main.7d719b05.js"
   ]
 }
