@@ -12,10 +12,11 @@ function Developer() {
             <div className="row mt-4">
                 <div className="col-sm-6">
                     <div className="card mb-3">
-                        <h3 className="card-header">동네노는아이</h3>
+                        <h3 className="card-header">KID³²²³</h3>
                         <div className="card-body">
                             <h5 className="card-title">탑워를 좋아하는 흔한 유저 중 하나</h5>
                             <h6 className="card-subtitle text-muted">주특기 - 시뮬레이션 만들기</h6>
+                            <a href="https://open.kakao.com/o/glCbXJVg" class="btn btn-link">이전 문의</a>
                         </div>
                         <img src={NameCard}/>
                         {/* <div className="card-body">
