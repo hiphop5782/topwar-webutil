@@ -15,7 +15,7 @@ module.exports = {
     webpack:{
         configure:{
             output:{
-                path:path.resolve(__dirname, '../docs'),
+                //path:path.resolve(__dirname, '../docs'),
             },
         },
         alias:{

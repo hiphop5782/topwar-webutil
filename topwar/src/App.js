@@ -17,6 +17,7 @@ import GatheringCalculator from '@src/components/screen/calculator/GatheringCalc
 import SkillCalculator from '@src/components/screen/calculator/SkillCalculator';
 import RandomSimulator from '@src/components/screen/simulator/RandomSimulator';
 import Developer from '@src/components/screen/Developer';
+import Emoji from "@src/components/screen/Emoji";
 import { useRecoilState } from 'recoil';
 import { counterState } from './recoil';
 import HeroSimulator from '@src/components/screen/simulator/HeroSimulator';
@@ -28,7 +29,7 @@ function App() {
 
   return (
     <div className="container-fluid mt-5 pt-4">
-      <HashRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Menu></Menu>
         <div className="row">
           <div className="offset-md-1 col-md-10">
@@ -44,10 +45,11 @@ function App() {
               <Route path="/simulator/random" element={<RandomSimulator/>}></Route>
               <Route path="/simulator/hero" element={<HeroSimulator/>}></Route>
               <Route path="/developer" element={<Developer/>}></Route>
+              <Route path="/emoji" element={<Emoji/>}></Route>
             </Routes>
           </div>
         </div>
-      </HashRouter>
+      </BrowserRouter>
     </div>
   );
 }

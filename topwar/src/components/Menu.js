@@ -27,7 +27,7 @@ function Menu() {
                                 <NavLink className="dropdown-item" to="/calculator/vital">체력 회복 속도 계산기</NavLink>
                                 <NavLink className="dropdown-item" to="/calculator/gathering">채집 속도 계산기</NavLink>
                                 <NavLink className="dropdown-item" to="/calculator/skill">전속 조각 계산기</NavLink>
-                                {/* <div className="dropdown-divider"></div> */}
+                                {/* <div className="dropdown-divider"></div>/ */}
                                 {/* <a className="dropdown-item">Separated link</a> */}
                             </div>
                         </li>
@@ -37,6 +37,9 @@ function Menu() {
                                 <NavLink className="nav-link" to="/simulator/random">랜덤추첨기</NavLink>
                                 <NavLink className="nav-link" to="/simulator/hero">데미지계산기</NavLink>
                             </div>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/emoji">이모티콘</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/developer">개발자</NavLink>
