@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.5a608c78.css",
-    "main.js": "/static/js/main.d8cbb65c.js",
+    "main.js": "/static/js/main.727b0f55.js",
     "static/js/787.3e5985d4.chunk.js": "/static/js/787.3e5985d4.chunk.js",
     "static/media/BinggraeMelona.ttf": "/static/media/BinggraeMelona.1ea454b9d11d5662afc1.ttf",
     "static/media/topwar-helper-banner.jpg": "/static/media/topwar-helper-banner.169c0fd4a6c4454977c9.jpg",
@@ -204,6 +204,7 @@
     "../docs/images/emoji/16.png": "/../docs/images/emoji/16.png",
     "../docs/images/base/16.png": "/../docs/images/base/16.png",
     "../docs/images/emoji/26.png": "/../docs/images/emoji/26.png",
+    "../docs/images/base/128.png": "/../docs/images/base/128.png",
     "../docs/images/base/122.png": "/../docs/images/base/122.png",
     "../docs/images/emoji/1.png": "/../docs/images/emoji/1.png",
     "../docs/images/emoji/48.png": "/../docs/images/emoji/48.png",
@@ -221,6 +222,7 @@
     "../docs/images/emoji/63.png": "/../docs/images/emoji/63.png",
     "../docs/images/emoji/54.png": "/../docs/images/emoji/54.png",
     "../docs/images/emoji/62.png": "/../docs/images/emoji/62.png",
+    "../docs/images/base/127.png": "/../docs/images/base/127.png",
     "../docs/images/emoji/97.png": "/../docs/images/emoji/97.png",
     "../docs/images/emoji/59.png": "/../docs/images/emoji/59.png",
     "../docs/images/base/70.png": "/../docs/images/base/70.png",
@@ -346,11 +348,11 @@
     "../docs/images/base/64.png": "/../docs/images/base/64.png",
     "index.html": "/index.html",
     "main.5a608c78.css.map": "/static/css/main.5a608c78.css.map",
-    "main.d8cbb65c.js.map": "/static/js/main.d8cbb65c.js.map",
+    "main.727b0f55.js.map": "/static/js/main.727b0f55.js.map",
     "787.3e5985d4.chunk.js.map": "/static/js/787.3e5985d4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5a608c78.css",
-    "static/js/main.d8cbb65c.js"
+    "static/js/main.727b0f55.js"
   ]
 }
