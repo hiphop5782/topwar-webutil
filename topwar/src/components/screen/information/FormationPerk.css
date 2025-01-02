@@ -1,4 +1,5 @@
 #graph-viewer {
-    box-shadow: 0 0 1px 1px grey;
-    height: 500px;
+    box-shadow: 0 5px 10px 5px grey;
+    height: 50vh;
+    background-repeat: repeat;
 }
