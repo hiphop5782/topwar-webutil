@@ -15,7 +15,7 @@ function Menu() {
                             <div className="dropdown-menu">
                                 <NavLink className="dropdown-item" to="/information/base">기지 정보</NavLink>
                                 {/* <NavLink className="dropdown-item" to="/information/decor">장식 정보</NavLink> */}
-                                <NavLink className="dropdown-item" to="/information/hero">영웅 정보</NavLink>
+                                {/* <NavLink className="dropdown-item" to="/information/hero">영웅 정보</NavLink> */}
                                 <div className="dropdown-divider"></div>
                                 <NavLink className="dropdown-item" to="/information/job">전문 직업 강화</NavLink>
                                 {/* <a className="dropdown-item">Separated link</a> */}
