@@ -25,6 +25,12 @@ const FormationPerk = () => {
                 const position = parseInt(id % 10);
                 return {
                     id: node.id,
+                    font: {
+                        color: "white", // 글자 색상 설정
+                        background: "black", // 배경 설정
+                        align: "center", // 텍스트 정렬 (left, center, right)
+                    },
+                    label:`${node.level.point} pts`,
                     x: offset * position,
                     y: offset * depth,
                     fixed: { x: true, y: true },
