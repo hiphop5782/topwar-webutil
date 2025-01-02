@@ -12,6 +12,7 @@ import Menu from '@src/components/Menu';
 import Home from '@src/components/screen/Home';
 import BaseInformation from '@src/components/screen/information/BaseInformation';
 import JobInformation from '@src/components/screen/information/JobInformation';
+import FormationPerk from '@src/components/screen/information/FormationPerk';
 import VitalCalculator from '@src/components/screen/calculator/VitalCalculator';
 import GatheringCalculator from '@src/components/screen/calculator/GatheringCalculator';
 import SkillCalculator from '@src/components/screen/calculator/SkillCalculator';
@@ -39,6 +40,7 @@ function App() {
               {/* <Route path="/information/hero" element={<HeroInformation/>}></Route> */}
               {/* <Route path="/information/decor" element={<DecorInformation/>}></Route> */}
               <Route path="/information/job" element={<JobInformation/>}></Route>
+              <Route path="/information/formation-perk" element={<FormationPerk/>}></Route>
               <Route path="/calculator/vital" element={<VitalCalculator/>}></Route>
               <Route path="/calculator/gathering" element={<GatheringCalculator/>}></Route>
               <Route path="/calculator/skill" element={<SkillCalculator/>}></Route>
