@@ -41,19 +41,24 @@ function Home() {
             </div>
 
             {/* 리워드 */}
-            <div className="row mt-5">
+            {/* <div className="row mt-5">
                 <div className={`col text-center reward-wrapper`} style={{ height: 100 }}>
                     {reward.map((r,index) => (
                         <img src={`${process.env.PUBLIC_URL}/images/lucky/${r}.png`} className={`reward-item ${finish ? 'finish' : ''}`} width={100} height={100} key={index}/>
                     ))}
                 </div>
-            </div>
+            </div> */}
 
             {/* 추첨 상자 */}
-            <div className="row">
+            {/* <div className="row">
                 <div className="col text-sm-center">
                     <img src={finish ? BoxOpenImage : BoxImage} className={`random-box ${finish ? 'finish' : ''}`} onClick={lucky} />
                 </div>
+            </div> */}
+
+            {/* iframe 슬롯머신 */}
+            <div className="iframe-container">
+                <iframe src="https://hiphop5782.github.io/topwar-slot/" allowFullScreen></iframe>
             </div>
         </>
     );

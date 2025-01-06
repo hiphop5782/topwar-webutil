@@ -26,7 +26,7 @@ function Menu() {
                             <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">계산기</a>
                             <div className="dropdown-menu">
                                 <NavLink className="dropdown-item" to="/calculator/vital">체력 회복 속도 계산기</NavLink>
-                                <NavLink className="dropdown-item" to="/calculator/gathering">채집 속도 계산기</NavLink>
+                                {/* <NavLink className="dropdown-item" to="/calculator/gathering">채집 속도 계산기</NavLink> */}
                                 <NavLink className="dropdown-item" to="/calculator/skill">전속 조각 계산기</NavLink>
                                 {/* <div className="dropdown-divider"></div>/ */}
                                 {/* <a className="dropdown-item">Separated link</a> */}
