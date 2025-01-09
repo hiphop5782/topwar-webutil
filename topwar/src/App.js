@@ -22,6 +22,8 @@ import Emoji from "@src/components/screen/Emoji";
 import { useRecoilState } from 'recoil';
 import { counterState } from './recoil';
 import HeroSimulator from '@src/components/screen/simulator/HeroSimulator';
+import TitanResearchSimulator from './components/screen/simulator/TitanResearchSimulator';
+import TitanRefineSimulator from './components/screen/simulator/TitanRefineSimulator';
 
 function App() {
   const [count, setCount] = useRecoilState(counterState);
@@ -45,7 +47,9 @@ function App() {
               <Route path="/calculator/gathering" element={<GatheringCalculator/>}></Route>
               <Route path="/calculator/skill" element={<SkillCalculator/>}></Route>
               <Route path="/simulator/random" element={<RandomSimulator/>}></Route>
-              <Route path="/simulator/hero" element={<HeroSimulator/>}></Route>
+              {/* <Route path="/simulator/hero" element={<HeroSimulator/>}></Route> */}
+              <Route path="/simulator/titan-research" element={<TitanResearchSimulator/>}></Route>
+              <Route path="/simulator/titan-refine" element={<TitanRefineSimulator/>}></Route>
               <Route path="/developer" element={<Developer/>}></Route>
               <Route path="/emoji" element={<Emoji/>}></Route>
             </Routes>

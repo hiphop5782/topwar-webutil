@@ -37,6 +37,9 @@ function Menu() {
                             <div className="dropdown-menu">
                                 <NavLink className="nav-link" to="/simulator/random">랜덤추첨기</NavLink>
                                 {/* <NavLink className="nav-link" to="/simulator/hero">데미지계산기</NavLink> */}
+                                <div className="dropdown-divider"></div>
+                                <NavLink className="nav-link" to="/simulator/titan-research">타이탄제작</NavLink>
+                                <NavLink className="nav-link" to="/simulator/titan-refine">타이탄재련</NavLink>
                             </div>
                         </li>
                         <li className="nav-item">
