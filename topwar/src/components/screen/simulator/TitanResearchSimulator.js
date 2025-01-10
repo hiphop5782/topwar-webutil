@@ -223,7 +223,7 @@ const TitanResearchSimulator = () => {
         gear.grade = createRandomTitanGrade();
         gear.options = createRandomTitanGearOptions();
         gear.specialEffect = gear.grade === 'gold' ? createSpecialEffect() : null;
-        console.log(gear);
+        //console.log(gear);
         return gear;
     }, [parts, successRates]);
 
@@ -287,7 +287,7 @@ const TitanResearchSimulator = () => {
                     <div className="card-img-top p-2 position-relative">
                         <img src={`${process.env.PUBLIC_URL}/images/titan/${gear.type}-${gear.grade}.png`} width={'100%'} />
                         {gear.specialEffect !== null && (
-                        <div className="position-absolute" style={{bottom:'5%', right:'5%', width:'35%', height:'35%'}}>
+                        <div className="position-absolute" style={{top:'5%', left:'5%', width:'35%', height:'35%'}}>
                             <img src={`${process.env.PUBLIC_URL}/images/titan/${gear.specialEffect}.png`} width={'100%'} />
                         </div>
                         )}
