@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.b5c79610.css",
-    "main.js": "/static/js/main.3fcd211c.js",
+    "main.js": "/static/js/main.7a3c570d.js",
     "static/js/787.3e5985d4.chunk.js": "/static/js/787.3e5985d4.chunk.js",
     "static/media/BinggraeMelona.ttf": "/static/media/BinggraeMelona.1ea454b9d11d5662afc1.ttf",
     "static/media/topwar-helper-banner.jpg": "/static/media/topwar-helper-banner.169c0fd4a6c4454977c9.jpg",
@@ -618,11 +618,11 @@
     "../docs/images/base/64.png": "/../docs/images/base/64.png",
     "index.html": "/index.html",
     "main.b5c79610.css.map": "/static/css/main.b5c79610.css.map",
-    "main.3fcd211c.js.map": "/static/js/main.3fcd211c.js.map",
+    "main.7a3c570d.js.map": "/static/js/main.7a3c570d.js.map",
     "787.3e5985d4.chunk.js.map": "/static/js/787.3e5985d4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b5c79610.css",
-    "static/js/main.3fcd211c.js"
+    "static/js/main.7a3c570d.js"
   ]
 }
