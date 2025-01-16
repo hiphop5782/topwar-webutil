@@ -1,102 +1,14 @@
 import "./TitanResearchSimulator.css";
 import { useCallback, useMemo, useState } from "react";
+import gearOptions from "@src/assets/json/titan/titan-gear-options.json";
+import successRateList from "@src/assets/json/titan/titan-success-rate.json";
+import catalystTypeList from "@src/assets/json/titan/titan-catalyst-types.json";
+import partsList from "@src/assets/json/titan/titan-parts-types.json";
+import specialEffectRateList from "@src/assets/json/titan/titan-special-effect-rate.json";
+import colorList from "@src/assets/json/titan/titan-colors.json";
+import specialEffectNames from "@src/assets/json/titan/titan-special-effect-names.json";
+import gearNames from "@src/assets/json/titan/titan-gear-names.json";
 
-const partsList = ['pistol', 'backarmor', 'addon', 'headset', 'gps', 'boots'];
-const catalystList = ['top', 'advanced', 'mid'];
-const successRateList = {
-    top: { green: 0.0, blue: 0.0, purple: 0.0, gold: 100.0 },
-    advanced: { green: 0.0, blue: 0.0, purple: 85.0, gold: 15.0 },
-    mid: { green: 0.0, blue: 80.0, purple: 15.0, gold: 5.0 },
-    none: { green: 55.0, blue: 35.0, purple: 9.5, gold: 0.5 }
-};
-const specialEffectRateList = {
-    pistol: {storm:0.5, surge:0.5, awareness:1.5, searing:0.63, breaking:0.63, impact:0.63, magnetic:0.63},
-    backarmor: {steel:0.5, unbreakable:0.5, hologram:1.5, flammable:0.63, heavyblow:0.63, debilitate:0.63, magnetize:0.63},
-    addon: {awareness:2.5, searing:0.63, breaking:0.63, impact:0.63, magnetic:0.63},
-    headset: {hologram:2.5, flammable:0.63, heavyblow:0.63, debilitate:0.63, magnetize:0.63},
-    gps: {awareness:2.5, searing:0.63, breaking:0.63, impact:0.63, magnetic:0.63},
-    boots: {hologram:2.5, flammable:0.63, heavyblow:0.63, debilitate:0.63, magnetize:0.63},
-};
-const colorList = {
-    green: "#07EDA8",
-    blue: "#39AEFE",
-    purple: "#EB98FE",
-    gold: "#FDBE61",
-};
-const gearNames = {
-    pistol: '돌격 권총',
-    backarmor: '택티컬 아머',
-    addon: '시야 확장기',
-    headset: '레이시온 헤드셋',
-    gps: '위치 추적기',
-    boots: '파워 부츠'
-};
-const specialEffectNames = {
-    storm:"폭발의 허리케인",
-    surge:"전군 돌격",
-    steel:"강철의 흐름",
-    unbreakable:"불굴",
-    awareness:"전장 통찰",
-    searing:"점화",
-    breaking:"취약",
-    impact:"쇠약",
-    magnetic:"자기장",
-    hologram:"스텔스 홀로그램",
-    flammable:"인화",
-    heavyblow:"헤비 스매시",
-    debilitate:"진동",
-    magnetize:"자석화"
-};
-const gearOptions = {
-    pistol: [
-        { title: '육군 공격력 증가', min: 0.01, max: 30.00 },
-        { title: '해군 공격력 증가', min: 0.01, max: 30.00 },
-        { title: '공군 공격력 증가', min: 0.01, max: 30.00 },
-        { title: '육군 데미지 증가', min: 0.01, max: 6.00 },
-        { title: '해군 데미지 증가', min: 0.01, max: 6.00 },
-        { title: '공군 데미지 증가', min: 0.01, max: 6.00 },
-    ],
-    backarmor: [
-        { title: '육군 생명력 증가', min: 0.01, max: 30.00 },
-        { title: '해군 생명력 증가', min: 0.01, max: 30.00 },
-        { title: '공군 생명력 증가', min: 0.01, max: 30.00 },
-        { title: '육군 방어도 증가', min: 0.01, max: 3.00 },
-        { title: '해군 방어도 증가', min: 0.01, max: 3.00 },
-        { title: '공군 방어도 증가', min: 0.01, max: 3.00 },
-    ],
-    addon: [
-        { title: '육군 공격력 증가', min: 0.01, max: 30.00 },
-        { title: '해군 공격력 증가', min: 0.01, max: 30.00 },
-        { title: '공군 공격력 증가', min: 0.01, max: 30.00 },
-        { title: '육군 데미지 증가', min: 0.01, max: 6.00 },
-        { title: '해군 데미지 증가', min: 0.01, max: 6.00 },
-        { title: '공군 데미지 증가', min: 0.01, max: 6.00 },
-    ],
-    headset: [
-        { title: '육군 생명력 증가', min: 0.01, max: 30.00 },
-        { title: '해군 생명력 증가', min: 0.01, max: 30.00 },
-        { title: '공군 생명력 증가', min: 0.01, max: 30.00 },
-        { title: '육군 데미지 감면', min: 0.01, max: 6.00 },
-        { title: '해군 데미지 감면', min: 0.01, max: 6.00 },
-        { title: '공군 데미지 감면', min: 0.01, max: 6.00 },
-    ],
-    gps: [
-        { title: '육군 공격력 증가', min: 0.01, max: 30.00 },
-        { title: '해군 공격력 증가', min: 0.01, max: 30.00 },
-        { title: '공군 공격력 증가', min: 0.01, max: 30.00 },
-        { title: '육군 데미지 증가', min: 0.01, max: 6.00 },
-        { title: '해군 데미지 증가', min: 0.01, max: 6.00 },
-        { title: '공군 데미지 증가', min: 0.01, max: 6.00 },
-    ],
-    boots: [
-        { title: '육군 생명력 증가', min: 0.01, max: 30.00 },
-        { title: '해군 생명력 증가', min: 0.01, max: 30.00 },
-        { title: '공군 생명력 증가', min: 0.01, max: 30.00 },
-        { title: '육군 데미지 감면', min: 0.01, max: 6.00 },
-        { title: '해군 데미지 감면', min: 0.01, max: 6.00 },
-        { title: '공군 데미지 감면', min: 0.01, max: 6.00 },
-    ]
-};
 
 const TitanResearchSimulator = () => {
     const [parts, setParts] = useState('pistol');
@@ -253,7 +165,7 @@ const TitanResearchSimulator = () => {
                     <span className="fs-3 me-4">촉매제</span>
                     <span>
                         <span className="pointer-field">
-                            {catalystList.map(tier => (<img key={tier} src={`${process.env.PUBLIC_URL}/images/titan/titan-catalyst-${tier}.png`} onClick={e => setCatalyst(tier)} className={`catalyst-img${catalyst === tier ? ' active' : ''}`} />))}
+                            {catalystTypeList.map(tier => (<img key={tier} src={`${process.env.PUBLIC_URL}/images/titan/titan-catalyst-${tier}.png`} onClick={e => setCatalyst(tier)} className={`catalyst-img${catalyst === tier ? ' active' : ''}`} />))}
                         </span>
                         <span className="ms-4 pointer-field text-danger" onClick={e => setCatalyst(null)}>
                             취소
