@@ -12,7 +12,7 @@ import gearNames from "@src/assets/json/titan/titan-gear-names.json";
 
 const TitanResearchSimulator = () => {
     const [parts, setParts] = useState('pistol');
-    const [catalyst, setCatalyst] = useState(null);
+    const [catalyst, setCatalyst] = useState('top');
     const [count, setCount] = useState(1);
     const changeCount = useCallback((e) => {
         const value = parseInt(e.target.value);
@@ -193,34 +193,35 @@ const TitanResearchSimulator = () => {
         </div>
         <hr />
         <div className="row">
-        {titanResult.map(gear => (
-            <div className="col-xxl-2 col-xl-3 col-lg-4 col-sm-6" key={gear.no}>
-                <div className="card mb-3 bg-dark text-light flex-row flex-sm-column">
-                    <div className="card-img-top p-2 position-relative">
-                        <img src={`${process.env.PUBLIC_URL}/images/titan/${gear.type}-${gear.grade}.png`} width={'100%'} />
-                        {gear.specialEffect !== null && (
-                        <div className="position-absolute" style={{top:'5%', left:'5%', width:'35%', height:'35%'}}>
-                            <img src={`${process.env.PUBLIC_URL}/images/titan/${gear.specialEffect}.png`} width={'100%'} />
-                        </div>
-                        )}
-                    </div>
-                    <div className="card-body" style={{minWidth:'70%'}}>
-                        <h5 className="card-title" style={{ color: colorList[gear.grade] }}>{gearNames[gear.type]}</h5>
-                        {gear.options.map((option, _) => (
-                            <div className="card-text row mb-1" key={_}>
-                                <span className="col-8 text-begin text-truncate">{option.title}</span>
-                                <span className="col-4 text-end text-truncate">{option.value}%</span>
+    
+            {titanResult.map((gear, index) => (
+                <div className="col-xxl-2 col-xl-3 col-lg-4 col-sm-6" key={gear.no}>
+                    <div className="card mb-3 bg-dark text-light flex-row flex-sm-column">
+                        <div className="card-img-top p-2 position-relative">
+                            <img src={`${process.env.PUBLIC_URL}/images/titan/${gear.type}-${gear.grade}.png`} width={'100%'} />
+                            {gear.specialEffect !== null && (
+                            <div className="position-absolute" style={{top:'5%', left:'5%', width:'35%', height:'35%'}}>
+                                <img src={`${process.env.PUBLIC_URL}/images/titan/${gear.specialEffect}.png`} width={'100%'} />
                             </div>
-                        ))}
-                        {gear.specialEffect !== null && (<>
-                            <hr/>
-                            <div className="fw-bold text-info">{specialEffectNames[gear.specialEffect]}</div>
-                        </>)}
+                            )}
+                        </div>
+                        <div className="card-body" style={{minWidth:'70%'}}>
+                            <h5 className="card-title" style={{ color: colorList[gear.grade] }}>{gearNames[gear.type]}</h5>
+                            {gear.options.map((option, _) => (
+                                <div className="card-text row mb-1" key={_}>
+                                    <span className="col-8 text-begin text-truncate">{option.title}</span>
+                                    <span className="col-4 text-end text-truncate">{option.value}%</span>
+                                </div>
+                            ))}
+                            {gear.specialEffect !== null && (<>
+                                <hr/>
+                                <div className="fw-bold text-info">{specialEffectNames[gear.specialEffect]}</div>
+                            </>)}
+                        </div>
+                        
                     </div>
-                    
                 </div>
-            </div>
-        ))}
+            ))}
         </div>
     </>);
 };
