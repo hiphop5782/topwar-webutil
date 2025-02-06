@@ -7,6 +7,7 @@ import { FaCheck } from "react-icons/fa"
 import { FaXmark } from "react-icons/fa6";
 
 import "./TitanRefineSimulator.css";
+import "animate.css";
 
 const TitanRefineSimulator = () => {
     const [parts, setParts] = useState('pistol');
@@ -155,6 +156,7 @@ const TitanRefineSimulator = () => {
 
     const refining = useRef(false);
     const [selectedIndex, setSelectedIndex] = useState(-1);
+    const [animation, setAnimation] = useState(true);
     const refine = useCallback(()=>{
         refining.current = true;
 
@@ -182,16 +184,14 @@ const TitanRefineSimulator = () => {
             const refineOption = combineOptions(option, materialOption);
             copy[index] = refineOption;
         }
-        
+
         setGearOptions(copy);
         setSelectedIndex(index);
         refining.current = false;
-    }, [parts, gearOptions, materialOption]);
+    }, [parts, gearOptions, materialOption, animation]);
 
-    //test
-    useEffect(()=>{
-        console.log(gearOptions);
-    }, [gearOptions]);
+
+    
 
     return (<>
         <h1>타이탄 재련</h1>
