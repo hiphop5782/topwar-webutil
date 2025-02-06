@@ -145,8 +145,8 @@ const TitanRefineSimulator = () => {
         }
 
         const refineValue = prevOption.value + gaussianRandomValue(newOption.value / 10 , newOption.value / 4);//10~25%로 임의지정
-        console.log("parts", parts);
-        console.log("maxValue", gearOptionList[parts].filter(opt=>opt.title === newOption.title));
+        //console.log("parts", parts);
+        //console.log("maxValue", gearOptionList[parts].filter(opt=>opt.title === newOption.title));
         const maxValue = gearOptionList[parts].filter(opt=>opt.title === newOption.title)[0].max;
         
         return {...prevOption, value:Math.min(refineValue, maxValue), max : refineValue >= maxValue};
@@ -159,8 +159,8 @@ const TitanRefineSimulator = () => {
         refining.current = true;
 
         const copy = [...gearOptions];
-        //max가 아닌 index 찾기
-        const indexList = copy.map((opt, idx)=>opt?.max === true ? -1 : idx).filter(idx=>idx!==-1);
+        //재련할 옵션과 같으면서 max가 아닌 index 찾기
+        const indexList = copy.map((opt, idx)=>(opt?.title === materialOption.title && opt?.max === true) ? -1 : idx).filter(idx=>idx!==-1);
 
         //없으면 중지
         if(copy.length === 3 && indexList.length === 0) return;
@@ -215,9 +215,10 @@ const TitanRefineSimulator = () => {
                     <span role="button" className="text-primary fs-6" onClick={addGearOptions}>옵션추가</span>
                     <span role="button" className="text-danger fs-6 ms-2" onClick={removeGearOptions}>옵션제거</span>
                 </h2>
+                <div className="text-muted">*옵션 클릭 시 변경 가능</div>
                 <div className="row">
-                    <div className="col-lg-6">
-                        <div className="card mb-3 bg-dark text-light flex-row flex-lg-column">
+                    <div className="col">
+                        <div className="card mb-3 bg-dark text-light flex-row">
                             <div className="card-img-top p-2 position-relative">
                                 <img src={`${process.env.PUBLIC_URL}/images/titan/${parts}-gold.png`} width={'100%'} />
                             </div>
@@ -255,9 +256,10 @@ const TitanRefineSimulator = () => {
                 <h2>
                     <span className="me-2">재료 설정</span>
                 </h2>
+                <div className="text-muted">*옵션 클릭 시 변경 가능</div>
                 <div className="row">
-                    <div className="col-lg-6">
-                        <div className="card mb-3 bg-dark text-light flex-row flex-lg-column">
+                    <div className="col">
+                        <div className="card mb-3 bg-dark text-light flex-row">
                             <div className="card-img-top p-2 position-relative">
                                 <img src={`${process.env.PUBLIC_URL}/images/titan/${parts}-gold.png`} width={'100%'} />
                             </div>
