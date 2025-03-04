@@ -19,7 +19,8 @@ function Menu() {
                                 <div className="dropdown-divider"></div>
                                 <NavLink className="dropdown-item" to="/information/job">전문 직업 강화</NavLink>
                                 <NavLink className="dropdown-item" to="/information/formation-perk">군진 특성</NavLink>
-                                {/* <a className="dropdown-item">Separated link</a> */}
+                                <div className="dropdown-divider"></div>
+                                <NavLink className="dropdown-item" to="/information/kartz-spec">카르츠 정보</NavLink>
                             </div>
                         </li>
                         <li className="nav-item dropdown">
