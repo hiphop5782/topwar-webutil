@@ -20,7 +20,8 @@ function Menu() {
                                 <NavLink className="dropdown-item" to="/information/job">전문 직업 강화</NavLink>
                                 <NavLink className="dropdown-item" to="/information/formation-perk">군진 특성</NavLink>
                                 <div className="dropdown-divider"></div>
-                                <NavLink className="dropdown-item" to="/information/kartz-spec">카르츠 정보</NavLink>
+                                <NavLink className="dropdown-item" to="/information/kartz-spec">카르츠 몬스터 정보</NavLink>
+                                <NavLink className="dropdown-item" to="/information/kartz-rank">카르츠 순위 현황</NavLink>
                             </div>
                         </li>
                         <li className="nav-item dropdown">

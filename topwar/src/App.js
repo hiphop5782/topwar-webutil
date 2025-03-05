@@ -26,6 +26,7 @@ import TitanResearchSimulator from '@src/components/screen/simulator/TitanResear
 import TitanRefineSimulator from '@src/components/screen/simulator/TitanRefineSimulator';
 import ValuePackCalculator from '@src/components/screen/simulator/VapuePackCalculator';
 import KartzSpecInformation from '@src/components/screen/information/KartzSpecInformation';
+import KartzRankInformation from '@src/components/screen/information/KartzRankInformation';
 
 function App() {
   const [count, setCount] = useRecoilState(counterState);
@@ -46,6 +47,7 @@ function App() {
               <Route path="/information/job" element={<JobInformation/>}></Route>
               <Route path="/information/formation-perk" element={<FormationPerk/>}></Route>
               <Route path="/information/kartz-spec" element={<KartzSpecInformation/>}></Route>
+              <Route path="/information/kartz-rank" element={<KartzRankInformation/>}></Route>
               <Route path="/calculator/vital" element={<VitalCalculator/>}></Route>
               <Route path="/calculator/gathering" element={<GatheringCalculator/>}></Route>
               <Route path="/calculator/skill" element={<SkillCalculator/>}></Route>

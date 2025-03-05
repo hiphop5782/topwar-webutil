@@ -29,7 +29,7 @@ const KartzSpecInformation = ()=>{
         <div className="row mt-4">
             <div className="col">
                 <div className='table-responsive'>
-                    <table className='table'>
+                    <table className='table table-hover'>
                         <thead className='text-center table-primary'>
                             <tr>
                                 <th>라운드</th>
@@ -40,11 +40,12 @@ const KartzSpecInformation = ()=>{
                                 <th>명중/회피</th>
                                 <th>치명타데미지</th>
                                 <th>방어도</th>
+                                <th>군종</th>
                             </tr>
                         </thead>
                         <tbody className='text-center'>
                             {list.map(info=>(
-                            <tr key={info.round} className={`${bossOnly === false && info.round % 5 == 0 ? 'table-info' : ''}`}>
+                            <tr key={info.round} className={`${info.round % 5 == 0 ? 'table-info' : ''}`}>
                                 <td>{info.round}</td>
                                 <td>{info.level}</td>
                                 <td>{numberWithCommas(info.unit)}</td>
@@ -53,6 +54,7 @@ const KartzSpecInformation = ()=>{
                                 <td>{numberWithCommas(info.hit)}</td>
                                 <td>{numberWithCommas(info.critDmg)}</td>
                                 <td>{numberWithCommas(info.def)}</td>
+                                <td>{info.type}</td>
                             </tr>
                             ))}
                         </tbody>
