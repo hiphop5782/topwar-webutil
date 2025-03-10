@@ -27,6 +27,7 @@ import TitanRefineSimulator from '@src/components/screen/simulator/TitanRefineSi
 import ValuePackCalculator from '@src/components/screen/simulator/VapuePackCalculator';
 import KartzSpecInformation from '@src/components/screen/information/KartzSpecInformation';
 import KartzRankInformation from '@src/components/screen/information/KartzRankInformation';
+import GoogleAdsVertical from './components/adsense/GoogleAdsVertical';
 
 function App() {
   const [count, setCount] = useRecoilState(counterState);
@@ -38,7 +39,10 @@ function App() {
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Menu></Menu>
         <div className="row">
-          <div className="offset-md-1 col-md-10">
+          <div className="col-md-2">
+            <GoogleAdsVertical dataAdClient="ca-pub-5256661935690588" dataAdSlot="2606768455"/>
+          </div>
+          <div className="col-md-8">
             <Routes>
               <Route exact path="/" element={<Home />}></Route>
               <Route path="/information/base" element={<BaseInformation/>}></Route>
@@ -59,6 +63,9 @@ function App() {
               <Route path="/developer" element={<Developer/>}></Route>
               <Route path="/emoji" element={<Emoji/>}></Route>
             </Routes>
+          </div>
+          <div className="col-md-2">
+            <GoogleAdsVertical dataAdClient="ca-pub-5256661935690588" dataAdSlot="8253345796"/>
           </div>
         </div>
       </BrowserRouter>
