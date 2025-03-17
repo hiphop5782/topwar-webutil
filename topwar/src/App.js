@@ -40,7 +40,7 @@ function App() {
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Menu></Menu>
         <div className="row">
-          <div className="col-md-2">
+          <div className="col-md-2 d-none d-md-block">
             <GoogleAdsVertical dataAdClient="ca-pub-5256661935690588" dataAdSlot="2606768455"/>
           </div>
           <div className="col-md-8">
@@ -66,7 +66,7 @@ function App() {
               <Route path="/blog" element={<Blog/>}></Route>
             </Routes>
           </div>
-          <div className="col-md-2">
+          <div className="col-md-2 d-none d-md-block">
             <GoogleAdsVertical dataAdClient="ca-pub-5256661935690588" dataAdSlot="8253345796"/>
           </div>
         </div>

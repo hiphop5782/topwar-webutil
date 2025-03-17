@@ -2,6 +2,7 @@ import colorList from "@src/assets/json/titan/titan-colors.json";
 import partsList from "@src/assets/json/titan/titan-parts-types.json";
 import gearNames from "@src/assets/json/titan/titan-gear-names.json";
 import gearOptionList from "@src/assets/json/titan/titan-gear-options.json";
+import gearOptionRange from "@src/assets/json/titan/titan-gear-range.json";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { FaCheck } from "react-icons/fa"
 import { FaXmark } from "react-icons/fa6";
@@ -39,7 +40,7 @@ const TitanRefineSimulator = () => {
             if (prev.length === 3) return prev;
             return [...prev, { title: option.title, value: mean }]
         });
-    }, [gearOptions]);
+    }, [gearOptions, parts]);
     const removeGearOptions = useCallback((e) => {
         setGearOptions(prev => {
             if (prev.length === 1) return prev;
@@ -136,16 +137,20 @@ const TitanRefineSimulator = () => {
         return parseFloat(value.toFixed(2));
     }, []);
 
+    const randomValue = useCallback((begin, end, numeric=false)=>{
+        const range = end - begin + (numeric ? 1 : 0);
+        const value = Math.random() * range;
+        return numeric ? Math.floor(value) : value;
+    }, []);
+
     const combineOptions = useCallback((prevOption, newOption)=>{
         if(prevOption.title !== newOption.title) {
             return {...newOption};
         }
 
-        if(prevOption.value < newOption.value) {
-            return {...newOption};
-        }
-
-        const refineValue = prevOption.value + gaussianRandomValue(newOption.value / 10 , newOption.value / 4);//10~25%로 임의지정
+        const {min, max} = gearOptionRange.filter(item=>prevOption.title.includes(item.type))[0];
+        //const refineValue = prevOption.value + gaussianRandomValue(newOption.value / 10 , newOption.value / 4);//10~25%로 임의지정
+        const refineValue = parseFloat(prevOption.value) + randomValue(min, max);
         //console.log("parts", parts);
         //console.log("maxValue", gearOptionList[parts].filter(opt=>opt.title === newOption.title));
         const maxValue = gearOptionList[parts].filter(opt=>opt.title === newOption.title)[0].max;
@@ -188,10 +193,7 @@ const TitanRefineSimulator = () => {
         setGearOptions(copy);
         setSelectedIndex(index);
         refining.current = false;
-    }, [parts, gearOptions, materialOption, animation]);
-
-
-    
+    }, [parts, gearOptions, materialOption, animation]);  
 
     return (<>
         <h1>타이탄 재련</h1>
@@ -212,8 +214,8 @@ const TitanRefineSimulator = () => {
             <div className="col-sm-6">
                 <h2>
                     <span className="me-2">타이탄 설정</span>
-                    <span role="button" className="text-primary fs-6" onClick={addGearOptions}>옵션추가</span>
-                    <span role="button" className="text-danger fs-6 ms-2" onClick={removeGearOptions}>옵션제거</span>
+                    <span role="button" className="text-primary fs-6" onClick={addGearOptions}>추가</span>
+                    <span role="button" className="text-danger fs-6 ms-2" onClick={removeGearOptions}>제거</span>
                 </h2>
                 <div className="text-muted">*옵션 클릭 시 변경 가능</div>
                 <div className="row">
@@ -243,7 +245,7 @@ const TitanRefineSimulator = () => {
                                             </div>
                                         </>) : (<>
                                             <span className="col-8 text-begin text-truncate" role="button" onClick={e => changeGearOption(opt, idx)}>{opt.title}</span>
-                                            <span className="col-4 text-end text-truncate" role="button" onClick={e => changeGearOption(opt, idx)}>{opt.value.toFixed(2)}%</span>
+                                            <span className="col-4 text-end text-truncate" role="button" onClick={e => changeGearOption(opt, idx)}>{parseFloat(opt.value).toFixed(2)}%</span>
                                         </>)}
                                     </div>
                                 ))}
