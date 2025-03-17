@@ -27,7 +27,8 @@ import TitanRefineSimulator from '@src/components/screen/simulator/TitanRefineSi
 import ValuePackCalculator from '@src/components/screen/simulator/VapuePackCalculator';
 import KartzSpecInformation from '@src/components/screen/information/KartzSpecInformation';
 import KartzRankInformation from '@src/components/screen/information/KartzRankInformation';
-import GoogleAdsVertical from './components/adsense/GoogleAdsVertical';
+import GoogleAdsVertical from '@src/components/adsense/GoogleAdsVertical';
+import Blog from '@src/components/posts/Blog';
 
 function App() {
   const [count, setCount] = useRecoilState(counterState);
@@ -62,6 +63,7 @@ function App() {
               <Route path="/simulator/titan-refine" element={<TitanRefineSimulator/>}></Route>
               <Route path="/developer" element={<Developer/>}></Route>
               <Route path="/emoji" element={<Emoji/>}></Route>
+              <Route path="/blog" element={<Blog/>}></Route>
             </Routes>
           </div>
           <div className="col-md-2">
