@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.036e4086.css",
-    "main.js": "/static/js/main.0d59248c.js",
+    "main.js": "/static/js/main.196d23ee.js",
     "static/js/787.3e5985d4.chunk.js": "/static/js/787.3e5985d4.chunk.js",
     "static/media/BinggraeMelona.ttf": "/static/media/BinggraeMelona.1ea454b9d11d5662afc1.ttf",
     "static/media/topwar-helper-banner.jpg": "/static/media/topwar-helper-banner.169c0fd4a6c4454977c9.jpg",
@@ -618,12 +618,14 @@
     "../docs/images/base/63.png": "/../docs/images/base/63.png",
     "../docs/images/base/64.png": "/../docs/images/base/64.png",
     "index.html": "/index.html",
+    "static/media/post02.txt": "/static/media/post02.4f374f7de525a0d18596.txt",
+    "static/media/post01.txt": "/static/media/post01.bd704da4efacf9f84acf.txt",
     "main.036e4086.css.map": "/static/css/main.036e4086.css.map",
-    "main.0d59248c.js.map": "/static/js/main.0d59248c.js.map",
+    "main.196d23ee.js.map": "/static/js/main.196d23ee.js.map",
     "787.3e5985d4.chunk.js.map": "/static/js/787.3e5985d4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.036e4086.css",
-    "static/js/main.0d59248c.js"
+    "static/js/main.196d23ee.js"
   ]
 }
