@@ -17,6 +17,7 @@ const TitanRefineSimulator = () => {
 
     const [editingOption, setEditingOption] = useState({title:'', value:0.0});
     const [editingMaterialOption, setEditingMaterialOption] = useState({title:'', value:0.0});
+    const [history, setHistory] = useState([]);
 
     //파츠가 변경되면 기어옵션을 변경
     useEffect(() => {
@@ -160,10 +161,72 @@ const TitanRefineSimulator = () => {
 
 
     const refining = useRef(false);
-    const [selectedIndex, setSelectedIndex] = useState(-1);
-    const [animation, setAnimation] = useState(true);
     const refine = useCallback(()=>{
         refining.current = true;
+        setSelectedIndex(-1);
+        setAnimationIndex(-1);
+
+        const copy = [...gearOptions];
+        //재련할 옵션과 같으면서 max가 아닌 index 찾기
+        //const indexList = copy.map((opt, idx)=>(opt?.title === materialOption.title && opt?.max === true) ? -1 : idx).filter(idx=>idx!==-1);
+
+        //max는 제외
+        const indexList = copy.map((opt, idx)=>(opt?.title === materialOption.title && opt?.max === true) ? -1 : idx).filter(idx=>idx!==-1);
+
+        //없으면 중지
+        //if(copy.length === 3 && indexList.length === 0) return;
+        
+        //없는 index 보충
+        if(copy.length < 3) {
+            indexList.push(copy.length);    
+        }
+        
+        //const index = indexList[Math.floor(Math.random() * indexList.length)];
+        const index = Math.floor(Math.random() * 3);
+        let comment = `<span class="fw-bold text-danger">${index+1}</span>번 옵션 항목에 `;
+        
+        if(copy[index] === undefined) {//신규
+            copy[index] = materialOption;
+            comment += `신규 옵션 추가, [${materialOption.title} - <span class="fw-bold text-danger">${materialOption.value}</span>%]`;
+        }
+        else {
+            const option = copy[index];
+    
+            //옵션이름이 다르면 덮어쓰기, 같으면 수치비교 후 합성
+            const refineOption = combineOptions(option, materialOption);
+            copy[index] = refineOption;
+            if(option.title === refineOption.title) {
+                comment += `기존 옵션 수치 향상, [${refineOption.title} - <span class="fw-bold text-danger">${option.value.toFixed(2)}</span>% → <span class="fw-bold text-danger">${refineOption.value.toFixed(2)}</span>% (<span class="fw-bold text-danger">${(refineOption.value - option.value).toFixed(2)}</span>% 상승)]`;
+            }
+            else {
+                comment += `다른 옵션으로 덮어쓰기됨, [${refineOption.title} - <span class="fw-bold text-danger">${refineOption.value.toFixed(2)}%</span>]`;
+            }
+        }
+
+        setGearOptions(copy);
+        setAnimationIndex(index);
+        setSelectedIndex(index);
+        setHistory(prev=>[comment, ...prev]);
+        refining.current = false;
+    }, [parts, gearOptions, materialOption]);  
+
+    //애니메이션 관련
+    const [useAnimation, setUseAnimation] = useState(true);
+    const [selectedIndex, setSelectedIndex] = useState(-1);
+    const [animationIndex, setAnimationIndex] = useState(-1);
+    const [animationPlaying, setAnimationPlaying] = useState(false);
+
+    const playAnimation = useCallback(()=>{
+        if(animationPlaying === true) return;
+        setAnimationPlaying(true);
+    }, [animationPlaying]);
+
+    useEffect(()=>{
+        if(animationPlaying === false) return;
+        
+        refining.current = true;
+        setSelectedIndex(-1);
+        setAnimationIndex(0);
 
         const copy = [...gearOptions];
         //재련할 옵션과 같으면서 max가 아닌 index 찾기
@@ -172,15 +235,18 @@ const TitanRefineSimulator = () => {
         //없으면 중지
         if(copy.length === 3 && indexList.length === 0) return;
 
+        
         //없는 index 보충
         if(copy.length < 3) {
             indexList.push(copy.length);    
         }
         
         const index = indexList[Math.floor(Math.random() * indexList.length)];
+        let comment = `<span class="fw-bold text-danger">${index+1}</span>번 옵션 항목에 `;
         
         if(copy[index] === undefined) {//신규
             copy[index] = materialOption;
+            comment += `신규 옵션 추가, [${materialOption.title} - <span class="fw-bold text-danger">${materialOption.value}%</span>]`;
         }
         else {
             const option = copy[index];
@@ -188,18 +254,48 @@ const TitanRefineSimulator = () => {
             //옵션이름이 다르면 덮어쓰기, 같으면 수치비교 후 합성
             const refineOption = combineOptions(option, materialOption);
             copy[index] = refineOption;
+            if(option.title === refineOption.title) {
+                comment += `기존 옵션 수치 향상, [${refineOption.title} - <span class="fw-bold text-danger">${option.value.toFixed(2)}</span>% → <span class="fw-bold text-danger">${refineOption.value.toFixed(2)}</span>% (<span class="fw-bold text-danger">${(refineOption.value - option.value).toFixed(2)}</span>% 상승)]`;
+            }
+            else {
+                comment += `다른 옵션으로 덮어쓰기됨, [${refineOption.title} - <span class="fw-bold text-danger">${refineOption.value.toFixed(2)}</span>%]`;
+            }
         }
 
-        setGearOptions(copy);
-        setSelectedIndex(index);
-        refining.current = false;
-    }, [parts, gearOptions, materialOption, animation]);  
+        //animation
+        let count = 0;
+        const nextStep = (idx=0)=>{
+            const nextIndex = (idx+1) % 3;
+            setAnimationIndex(nextIndex);
+            count++;
+            if(count < 6 || nextIndex != index) {
+                setTimeout(()=>{nextStep(nextIndex)}, 250);
+            }
+            else {
+                setGearOptions(copy);
+                refining.current = false;
+                setAnimationPlaying(false);
+                setSelectedIndex(index);
+                setHistory(prev=>[comment, ...prev]);
+            }
+        };
+
+        const job = setTimeout(()=>nextStep(), 250);
+
+        return ()=>clearTimeout(job);
+    }, [animationPlaying]);
 
     return (<>
         <h1>타이탄 재련</h1>
+        <div className="form-check form-switch">
+            <input className="form-check-input" type="checkbox" id="refine-animation-available"
+                checked={useAnimation} onChange={e=>setUseAnimation(e.target.checked)}/>
+            <label className="form-check-label" htmlFor="refine-animation-available">재련 애니메이션 사용</label>
+        </div>
         <hr />
         <div className="row">
             <div className="col">
+                
                 <div className="d-flex align-items-center flex-wrap">
                     <span className="fs-3 me-4">제작부위</span>
                     <span>
@@ -224,31 +320,42 @@ const TitanRefineSimulator = () => {
                             <div className="card-img-top p-2 position-relative">
                                 <img src={`${process.env.PUBLIC_URL}/images/titan/${parts}-gold.png`} width={'100%'} />
                             </div>
-                            <div className="card-body" style={{ minWidth: '70%' }}>
+                            <div className="card-body" style={{ minWidth: '70%'}}>
                                 <h5 className="card-title" style={{ color: colorList['gold'] }}>{gearNames[parts]}</h5>
-                                {gearOptions.map((opt, idx) => (
-                                    <div className={`${selectedIndex===idx?'select-effect ':''}card-text row mb-1`} key={idx}>
-                                        {opt?.edit === true ? (<>
-                                            <div className="input-group">
-                                                <select className="form control form-control-sm col-8" onChange={changeEditingOptionTitle} value={editingOption.title}>
-                                                    {gearOptionList[parts].map((option, i)=>(
-                                                        <option key={i}>{option.title}</option>
-                                                    ))}
-                                                </select>
-                                                <input type="number" className="form-control form-control-sm col-4 text-end" value={editingOption.value} 
-                                                            onChange={changeEditingOptionValue} min={0} step={0.01}/>
-                                                <span className="ms-1">%</span>
-                                            </div>
-                                            <div className="text-end">
-                                                <FaCheck className="text-success fs-6" onClick={e=>confirmChangeGearOption(opt, idx)}/>
-                                                <FaXmark className="text-danger ms-2 fs-6" onClick={e=>cancelChangeGearOption(opt, idx)}/>
-                                            </div>
-                                        </>) : (<>
-                                            <span className="col-8 text-begin text-truncate" role="button" onClick={e => changeGearOption(opt, idx)}>{opt.title}</span>
-                                            <span className="col-4 text-end text-truncate" role="button" onClick={e => changeGearOption(opt, idx)}>{parseFloat(opt.value).toFixed(2)}%</span>
-                                        </>)}
-                                    </div>
-                                ))}
+                                <div className="option-mapper">
+                                    {animationIndex != -1 && (
+                                    <div className="option-highlighter" style={{top:`${animationIndex * 33.3333}%`}}>&nbsp;</div>
+                                    )}
+                                    {gearOptions.map((opt, idx) => (
+                                        <div className={`${selectedIndex===idx?'select-effect ':''}card-text row mb-1`} key={idx}>
+                                            {opt?.edit === true ? (<>
+                                                <div className="input-group">
+                                                    <select className="form control form-control-sm col-8" onChange={changeEditingOptionTitle} value={editingOption.title}>
+                                                        {gearOptionList[parts].map((option, i)=>(
+                                                            <option key={i}>{option.title}</option>
+                                                        ))}
+                                                    </select>
+                                                    <input type="number" className="form-control form-control-sm col-4 text-end" value={editingOption.value} 
+                                                                onChange={changeEditingOptionValue} min={0} step={0.01}/>
+                                                    <span className="ms-1">%</span>
+                                                </div>
+                                                <div className="text-end">
+                                                    <FaCheck className="text-success fs-6" onClick={e=>confirmChangeGearOption(opt, idx)}/>
+                                                    <FaXmark className="text-danger ms-2 fs-6" onClick={e=>cancelChangeGearOption(opt, idx)}/>
+                                                </div>
+                                            </>) : (<>
+                                                <span className="col-8 text-begin text-truncate" role="button" onClick={e => changeGearOption(opt, idx)}>{opt.title}</span>
+                                                <span className="col-4 text-end text-truncate" role="button" onClick={e => changeGearOption(opt, idx)}>{parseFloat(opt.value).toFixed(2)}%</span>
+                                            </>)}
+                                        </div>
+                                    ))}
+                                    {Array.from({length:3-gearOptions.length}, (_,i)=>i).map((idx)=>(
+                                        <div className={`card-text row mb-1`} key={idx}>
+                                            <span className="col-8 text-begin text-truncate">&nbsp;</span>
+                                            <span className="col-4 text-end text-truncate">&nbsp;</span>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -296,9 +403,30 @@ const TitanRefineSimulator = () => {
             </div>
         </div>
         
-        <div className="row">
+        <div className="row mt-2">
             <div className="col">
-                <button type="button" className="btn btn-primary btn-lg w-100" onClick={refine} disabled={editing === true && refining.current === false}>재련</button>
+                <button type="button" className="btn btn-primary btn-lg w-100" 
+                    onClick={e=>useAnimation ? playAnimation(e) : refine(e)} 
+                    disabled={editing === true && refining.current === false && animationPlaying === false}>재련</button>
+            </div>
+        </div>
+
+        <hr/>
+
+        <div className="row mt-2">
+            <div className="col">
+                <h3>History</h3>
+                {history.map((h,i)=>(<div key={i} dangerouslySetInnerHTML={{__html:h}}></div>))}
+            </div>
+        </div>
+
+        <hr/>
+        <div className="row mt-4">
+            <div className="col">
+                <div>* 타이탄 재련 수치 (by THAODIEN - s348)</div>
+                {gearOptionRange.map((option, i)=>(
+                <div key={i}>{option.type} : {option.min}% ~ {option.max}%</div>
+                ))}
             </div>
         </div>
 

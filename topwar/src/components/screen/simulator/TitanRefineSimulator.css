@@ -17,3 +17,14 @@
         text-shadow: 0 0 5px #fff, 0 0 7px #ff0, 0 0 10px #ff0;
     }
 }
+
+.option-mapper {
+    position: relative;
+}
+.option-highlighter {
+    position: absolute;
+    top:0;
+    left:-2px;
+    right: -2px;
+    box-shadow: 0 0 5px 2px #ff0;
+}
