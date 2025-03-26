@@ -169,6 +169,20 @@ const KartzRankInformation = () => {
         setChartHeight("auto");
     }, [chartHeight]);
 
+    const [keyword, setKeyword] = useState("");
+    const changeKeyword = useCallback(e=>{
+        const regex = /^[0-9]*$/;
+        if(regex.test(e.target.value)) {
+            setKeyword(e.target.value);
+        }
+    }, [keyword]);
+    const searchResult = useMemo(()=>{
+        if(keyword.length === 0) return [...countList];
+        //return countList.filter(c=>c.server === parseInt(keyword));//일치
+        return countList.filter(c=>c.server.toString().startsWith(keyword))
+                        .map(c=>({...c, server:c.server.toString().replace(keyword, `<span class='text-primary fw-bold'>${keyword}</span>`)}));//시작검색
+    }, [countList, keyword]);
+
     return (<>
         <h1>
             카르츠 분석
@@ -189,6 +203,12 @@ const KartzRankInformation = () => {
             <div className="col-sm-6" style={{height:`${chartHeight}`, overflowY:"auto"}}>
                 <table className="table table-striped">
                     <thead style={{position:"sticky", top:0, zIndex:99}}>
+                        <tr>
+                            <th colSpan={5}>
+                                <input type="search" inputMode="numeric" className="form-control w-auto"
+                                    placeholder="서버 번호 입력" value={keyword} onChange={changeKeyword}/>
+                            </th>
+                        </tr>
                         <tr>
                             <th className="text-center">Rank</th>
                             <th className="text-center">Server</th>
@@ -216,13 +236,14 @@ const KartzRankInformation = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {countList.map((obj,index)=>(    
+                        {searchResult.map((obj,index)=>(    
                         <tr key={obj.server}>
                             <td className="text-center" style={{backgroundColor:getBackgroundColor(index), color:getForegroundColor(index)}}>
                                 <b>{index+1}</b>
                             </td>
                             <td className="text-center" style={{backgroundColor:getBackgroundColor(index), color:getForegroundColor(index)}}>
-                                <b>{obj.server}</b>
+                                <span style={{width:"50%"}} className="d-block text-start mx-auto" 
+                                    dangerouslySetInnerHTML={{__html:obj.server}}></span>
                             </td>
                             <td className="text-center" style={{backgroundColor:getBackgroundColor(index), color:getForegroundColor(index)}}>
                                 {numberWithCommas(obj.count)}

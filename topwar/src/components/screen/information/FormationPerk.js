@@ -7,6 +7,7 @@ import { Network } from "vis-network";
 import { cloneDeep } from "lodash";
 
 import { RiResetLeftFill } from "react-icons/ri";
+import { TbCaptureFilled } from "react-icons/tb";
 
 import MouseImage from "@src/assets/images/mouse.png";
 
@@ -17,6 +18,7 @@ const FormationPerk = () => {
     const [nodes, setNodes] = useState(null);
     const [edges, setEdges] = useState(null);
     const [oneTouch, setOneTouch] = useState(true);
+    const [network, setNetwork] = useState(null);
 
     //이미지 캐싱
     const [imageMap, setImageMap] = useState({});
@@ -93,7 +95,7 @@ const FormationPerk = () => {
                 }));
                 edges.update(targetEdges);
 
-                console.log(imageMap[`/images/formation/perk/${node.id}-${node.level.current}.png`]);
+                //console.log(imageMap[`/images/formation/perk/${node.id}-${node.level.current}.png`]);
                 return {
                     id: node.id,
                     //image: `${process.env.PUBLIC_URL}/images/formation/perk/${node.id}-${node.level.current}.png`
@@ -155,8 +157,10 @@ const FormationPerk = () => {
             }
         });
 
+        setNetwork(network);
         return () => {
             network.destroy();  // 컴포넌트 언마운트 시 네트워크 리소스를 정리합니다
+            setNetwork(null);
         };
     }, [nodes, oneTouch, edges]);
 
@@ -299,6 +303,35 @@ const FormationPerk = () => {
         return numberWithCommas(value);
     }, [json.nodes]);
 
+    //capture image to clipboard
+    const captureImage = useCallback((callback)=>{
+        if(network === null) return;
+
+        const boundingBox = network.getBoundingBox(network.body.nodeIndices);
+
+        network.fit({animation:false});
+
+        setTimeout(()=>{
+            const canvas = network.canvas.frame.canvas;
+            const dataUrl = canvas.toDataURL("image/png");
+            callback(dataUrl);
+        }, 300);
+    }, [network]);
+    const saveImageToClipboard = useCallback(()=>{
+        // captureImage(async (dataUrl) => {
+        //     const blob = await (await fetch(dataUrl)).blob();
+        //     try {
+        //         console.log(navigator.clipboard.write);
+        //       await navigator.clipboard.write([
+        //         new ClipboardItem({ "image/png": blob }),
+        //       ]);
+        //       console.log("클립보드에 이미지 복사 완료!");
+        //     } catch (err) {
+        //       console.error("복사 실패 😢: " + err.message);
+        //     }
+        //   });
+    }, [network]);
+
     return (<>
         <h1>군진 특성(Formation Perk)</h1>
         <hr />
@@ -331,6 +364,7 @@ const FormationPerk = () => {
         <h2>
             사용한 포인트 : {totalPoint} pt
             <RiResetLeftFill onClick={clearPoint} className="text-danger fs-bold ms-2" />
+            {/* <TbCaptureFilled onClick={saveImageToClipboard} className="text-info fs-bold ms-2"/> */}
         </h2>
         <div ref={containerRef} id="graph-viewer" style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/formation/perk/background.png)` }}></div>
     </>);
