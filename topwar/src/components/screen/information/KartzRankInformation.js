@@ -185,9 +185,23 @@ const KartzRankInformation = () => {
                         .map(c=>({...c, server:c.server.toString().replace(keyword, `<span class='text-primary fw-bold'>${keyword}</span>`)}));//시작검색
     }, [countList, keyword]);
 
+    //높이같게
+    const titleDisplay = useRef();
+    const [titleHeight, setTitleHeight] = useState(0);
+    useEffect(()=>{
+        const updateHeight = ()=>{
+            if(titleDisplay.current) {
+                setTitleHeight(titleDisplay.current.offsetHeight);
+            }
+        };
+        updateHeight();
+        window.addEventListener("resize", updateHeight);
+        return ()=>window.removeEventListener("resize", updateHeight);
+    }, []);
+
     return (<>
-        <div className="row">
-            <div className="col-sm-6">
+        <div className="row position-relative">
+            <div className="col-sm-6" ref={titleDisplay}>
                 <h1>
                     카르츠 분석
                     <select className="form-select w-auto d-inline-block ms-2" onChange={e=>setProvideDate(e.target.value)}>
@@ -198,8 +212,8 @@ const KartzRankInformation = () => {
                 <div className="text-muted">랭커는 카르츠 <span className="text-danger fw-bold">1~500</span>등을 기록한 유저를 말합니다</div>
                 <div className="text-muted">랭커는 평균 <span className="text-danger fw-bold">{(total / 500).toFixed(2)}</span>스테이지까지 도전했습니다</div>
             </div>
-            <div className="col-sm-6">
-                <ul className="list-group rank-display">
+            <div className="position-absolute position-relative-sm top-0 end-0 col-sm-6 overflow-auto" style={{height:titleHeight+"px"}}>
+                <ul className="list-group">
                     {Array.from({length:500},(_, i)=>i+1).map(n=>(
                         <li className="list-group-item" key={n}>
                             <SafeImage src={`${process.env.PUBLIC_URL}/images/kartz/${provideDate}/${n}.png`} width={`100%`}/>

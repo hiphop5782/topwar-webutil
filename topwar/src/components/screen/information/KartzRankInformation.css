@@ -1,4 +1,5 @@
-.rank-display {
-    max-height: 150px;
-    overflow-y: scroll;
+@media (max-width: 576px) {
+    .position-relative-sm {
+        position: relative !important;
+    }
 }
