@@ -1,13 +1,15 @@
-import KartzRankerList from "@src/assets/json/kartz/2025-02-24.json";
-
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, plugins } from 'chart.js';
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Pie } from 'react-chartjs-2';
+
+import SafeImage from '@src/components/template/SafeImage';
+import "./KartzRankInformation.css";
 
 // Chart.js 요소 등록 (ArcElement 필수!)
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const provideDates = [
+    '2025-03-24',
     '2025-02-24',
 ];
 
@@ -184,15 +186,28 @@ const KartzRankInformation = () => {
     }, [countList, keyword]);
 
     return (<>
-        <h1>
-            카르츠 분석
-            <select className="form-select w-auto d-inline-block ms-2">
-                {provideDates.map(d=>(<option key={d}>{d}</option>))}
-            </select>
-        </h1>
-        <div className="text-muted">차트에는 랭커가 <span className="text-danger fw-bold">5</span>명 이상인 서버만 표시됩니다</div>
-        <div className="text-muted">랭커는 카르츠 <span className="text-danger fw-bold">1~500</span>등을 기록한 유저를 말합니다</div>
-        <div className="text-muted">랭커는 평균 <span className="text-danger fw-bold">{(total / 500).toFixed(2)}</span>스테이지까지 도전했습니다</div>
+        <div className="row">
+            <div className="col-sm-6">
+                <h1>
+                    카르츠 분석
+                    <select className="form-select w-auto d-inline-block ms-2" onChange={e=>setProvideDate(e.target.value)}>
+                        {provideDates.map(d=>(<option key={d}>{d}</option>))}
+                    </select>
+                </h1>
+                <div className="text-muted">차트에는 랭커가 <span className="text-danger fw-bold">5</span>명 이상인 서버만 표시됩니다</div>
+                <div className="text-muted">랭커는 카르츠 <span className="text-danger fw-bold">1~500</span>등을 기록한 유저를 말합니다</div>
+                <div className="text-muted">랭커는 평균 <span className="text-danger fw-bold">{(total / 500).toFixed(2)}</span>스테이지까지 도전했습니다</div>
+            </div>
+            <div className="col-sm-6">
+                <ul className="list-group rank-display">
+                    {Array.from({length:500},(_, i)=>i+1).map(n=>(
+                        <li className="list-group-item" key={n}>
+                            <SafeImage src={`${process.env.PUBLIC_URL}/images/kartz/${provideDate}/${n}.png`} width={`100%`}/>
+                        </li>                    
+                    ))}
+                </ul>
+            </div>
+        </div>
         <hr />
         <div className="row mt-4">
             <div className="col-sm-6">

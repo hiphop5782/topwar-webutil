@@ -1,0 +1,4 @@
+.rank-display {
+    max-height: 150px;
+    overflow-y: scroll;
+}
