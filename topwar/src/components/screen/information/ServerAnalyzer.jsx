@@ -72,8 +72,6 @@ export default function ServerAnalyzer() {
             countObject[range] = countObject[range] ? countObject[range] + 1 : 1;
         };
 
-        const entry = Object.entries(countObject);
-
         return dataset.map(data => {
             return { x: data.x, y: countObject[data.x] ?? 0 };
         });
