@@ -38,8 +38,7 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "deploy": "powershell -ExecutionPolicy Bypass -File ../deploy.ps1",
-    "deploy2": "gh-pages -d build",
+    "deploy": "gh-pages -d build",
     "test": "craco test"
   },
   "eslintConfig": {
