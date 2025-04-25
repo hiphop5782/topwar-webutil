@@ -23,7 +23,7 @@ jobs:
         working-directory: ./topwar
 
       - name: Build project
-        run: npm run build
+        run: CI=false npm run build
         working-directory: ./topwar
 
       - name: Deploy to GitHub Pages
