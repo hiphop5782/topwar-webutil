@@ -5,7 +5,7 @@ import { useCallback, useMemo, useState } from "react";
 
 function BaseInformation() {
     const [baseTypes, setBaseTypes] = useState(baseTypeJson);
-    const [baseList, setBaseList] = useState(baseListJson);
+    const [baseList, setBaseList] = useState([...baseListJson].reverse());
     const [selectedTypes, setSelectedTypes] = useState([]);
 
     const clickBadge = useCallback((index, active) => {

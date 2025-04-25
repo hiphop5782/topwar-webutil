@@ -78,13 +78,15 @@ const KartzRankInformation = () => {
         const accObject = {};
         let total = 0;
         jsonData.forEach(data=>{
+            const isClear = data.damage === "";
             if(!countObject[data.server]) {
                 countObject[data.server] = 1;
-                accObject[data.server] = data.stage;
+                //데미지가 있으면 stage를 1 감소
+                accObject[data.server] = isClear ? data.stage : data.stage-1;
             }
             else {
                 countObject[data.server]++;
-                accObject[data.server] += data.stage;
+                accObject[data.server] += isClear ? data.stage : data.stage-1;
             }
             total += data.stage;
         });
@@ -294,12 +296,13 @@ const KartzRankInformation = () => {
                 ) : (
                 <span role="button" onClick={e=>setChartHeight("auto")}>↓펼치기↓</span>
                 )}
-            </div>
+            </div> 
         </div>
         <hr/>
         <div className="text-muted">Avg는 서버의 랭커 평균 도전 스테이지입니다</div>
         <div className="text-muted">*Point는 랭커 평균 스테이지보다 많이 클리어한 유저에게 부여한 가중치 합계입니다.</div>
-        <div className="text-muted">*Point = <b>( | 유저의 클리어 스테이지 - 랭커 평균 | )²</b> </div>
+        <div className="text-muted">*Point = <b className='text-danger'>( | 유저의 클리어 스테이지 - 랭커 평균 | )²</b> </div>
+        <div className="text-muted"><b>2025년 3월</b> 부터 정확한 측정이 시작되었습니다</div>
     </>)
 };
 

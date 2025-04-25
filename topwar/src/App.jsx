@@ -29,6 +29,7 @@ import KartzSpecInformation from '@src/components/screen/information/KartzSpecIn
 import KartzRankInformation from '@src/components/screen/information/KartzRankInformation';
 import GoogleAdsVertical from '@src/components/adsense/GoogleAdsVertical';
 import Blog from '@src/components/posts/Blog';
+import ServerAnalyzer from './components/screen/information/ServerAnalyzer';
 
 function App() {
   const [count, setCount] = useRecoilState(counterState);
@@ -41,7 +42,7 @@ function App() {
         <Menu></Menu>
         <div className="row">
           <div className="col-md-2 d-none d-md-block">
-            <GoogleAdsVertical dataAdClient="ca-pub-5256661935690588" dataAdSlot="2606768455"/>
+            {/* <GoogleAdsVertical dataAdClient="ca-pub-5256661935690588" dataAdSlot="2606768455"/> */}
           </div>
           <div className="col-md-8">
             <Routes>
@@ -53,6 +54,7 @@ function App() {
               <Route path="/information/formation-perk" element={<FormationPerk/>}></Route>
               <Route path="/information/kartz-spec" element={<KartzSpecInformation/>}></Route>
               <Route path="/information/kartz-rank" element={<KartzRankInformation/>}></Route>
+              <Route path="/information/server-info" element={<ServerAnalyzer/>}></Route>
               <Route path="/calculator/vital" element={<VitalCalculator/>}></Route>
               <Route path="/calculator/gathering" element={<GatheringCalculator/>}></Route>
               <Route path="/calculator/skill" element={<SkillCalculator/>}></Route>
@@ -67,7 +69,7 @@ function App() {
             </Routes>
           </div>
           <div className="col-md-2 d-none d-md-block">
-            <GoogleAdsVertical dataAdClient="ca-pub-5256661935690588" dataAdSlot="8253345796"/>
+            {/* <GoogleAdsVertical dataAdClient="ca-pub-5256661935690588" dataAdSlot="8253345796"/> */}
           </div>
         </div>
       </BrowserRouter>
