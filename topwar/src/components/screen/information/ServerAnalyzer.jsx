@@ -17,6 +17,8 @@ export default function ServerAnalyzer() {
             return;
         }
 
+        console.log("source 변경 테스트");
+
         //src의 json 불러오기(gh-pages 길이 오류로 제거)
         //const module = await import(`@src/assets/json/top100/${selectedServer}.json`)
         // setSelectedServers(prev => [...prev, {

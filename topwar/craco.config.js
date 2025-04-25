@@ -1,6 +1,6 @@
 // craco.config.js
 const path = require('path');
-const CopyPlugin = require('copy-webpack-plugin');
+// const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     // 여기에 원하는 설정을 추가할 수 있습니다.
@@ -23,14 +23,14 @@ module.exports = {
         },
         plugins:{
             add:[
-                new CopyPlugin({
-                    patterns:[
-                        {
-                            from: 'public/images',
-                            to:'../docs/images'
-                        },
-                    ],
-                }),
+                // new CopyPlugin({
+                //     patterns:[
+                //         {
+                //             from: 'public/images',
+                //             to:'../docs/images'
+                //         },
+                //     ],
+                // }),
             ],
         },
     },
