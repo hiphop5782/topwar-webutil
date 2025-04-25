@@ -107,7 +107,7 @@ export default function ServerAnalyzer() {
 
     return (<>
         <h1>서버별 Top 100 분석</h1>
-        <p>여러 서버의 Top 100 유저 분포를 히트맵으로 확인해보세요</p>
+        <p className="text-muted">여러 서버의 Top 100 유저 분포를 히트맵으로 확인해보세요</p>
         <hr />
         <div className="row">
             <div className="col">
