@@ -22,8 +22,10 @@ jobs:
         run: npm ci
         working-directory: ./topwar
 
-      - name: Build project
-        run: CI=false npm run build
+      - name: Build project (with CI=false and force redeploy)
+        run: |
+          CI=false npm run build
+          echo "<!-- force redeploy $(date) -->" >> build/index.html
         working-directory: ./topwar
 
       - name: Deploy to GitHub Pages
@@ -31,3 +33,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./topwar/build
+          cname: www.progamer.info
