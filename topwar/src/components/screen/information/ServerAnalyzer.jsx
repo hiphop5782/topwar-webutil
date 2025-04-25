@@ -1,4 +1,4 @@
-import ServerListJson from "@src/assets/json/top100/servers.json";
+import ServerListJson from "@src/assets/json/servers.json";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 
@@ -30,7 +30,7 @@ export default function ServerAnalyzer() {
             number: selectedServer,
             data: data ?? []
         }]);
-        
+
         setServerList(prev => prev.filter(server => server !== selectedServer));
         setServerInput("");
     }, [serverInput]);

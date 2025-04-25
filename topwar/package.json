@@ -38,8 +38,7 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "predeploy": "npm run build",
-    "deploy": "cd .. && git subtree split --prefix=topwar/build -b gh-temp && git push -f origin gh-temp:gh-pages && git branch -D gh-temp",
+    "deploy": "powershell -ExecutionPolicy Bypass -File ../deploy.ps1",
     "deploy2": "gh-pages -d build",
     "test": "craco test"
   },
