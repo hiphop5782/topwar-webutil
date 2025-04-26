@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.507e1539.css",
-    "main.js": "/static/js/main.74798ede.js",
-    "static/js/787.3e5985d4.chunk.js": "/static/js/787.3e5985d4.chunk.js",
-    "static/media/BinggraeMelona.ttf": "/static/media/BinggraeMelona.1ea454b9d11d5662afc1.ttf",
-    "static/media/topwar-helper-banner.jpg": "/static/media/topwar-helper-banner.169c0fd4a6c4454977c9.jpg",
-    "static/media/box-open.png": "/static/media/box-open.60b7dbe32c35b4dbcee8.png",
-    "static/media/box.png": "/static/media/box.ba47d06769029c9c78ea.png",
-    "static/media/vital-info2.png": "/static/media/vital-info2.126aa2bb0dbb42701d2b.png",
-    "static/media/developer.png": "/static/media/developer.3dd3f86df203194b88c0.png",
-    "static/media/mouse.png": "/static/media/mouse.2e06fe8eb7771d4dae81.png",
-    "index.html": "/index.html",
-    "static/media/post02.txt": "/static/media/post02.8ce00202383f13ac5f6f.txt",
-    "static/media/post01.txt": "/static/media/post01.0b4e00e018d36994e5fc.txt",
-    "main.507e1539.css.map": "/static/css/main.507e1539.css.map",
-    "main.74798ede.js.map": "/static/js/main.74798ede.js.map",
-    "787.3e5985d4.chunk.js.map": "/static/js/787.3e5985d4.chunk.js.map"
+    "main.css": "https://prev.progamer.info/static/css/main.507e1539.css",
+    "main.js": "https://prev.progamer.info/static/js/main.603786e8.js",
+    "static/js/787.3e5985d4.chunk.js": "https://prev.progamer.info/static/js/787.3e5985d4.chunk.js",
+    "static/media/BinggraeMelona.ttf": "https://prev.progamer.info/static/media/BinggraeMelona.1ea454b9d11d5662afc1.ttf",
+    "static/media/topwar-helper-banner.jpg": "https://prev.progamer.info/static/media/topwar-helper-banner.169c0fd4a6c4454977c9.jpg",
+    "static/media/box-open.png": "https://prev.progamer.info/static/media/box-open.60b7dbe32c35b4dbcee8.png",
+    "static/media/box.png": "https://prev.progamer.info/static/media/box.ba47d06769029c9c78ea.png",
+    "static/media/vital-info2.png": "https://prev.progamer.info/static/media/vital-info2.126aa2bb0dbb42701d2b.png",
+    "static/media/developer.png": "https://prev.progamer.info/static/media/developer.3dd3f86df203194b88c0.png",
+    "static/media/mouse.png": "https://prev.progamer.info/static/media/mouse.2e06fe8eb7771d4dae81.png",
+    "index.html": "https://prev.progamer.info/index.html",
+    "static/media/post02.txt": "https://prev.progamer.info/static/media/post02.8ce00202383f13ac5f6f.txt",
+    "static/media/post01.txt": "https://prev.progamer.info/static/media/post01.0b4e00e018d36994e5fc.txt",
+    "main.507e1539.css.map": "https://prev.progamer.info/static/css/main.507e1539.css.map",
+    "main.603786e8.js.map": "https://prev.progamer.info/static/js/main.603786e8.js.map",
+    "787.3e5985d4.chunk.js.map": "https://prev.progamer.info/static/js/787.3e5985d4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.507e1539.css",
-    "static/js/main.74798ede.js"
+    "static/js/main.603786e8.js"
   ]
 }
