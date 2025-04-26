@@ -1,6 +1,8 @@
 // craco.config.js
 const path = require('path');
 // const CopyPlugin = require('copy-webpack-plugin');
+const publicPath = process.env.PUBLIC_URL || "/";
+console.log(process.env.PUBLIC_URL);
 
 module.exports = {
     // 여기에 원하는 설정을 추가할 수 있습니다.
@@ -12,17 +14,16 @@ module.exports = {
             },
         },
     },
-    webpack:{
-        configure:{
-            output:{
-                //path:path.resolve(__dirname, '../docs'),
-            },
+    webpack: {
+        configure: (webpackConfig) => {
+            webpackConfig.output.publicPath = publicPath;
+            return webpackConfig;
         },
-        alias:{
-            '@src':path.resolve(__dirname, "src/"), 
+        alias: {
+            '@src': path.resolve(__dirname, "src/"),
         },
-        plugins:{
-            add:[
+        plugins: {
+            add: [
                 // new CopyPlugin({
                 //     patterns:[
                 //         {

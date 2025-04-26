@@ -2,7 +2,6 @@
   "name": "topwar",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://www.progamer.info",
   "dependencies": {
     "@craco/craco": "^7.1.0",
     "@nivo/core": "^0.89.1",
